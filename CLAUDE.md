@@ -47,7 +47,7 @@ Session 3 does not include a separate `resources.md` in this tree; reuse Session
 1. **Teaching context** — Clear, beginner-friendly explanations. Match the **simplicity** of existing hand-authored HTML (no frameworks unless the user asks).
 2. **Scope** — Change only files or tasks the user named. Do not rename weeks/sessions or refactor the tree without a direct request.
 3. **Solutions** — Do not overwrite `*-complete.html` or rubrics to “improve” them without explicit permission.
-4. **Git** — This workspace is not assumed to be a git repository unless the user says otherwise.
+4. **Git** — Remote: [github.com/QABrandon/full-stack-2026](https://github.com/QABrandon/full-stack-2026) (`main` tracks `origin/main`).
 
 ## When in doubt
 
