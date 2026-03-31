@@ -1,0 +1,19 @@
+/* The element is positioned according to the normal flow 
+of the document, and then offset relative to its nearest scrolling ancestor */
+.sticky-top {
+  position: sticky;
+  top: 10px;
+  width: 50px;
+  border: 1px solid red;
+}
+
+.sticky-right {
+  position: sticky;
+  left: 100px;
+  width: 50px;
+  border: 1px solid blue;
+}
+
+.wide {
+  width: 5000px;
+}
