@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Card Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .card {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-image {
+            height: 200px;
+            background-color: #4CAF50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-title {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 1.3rem;
+        }
+        
+        .card-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            margin-top: auto;
+        }
+        
+        .card-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        
+        .card-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .card-button:hover {
+            background-color: #45a049;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flexbox Card Layout</h1>
+        
+        <div class="card-container">
+            <div class="card">
+                <div class="card-image">Product Image 1</div>
+                <div class="card-content">
+                    <h3 class="card-title">Premium Package</h3>
+                    <p class="card-description">
+                        This is a longer description to show how flexbox handles different content lengths. 
+                        All cards will have equal height regardless of content.
+                    </p>
+                    <div class="card-footer">
+                        <span class="card-price">$29.99</span>
+                        <button class="card-button">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-image">Product Image 2</div>
+                <div class="card-content">
+                    <h3 class="card-title">Basic Package</h3>
+                    <p class="card-description">
+                        Short description here.
+                    </p>
+                    <div class="card-footer">
+                        <span class="card-price">$9.99</span>
+                        <button class="card-button">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-image">Product Image 3</div>
+                <div class="card-content">
+                    <h3 class="card-title">Deluxe Package</h3>
+                    <p class="card-description">
+                        This card has medium length content. Notice how all cards maintain the same height 
+                        thanks to flexbox properties.
+                    </p>
+                    <div class="card-footer">
+                        <span class="card-price">$49.99</span>
+                        <button class="card-button">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

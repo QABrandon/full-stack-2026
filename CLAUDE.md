@@ -1,6 +1,6 @@
 # Full-Stack Bootcamp 2026 — project context
 
-**Last updated:** March 23, 2026
+**Last updated:** March 31, 2026
 
 ## What this is
 
@@ -8,12 +8,22 @@ Personal and cohort workspace for a **full-stack bootcamp** (FS12). It holds wee
 
 ## Repo layout
 
-- **`FS12-Week-<n>/`** — one folder per week (e.g. `FS12-Week-1`).
-- **`Session-<n>/`** — per-session folders. Many sessions include **`resources.md`** (Codecademy / MDN links, validator).
+- **`FS12-Week-<n>/`** — one folder per week (e.g. `FS12-Week-1`). Content is kept in
+  sync with the instructor cohort repo under these paths (see cohort sync skill).
+- **`Session-<n>/`** — per-session folders. Many sessions include **`resources.md`**
+  (Codecademy / MDN links, validator).
+- **`module-*`** (e.g. `module-008-css-basics/`) — Week 2+ sessions may group
+  demos, examples, and guided practice by module inside `Session-*`.
 - **`guided-practice/`** — TODO-driven HTML files (learners fill in sections).
 - **`Practice/`** — session practice briefs (e.g. survey page).
-- **`*-complete.html`** — reference or solution HTML next to a starter file; treat as the instructor answer key unless the user asks to change them.
-- **`Session-1/VSCode-setup.md`** — required VS Code extensions and settings for the course.
+- **`*-complete.html`** — reference or solution HTML next to a starter file; treat as
+  the instructor answer key unless the user asks to change them.
+- **`Session-1/VSCode-setup.md`** — required VS Code extensions and settings for the
+  course.
+- **`portfolio/`** — personal projects (not from the cohort mirror); safe to commit to
+  `origin` without mixing with `FS12-Week-*` sync commits when you prefer.
+- **`scripts/fs12-cohort-sync/`** — pull + schedule helpers for the instructor remote.
+- **`.cursor/skills/fs12-cohort-sync/`** — Cursor skill for cohort sync rules.
 
 ## FS12-Week-1 (what we know so far)
 
@@ -47,7 +57,11 @@ Session 3 does not include a separate `resources.md` in this tree; reuse Session
 1. **Teaching context** — Clear, beginner-friendly explanations. Match the **simplicity** of existing hand-authored HTML (no frameworks unless the user asks).
 2. **Scope** — Change only files or tasks the user named. Do not rename weeks/sessions or refactor the tree without a direct request.
 3. **Solutions** — Do not overwrite `*-complete.html` or rubrics to “improve” them without explicit permission.
-4. **Git** — Remote: [github.com/QABrandon/full-stack-2026](https://github.com/QABrandon/full-stack-2026) (`main` tracks `origin/main`).
+4. **Git** — Remote: [github.com/QABrandon/full-stack-2026](https://github.com/QABrandon/full-stack-2026)
+   (`main` tracks `origin/main`). Optional instructor sync:
+   [tyler-lemke/FS12-Bootcamp-Cohort](https://github.com/tyler-lemke/FS12-Bootcamp-Cohort)
+   via `cohort` remote — **pull only, never push**; see
+   `.cursor/skills/fs12-cohort-sync/SKILL.md` and `scripts/fs12-cohort-sync/`.
 
 ## When in doubt
 
