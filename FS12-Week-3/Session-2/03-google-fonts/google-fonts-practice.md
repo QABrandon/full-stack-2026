@@ -1,4 +1,4 @@
-## Integrate Google fonts into your Bio Page (either the css or bootstrap one)
+## Integrate Google fonts into your Bio Page (either the tailwind or bootstrap one)
 
 1. Visit Google Fonts and find one you like
    - https://fonts.google.com/

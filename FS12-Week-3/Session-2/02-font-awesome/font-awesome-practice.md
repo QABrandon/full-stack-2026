@@ -1,4 +1,4 @@
-## Integrate Font Awesome into your Bio Page (either the css or bootstrap one)
+## Integrate Font Awesome into your Bio Page (either the tailwind or bootstrap one)
 
 1. Use the cdn in the head section
 
