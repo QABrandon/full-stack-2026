@@ -14,14 +14,14 @@
    - figma.com
    - low or high fidelity mockups
      - low fidelity
-     - (excalidraw)
-     - focus on big picture
-     - fast
-     - less decisions
+       - (excalidraw)
+       - focus on big picture
+       - fast
+       - less decisions
      - high fidelity (figma)
-     - lets you get granular with how your site looks
-     - slower
-     - more decisions
+       - lets you get granular with how your site looks
+       - slower
+       - more decisions
 4. Paste the mobile version into your mocking tool from each site inspiration example
 5. Create your layout
    - Start with the general layout
@@ -35,8 +35,11 @@
    - Tailwind
 7. Add and test to your index.html/stylesheet.css:
    - Tailwind/Bootstrap
+     - test that your framework works
    - Font Awesome
+     - test at least icon displays
    - Google Fonts
+     - Test out at least one font is working
 8. Skeleton of your site
    - Mobile version first
    - Loading the site with Device Mode in Chrome Dev Tools (IPhone SE)

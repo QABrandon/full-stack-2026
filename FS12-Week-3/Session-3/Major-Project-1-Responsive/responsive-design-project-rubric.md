@@ -1,4 +1,4 @@
-# Responsive Design & Animations Project - Assessment Rubric
+# Responsive Design - Assessment Rubric
 
 ## **Project Options**
 
@@ -71,5 +71,5 @@ This project focuses on creating a fun and interactive platform to highlight per
 - [ ] About section or page with personal story and passion explanation
 - [ ] Contact/community section or page for connecting with other enthusiasts
 
-Due Date: By Week 5 start of JS Project
-How to Submit - Github Repo Link(Week 4) on the #project-showcase channel
+Due Date: Week 5 - Session 3 - April 18th
+How to Submit - G(Week 4) on the #project-showcase channel
