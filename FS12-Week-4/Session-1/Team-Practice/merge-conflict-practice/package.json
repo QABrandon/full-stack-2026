@@ -1,0 +1,14 @@
+{
+  "name": "merge-conflict-practice",
+  "version": "1.0.0",
+  "description": "Practice resolving merge conflicts with automated testing",
+  "main": "starter-files/script.js",
+  "scripts": {
+    "test": "node tests/test.js",
+    "lint": "node tests/lint.js"
+  },
+  "keywords": ["git", "merge-conflicts", "practice"],
+  "author": "Codecademy",
+  "license": "MIT",
+  "devDependencies": {}
+}
