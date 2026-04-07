@@ -38,3 +38,4 @@ next-env.d.ts
 # Local-only (not published to this portfolio repo; keeps copies on disk untracked)
 /scripts/
 /.cursor/
+/FS12-Week-*/
