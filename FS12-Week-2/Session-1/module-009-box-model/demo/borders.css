@@ -1,0 +1,19 @@
+/* longhand */
+
+div {
+    border-width: 5px;
+    border-style: solid;
+    border-color: blue;
+}
+
+/* shorthand */
+
+section {
+    border: 5px dotted blue;
+}
+
+
+footer{
+    border: 4px solid brown;
+    border-radius: 5px;
+}

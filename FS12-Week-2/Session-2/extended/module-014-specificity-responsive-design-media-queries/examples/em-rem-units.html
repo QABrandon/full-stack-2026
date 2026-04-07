@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Em vs Rem Units Demo</title>
+    <style>
+        /* Root font size for rem calculations */
+        html {
+            font-size: 16px; /* 1rem = 16px */
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 2rem;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2rem; /* 32px */
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            color: #34495e;
+            font-size: 1.5rem; /* 24px */
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        
+        /* Em units example - relative to parent */
+        .em-example {
+            font-size: 18px; /* Parent font size */
+            background-color: #e8f4fd;
+            padding: 1em; /* 18px */
+            margin: 1em 0; /* 18px top/bottom */
+            border-radius: 0.5em; /* 9px */
+            border: 0.1em solid #3498db; /* 1.8px */
+        }
+        
+        .em-example p {
+            font-size: 1.2em; /* 1.2 * 18px = 21.6px */
+            margin: 0.5em 0; /* 10.8px */
+        }
+        
+        .em-example .nested {
+            font-size: 1.2em; /* 1.2 * 21.6px = 25.92px */
+            padding: 0.5em; /* 12.96px */
+            background-color: rgba(52, 152, 219, 0.1);
+            border-radius: 0.25em;
+        }
+        
+        .em-example .nested .double-nested {
+            font-size: 1.2em; /* 1.2 * 25.92px = 31.1px */
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        /* Rem units example - relative to root */
+        .rem-example {
+            font-size: 18px; /* Parent font size */
+            background-color: #fff2e8;
+            padding: 1rem; /* 16px */
+            margin: 1rem 0; /* 16px top/bottom */
+            border-radius: 0.5rem; /* 8px */
+            border: 0.1rem solid #e67e22; /* 1.6px */
+        }
+        
+        .rem-example p {
+            font-size: 1.2rem; /* 1.2 * 16px = 19.2px */
+            margin: 0.5rem 0; /* 8px */
+        }
+        
+        .rem-example .nested {
+            font-size: 1.2rem; /* 1.2 * 16px = 19.2px (same as parent) */
+            padding: 0.5rem; /* 8px */
+            background-color: rgba(230, 126, 34, 0.1);
+            border-radius: 0.25rem;
+        }
+        
+        .rem-example .nested .double-nested {
+            font-size: 1.2rem; /* 1.2 * 16px = 19.2px (consistent) */
+            color: #e67e22;
+            font-weight: bold;
+        }
+        
+        /* Comparison table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        /* Practical examples */
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            color: #2c3e50;
+            margin: 0 0 1rem 0;
+        }
+        
+        .card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+        
+        /* Button examples */
+        .button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            margin: 0.25rem;
+            border: none;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .button-em {
+            font-size: 1em;
+            padding: 0.5em 1em;
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .button-em:hover {
+            background-color: #2980b9;
+            transform: translateY(-0.1em);
+        }
+        
+        .button-rem {
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #e67e22;
+            color: white;
+        }
+        
+        .button-rem:hover {
+            background-color: #d35400;
+            transform: translateY(-0.1rem);
+        }
+        
+        /* Large text container to show scaling */
+        .large-text {
+            font-size: 24px;
+        }
+        
+        .code {
+            background-color: #f4f4f4;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            padding: 1rem;
+            border-left: 4px solid #ffc107;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Em vs Rem Units Comparison</h1>
+        
+        <div class="highlight">
+            <strong>Key Difference:</strong> 
+            <span class="code">em</span> units scale relative to their parent element's font size, 
+            while <span class="code">rem</span> units scale relative to the root element's font size.
+        </div>
+        
+        <h2>Em Units (Relative to Parent)</h2>
+        <div class="em-example">
+            <p>This container has font-size: 18px</p>
+            <div class="nested">
+                <p>Nested element with 1.2em font size (21.6px)</p>
+                <div class="double-nested">
+                    Double nested: 1.2em again = 31.1px (compounds!)
+                </div>
+            </div>
+            <button class="button button-em">Em Button</button>
+        </div>
+        
+        <h2>Rem Units (Relative to Root)</h2>
+        <div class="rem-example">
+            <p>This container has font-size: 18px</p>
+            <div class="nested">
+                <p>Nested element with 1.2rem font size (19.2px)</p>
+                <div class="double-nested">
+                    Double nested: 1.2rem = 19.2px (consistent!)
+                </div>
+            </div>
+            <button class="button button-rem">Rem Button</button>
+        </div>
+        
+        <h2>Comparison Table</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Aspect</th>
+                    <th>Em Units</th>
+                    <th>Rem Units</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Relative to</strong></td>
+                    <td>Parent element's font size</td>
+                    <td>Root element's font size</td>
+                </tr>
+                <tr>
+                    <td><strong>Nesting behavior</strong></td>
+                    <td>Compounds/multiplies with nesting</td>
+                    <td>Consistent across all levels</td>
+                </tr>
+                <tr>
+                    <td><strong>Best for</strong></td>
+                    <td>Component-based spacing, buttons, icons</td>
+                    <td>Typography, layout, consistent sizing</td>
+                </tr>
+                <tr>
+                    <td><strong>Predictability</strong></td>
+                    <td>Less predictable in deep nesting</td>
+                    <td>Always predictable</td>
+                </tr>
+                <tr>
+                    <td><strong>Use cases</strong></td>
+                    <td>Padding/margins within components</td>
+                    <td>Font sizes, breakpoints, grid gaps</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>Practical Examples</h2>
+        
+        <div class="card">
+            <h3>When to Use Em</h3>
+            <p>Use <span class="code">em</span> units for:</p>
+            <ul>
+                <li>Padding and margins within components</li>
+                <li>Button sizing (so they scale with text)</li>
+                <li>Icon sizes relative to text</li>
+                <li>Border-radius that should scale</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h3>When to Use Rem</h3>
+            <p>Use <span class="code">rem</span> units for:</p>
+            <ul>
+                <li>Font sizes for consistent typography</li>
+                <li>Media query breakpoints</li>
+                <li>Layout spacing (margins between sections)</li>
+                <li>Maximum widths and container sizing</li>
+            </ul>
+        </div>
+        
+        <div class="large-text">
+            <h2>Scaling Test (24px parent)</h2>
+            <div class="em-example">
+                <p>Em example scales with this larger parent text</p>
+                <button class="button button-em">Em Button (larger)</button>
+            </div>
+            
+            <div class="rem-example">
+                <p>Rem example stays consistent regardless of parent</p>
+                <button class="button button-rem">Rem Button (same size)</button>
+            </div>
+        </div>
+        
+        <div class="highlight">
+            <strong>Best Practice:</strong> Use rem for font sizes and layout, em for component spacing. 
+            This gives you the predictability of rem with the component flexibility of em.
+        </div>
+    </div>
+</body>
+</html>

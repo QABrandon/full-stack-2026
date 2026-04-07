@@ -1,0 +1,9 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); */
+
+/* target a specific element or you entire page i.e. body */
+
+h1 {
+  font-family: "Comic Relief", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
