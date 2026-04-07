@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint-cli2/v0.22.0/schema/markdownlint-cli2-config-schema.json",
+  "globs": ["!**/node_modules/**"],
+  "ignores": ["FS12-Week-*/**"],
+  "config": {
+    "MD013": false
+  },
+  "frontMatter": "(^---\\s*$[^]*?^---\\s*$)(\\r\\n|\\r|\\n|$)"
+}
