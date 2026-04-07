@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240" role="img" aria-hidden="true">
+  <rect width="400" height="240" fill="#0f172a" rx="12"/>
+  <path fill="none" stroke="#5eead4" stroke-width="3" d="M120 120l-28-28 28-28M280 120l28-28-28-28"/>
+  <text x="200" y="128" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="14">Project preview</text>
+</svg>
