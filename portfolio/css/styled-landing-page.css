@@ -427,6 +427,13 @@ main section:nth-child(even) {
   box-shadow: var(--shadow);
 }
 
+.form-note {
+  margin: 0 0 var(--space-md);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: rgb(71, 85, 105);
+}
+
 .form-row {
   margin-bottom: var(--space-md);
 }
