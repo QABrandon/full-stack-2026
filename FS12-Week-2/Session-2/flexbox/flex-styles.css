@@ -1,7 +1,0 @@
-.container {
-  display: flex;
-  /* by default this is already set to row */
-  flex-direction: row;
-}
-
-

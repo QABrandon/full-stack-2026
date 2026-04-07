@@ -1,5 +1,12 @@
 {
+  "scripts": {
+    "lint:md": "markdownlint-cli2",
+    "lint:md:all": "markdownlint-cli2 \"**/*.md\" \"**/*.mdc\" \"!**/node_modules/**\""
+  },
   "dependencies": {
     "bootstrap": "^5.3.8"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.22.0"
   }
 }
