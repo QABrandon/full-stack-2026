@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Design with Media Queries</title>
+    <style>
+        /* Mobile-first approach: base styles for mobile */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        /* Header - Mobile first */
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            display: block;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-menu li a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        /* Main content area */
+        .content {
+            display: grid;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .main {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        /* Card grid */
+        .card-grid {
+            display: grid;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #34495e;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        /* Typography responsive sizing */
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Utility classes for responsive display */
+        .mobile-only {
+            display: block;
+        }
+        
+        .tablet-only,
+        .desktop-only {
+            display: none;
+        }
+        
+        /* Media Queries - Mobile First Approach */
+        
+        /* Small tablets: 481px and up */
+        @media screen and (min-width: 481px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Large tablets: 768px and up */
+        @media screen and (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+            
+            .header {
+                padding: 1.5rem 2rem;
+                text-align: left;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .nav-menu {
+                flex-direction: row;
+                margin-top: 0;
+                gap: 1rem;
+            }
+            
+            .nav-menu li a {
+                background-color: transparent;
+                border: 2px solid rgba(255,255,255,0.3);
+            }
+            
+            .nav-menu li a:hover {
+                border-color: white;
+                background-color: rgba(255,255,255,0.1);
+            }
+            
+            .content {
+                grid-template-columns: 2fr 1fr;
+            }
+            
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .mobile-only {
+                display: none;
+            }
+            
+            .tablet-only {
+                display: block;
+            }
+        }
+        
+        /* Desktop: 1024px and up */
+        @media screen and (min-width: 1024px) {
+            .container {
+                padding: 2rem 0;
+            }
+            
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tablet-only {
+                display: none;
+            }
+            
+            .desktop-only {
+                display: block;
+            }
+        }
+        
+        /* Large desktop: 1200px and up */
+        @media screen and (min-width: 1200px) {
+            .card-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        /* Landscape orientation specific styles */
+        @media screen and (orientation: landscape) and (max-height: 500px) {
+            .header {
+                padding: 0.5rem 1rem;
+            }
+            
+            .main {
+                padding: 1rem;
+            }
+        }
+        
+        /* High DPI displays */
+        @media screen and (-webkit-min-device-pixel-ratio: 2),
+               screen and (min-resolution: 192dpi) {
+            .card {
+                box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+                color: black;
+                font-size: 12pt;
+            }
+            
+            .header,
+            .sidebar,
+            .footer {
+                display: none;
+            }
+            
+            .main {
+                box-shadow: none;
+                padding: 0;
+            }
+            
+            .card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+                break-inside: avoid;
+            }
+        }
+        
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .card {
+                transition: none;
+            }
+            
+            .nav-menu li a {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Responsive Layout</h1>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <main class="main">
+                <h2>Responsive Design Principles</h2>
+                <p>This layout demonstrates mobile-first responsive design using CSS media queries. The design adapts to different screen sizes and orientations.</p>
+                
+                <p class="mobile-only"><strong>Mobile View:</strong> You're viewing the mobile layout with single-column content.</p>
+                <p class="tablet-only"><strong>Tablet View:</strong> You're viewing the tablet layout with two-column content and horizontal navigation.</p>
+                <p class="desktop-only"><strong>Desktop View:</strong> You're viewing the desktop layout with optimized spacing and three-column cards.</p>
+                
+                <h3>Breakpoints Used:</h3>
+                <ul>
+                    <li><strong>481px+:</strong> Small tablets - 2-column card grid</li>
+                    <li><strong>768px+:</strong> Large tablets - horizontal nav, sidebar layout</li>
+                    <li><strong>1024px+:</strong> Desktop - 3-column cards, optimized spacing</li>
+                    <li><strong>1200px+:</strong> Large desktop - 4-column cards</li>
+                </ul>
+                
+                <p>Resize your browser window to see how the layout adapts to different screen sizes!</p>
+            </main>
+            
+            <aside class="sidebar">
+                <h3>Sidebar Content</h3>
+                <p>This sidebar appears below the main content on mobile, but moves to the side on tablets and desktop.</p>
+                
+                <h4>Media Query Features Used:</h4>
+                <ul>
+                    <li>Screen size (min-width)</li>
+                    <li>Orientation (landscape/portrait)</li>
+                    <li>Print styles</li>
+                    <li>High DPI displays</li>
+                    <li>Reduced motion preference</li>
+                </ul>
+            </aside>
+        </div>
+        
+        <div class="card-grid">
+            <div class="card">
+                <h3>Mobile First</h3>
+                <p>Design starts with mobile styles as the base, then enhances for larger screens.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Flexible Grid</h3>
+                <p>CSS Grid adapts from 1 column on mobile to 4 columns on large desktop.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Responsive Typography</h3>
+                <p>Font sizes scale appropriately for each screen size using media queries.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Touch-Friendly</h3>
+                <p>Larger touch targets and spacing on mobile devices for better usability.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Performance</h3>
+                <p>Mobile-first ensures fast loading on slower mobile connections.</p>
+            </div>
+            
+            <div class="card">
+                <h3>Accessibility</h3>
+                <p>Respects user preferences like reduced motion and high contrast.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Responsive Layout Demo. Built with mobile-first CSS media queries.</p>
+        </div>
+    </footer>
+</body>
+</html>

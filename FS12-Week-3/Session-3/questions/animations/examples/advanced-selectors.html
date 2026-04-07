@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced CSS Selectors & Pseudo-elements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+        
+        .section {
+            margin: 3rem 0;
+            padding: 2rem;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        
+        .section h2 {
+            color: #34495e;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        
+        /* Pseudo-class Selectors */
+        .item-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .item-list li {
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background-color: #ecf0f1;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* First and last child */
+        .item-list li:first-child {
+            background-color: #e8f5e8;
+            border-left: 4px solid #27ae60;
+            font-weight: bold;
+        }
+        
+        .item-list li:last-child {
+            background-color: #fdf2e8;
+            border-left: 4px solid #f39c12;
+            font-weight: bold;
+        }
+        
+        /* Nth-child selectors */
+        .color-list li:nth-child(odd) {
+            background-color: #e8f4fd;
+        }
+        
+        .color-list li:nth-child(even) {
+            background-color: #fdf2e8;
+        }
+        
+        .color-list li:nth-child(3n) {
+            background-color: #f8e8fd;
+            font-weight: bold;
+        }
+        
+        /* Nth-of-type selector */
+        .mixed-content p:nth-of-type(2n) {
+            background-color: #e8f5e8;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        
+        /* First-of-type and last-of-type */
+        .mixed-content h3:first-of-type {
+            color: #e74c3c;
+            border-left: 4px solid #e74c3c;
+            padding-left: 1rem;
+        }
+        
+        .mixed-content h3:last-of-type {
+            color: #3498db;
+            border-left: 4px solid #3498db;
+            padding-left: 1rem;
+        }
+        
+        /* Attribute Selectors */
+        input[type="text"] {
+            border: 2px solid #3498db;
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin: 0.5rem;
+        }
+        
+        input[type="email"] {
+            border: 2px solid #27ae60;
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin: 0.5rem;
+        }
+        
+        input[type="password"] {
+            border: 2px solid #e74c3c;
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin: 0.5rem;
+        }
+        
+        /* Attribute contains selector */
+        a[href*="github"] {
+            background-color: #333;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        
+        a[href*="twitter"] {
+            background-color: #1da1f2;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        
+        /* Attribute starts with selector */
+        a[href^="mailto:"] {
+            background-color: #f39c12;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        
+        /* Attribute ends with selector */
+        a[href$=".pdf"] {
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        
+        /* Combinator Selectors */
+        .parent {
+            padding: 1rem;
+            border: 2px solid #bdc3c7;
+            margin: 1rem 0;
+        }
+        
+        /* Descendant selector */
+        .parent p {
+            color: #3498db;
+            font-style: italic;
+        }
+        
+        /* Child selector */
+        .parent > .direct-child {
+            background-color: #e8f5e8;
+            padding: 0.5rem;
+            border-radius: 4px;
+            border-left: 4px solid #27ae60;
+        }
+        
+        /* Adjacent sibling selector */
+        h3 + p {
+            background-color: #fdf2e8;
+            padding: 1rem;
+            border-radius: 4px;
+            border-left: 4px solid #f39c12;
+        }
+        
+        /* General sibling selector */
+        .trigger ~ .affected {
+            background-color: #f8e8fd;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transform: translateX(20px);
+            transition: all 0.3s ease;
+        }
+        
+        /* Pseudo-elements */
+        .quote {
+            position: relative;
+            font-style: italic;
+            padding: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: #3498db;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            line-height: 1;
+        }
+        
+        .quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: #3498db;
+            position: absolute;
+            bottom: -30px;
+            right: 10px;
+            line-height: 1;
+        }
+        
+        /* Decorative elements with pseudo-elements */
+        .decorated-heading {
+            text-align: center;
+            position: relative;
+            color: #2c3e50;
+            margin: 2rem 0;
+        }
+        
+        .decorated-heading::before,
+        .decorated-heading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 2px;
+            background-color: #3498db;
+        }
+        
+        .decorated-heading::before {
+            left: -70px;
+        }
+        
+        .decorated-heading::after {
+            right: -70px;
+        }
+        
+        /* Tooltip using pseudo-elements */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 1rem;
+        }
+        
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2c3e50;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Counter using pseudo-elements */
+        .counter-list {
+            counter-reset: item-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .counter-list li {
+            counter-increment: item-counter;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background-color: #ecf0f1;
+            border-radius: 4px;
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .counter-list li::before {
+            content: counter(item-counter);
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #3498db;
+            color: white;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        /* Interactive elements */
+        .interactive-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .demo-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .demo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #9b59b6, #e74c3c);
+        }
+        
+        /* Focus states */
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+        
+        /* Hover states for links */
+        .styled-links a {
+            color: #3498db;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .styled-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #3498db;
+            transition: width 0.3s ease;
+        }
+        
+        .styled-links a:hover::after {
+            width: 100%;
+        }
+        
+        .code-example {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Advanced CSS Selectors & Pseudo-elements</h1>
+        
+        <div class="section">
+            <h2>1. Pseudo-class Selectors</h2>
+            
+            <h3>First and Last Child</h3>
+            <ul class="item-list">
+                <li>First item (styled with :first-child)</li>
+                <li>Second item</li>
+                <li>Third item</li>
+                <li>Fourth item</li>
+                <li>Last item (styled with :last-child)</li>
+            </ul>
+            
+            <div class="code-example">.item-list li:first-child { background-color: #e8f5e8; }
+.item-list li:last-child { background-color: #fdf2e8; }</div>
+            
+            <h3>Nth-child Patterns</h3>
+            <ul class="item-list color-list">
+                <li>Item 1 (odd)</li>
+                <li>Item 2 (even)</li>
+                <li>Item 3 (3rd - special styling)</li>
+                <li>Item 4 (even)</li>
+                <li>Item 5 (odd)</li>
+                <li>Item 6 (3rd multiple - special styling)</li>
+            </ul>
+            
+            <div class="code-example">.color-list li:nth-child(odd) { background-color: #e8f4fd; }
+.color-list li:nth-child(even) { background-color: #fdf2e8; }
+.color-list li:nth-child(3n) { background-color: #f8e8fd; }</div>
+        </div>
+        
+        <div class="section">
+            <h2>2. Type-based Selectors</h2>
+            
+            <div class="mixed-content">
+                <h3>First heading of type</h3>
+                <p>First paragraph</p>
+                <p>Second paragraph (styled with nth-of-type)</p>
+                <h3>Second heading</h3>
+                <p>Third paragraph</p>
+                <p>Fourth paragraph (styled with nth-of-type)</p>
+                <h3>Last heading of type</h3>
+                <p>Fifth paragraph</p>
+            </div>
+            
+            <div class="code-example">.mixed-content h3:first-of-type { color: #e74c3c; }
+.mixed-content h3:last-of-type { color: #3498db; }
+.mixed-content p:nth-of-type(2n) { background-color: #e8f5e8; }</div>
+        </div>
+        
+        <div class="section">
+            <h2>3. Attribute Selectors</h2>
+            
+            <h3>Form Input Types</h3>
+            <div>
+                <input type="text" placeholder="Text input (blue border)">
+                <input type="email" placeholder="Email input (green border)">
+                <input type="password" placeholder="Password input (red border)">
+            </div>
+            
+            <div class="code-example">input[type="text"] { border: 2px solid #3498db; }
+input[type="email"] { border: 2px solid #27ae60; }
+input[type="password"] { border: 2px solid #e74c3c; }</div>
+            
+            <h3>Link Styling by URL</h3>
+            <div class="styled-links">
+                <a href="https://github.com/user">GitHub Profile</a>
+                <a href="https://twitter.com/user">Twitter Profile</a>
+                <a href="mailto:user@example.com">Email Contact</a>
+                <a href="document.pdf">PDF Download</a>
+            </div>
+            
+            <div class="code-example">a[href*="github"] { background-color: #333; }
+a[href^="mailto:"] { background-color: #f39c12; }
+a[href$=".pdf"] { background-color: #e74c3c; }</div>
+        </div>
+        
+        <div class="section">
+            <h2>4. Combinator Selectors</h2>
+            
+            <div class="parent">
+                <h4>Parent Container</h4>
+                <div class="direct-child">Direct child (styled with >)</div>
+                <div>
+                    <p>Nested paragraph (descendant selector)</p>
+                </div>
+                <p>Another paragraph in parent (descendant selector)</p>
+            </div>
+            
+            <h3>Adjacent and General Sibling</h3>
+            <p>This paragraph comes right after h3 (adjacent sibling +)</p>
+            <p>This is a regular paragraph</p>
+            
+            <div class="trigger">Trigger element</div>
+            <div class="affected">Affected by general sibling (~)</div>
+            <div class="affected">Also affected by general sibling (~)</div>
+            
+            <div class="code-example">/* Child selector */
+.parent > .direct-child { background-color: #e8f5e8; }
+
+/* Adjacent sibling */
+h3 + p { background-color: #fdf2e8; }
+
+/* General sibling */
+.trigger ~ .affected { transform: translateX(20px); }</div>
+        </div>
+        
+        <div class="section">
+            <h2>5. Pseudo-elements</h2>
+            
+            <h3 class="decorated-heading">Decorated Heading</h3>
+            
+            <div class="quote">
+                This is a quote with decorative quotation marks created using ::before and ::after pseudo-elements.
+            </div>
+            
+            <div class="code-example">.quote::before {
+    content: '"';
+    font-size: 4rem;
+    color: #3498db;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+}</div>
+            
+            <h3>Interactive Tooltips</h3>
+            <span class="tooltip" data-tooltip="This is a CSS-only tooltip!">Hover for tooltip</span>
+            <span class="tooltip" data-tooltip="Another tooltip example">Hover me too</span>
+            
+            <div class="code-example">.tooltip::after {
+    content: attr(data-tooltip);
+    /* positioning and styling... */
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+}</div>
+            
+            <h3>Custom Counter</h3>
+            <ol class="counter-list">
+                <li>First item with custom counter</li>
+                <li>Second item</li>
+                <li>Third item</li>
+                <li>Fourth item</li>
+            </ol>
+            
+            <div class="code-example">.counter-list {
+    counter-reset: item-counter;
+}
+
+.counter-list li {
+    counter-increment: item-counter;
+}
+
+.counter-list li::before {
+    content: counter(item-counter);
+}</div>
+        </div>
+        
+        <div class="section">
+            <h2>6. Interactive Examples</h2>
+            
+            <div class="interactive-demo">
+                <div class="demo-card">
+                    <h4>Card 1</h4>
+                    <p>Hover effects with pseudo-elements and transforms.</p>
+                </div>
+                
+                <div class="demo-card">
+                    <h4>Card 2</h4>
+                    <p>Advanced selectors create engaging interfaces.</p>
+                </div>
+                
+                <div class="demo-card">
+                    <h4>Card 3</h4>
+                    <p>Combine multiple selector types for complex styling.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

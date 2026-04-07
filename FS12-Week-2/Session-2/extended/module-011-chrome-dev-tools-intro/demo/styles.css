@@ -1,0 +1,23 @@
+body {
+  padding: 50px;
+}
+
+p {
+  color: #958080;
+  font-weight: bold;
+  padding: 50px;
+  margin: 50px;
+}
+
+body > main > p:nth-child(2) {
+  color: blue;
+}
+
+footer {
+  width: 100%;
+  height: 100px;
+}
+
+a:hover {
+  color: red;
+}

@@ -36,7 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 # Local-only (not published to this portfolio repo; keeps copies on disk untracked)
-/FS12-Week-*/
 /scripts/
 /.cursor/
-/Full Stack Developer Bootcamp for Beginners (fullstack-12).pdf

@@ -1,0 +1,20 @@
+.inline-block {
+  display: inline-block;
+  width: 50px;
+}
+
+span {
+  width: 500px;
+}
+
+
+/* no space, can't be seen */
+.gone{
+    display:none;
+}
+
+
+/* takes up space but can't be seen */
+.hidden {
+  visibility:hidden;
+}
