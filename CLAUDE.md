@@ -1,6 +1,6 @@
 # full-stack-2026 — project context
 
-**Last updated:** March 31, 2026
+**Last updated:** April 7, 2026
 
 ## What this is
 
@@ -29,6 +29,11 @@ pushed to `origin`.
 3. **Git** — Remote: [github.com/QABrandon/full-stack-2026](https://github.com/QABrandon/full-stack-2026).
    Do not re-add `FS12-Week-*/`, `scripts/`, or `.cursor/` to Git unless the
    user explicitly changes that policy.
+4. **Hub navigation** — The site home page is **`index.html`** at the repo root
+   (portfolio hub). Any HTML under **`portfolio/`** should include at least one
+   clear link back to that hub (for example `href="../index.html"`). Apply this
+   when adding new pages and when editing existing pages that do not yet link
+   home.
 
 ## When in doubt
 
