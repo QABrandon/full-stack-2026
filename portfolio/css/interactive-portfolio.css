@@ -1,0 +1,228 @@
+/* Interactive portfolio — FS12 Week 3 Major Project (Option A) + custom layer */
+
+/* Mobile-first custom properties; Bootstrap handles base breakpoints */
+:root {
+  --ip-teal: #0d9488;
+  --ip-teal-dark: #0f766e;
+  --ip-ink: #0f172a;
+  --ip-surface: #f8fafc;
+  --ip-accent-soft: rgba(13, 148, 136, 0.12);
+  --ip-font-body: "DM Sans", system-ui, sans-serif;
+  --ip-font-display: "Fraunces", Georgia, serif;
+  --ip-radius: 12px;
+  --ip-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  --ip-transition: 0.3s ease;
+}
+
+/* Bootstrap theme hooks (bonus: framework customization) */
+body.interactive-portfolio {
+  --bs-primary: #0d9488;
+  --bs-primary-rgb: 13, 148, 136;
+  --bs-link-color: #0f766e;
+  --bs-link-hover-color: #0d9488;
+  font-family: var(--ip-font-body);
+  color: var(--ip-ink);
+  background-color: var(--ip-surface);
+}
+
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+  font-family: var(--ip-font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.display-5 {
+  font-family: var(--ip-font-display);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 1080;
+  padding: 0.5rem 1rem;
+  background: var(--ip-teal);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.skip-link:focus {
+  left: 0.75rem;
+  top: 0.75rem;
+  outline: 3px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+/* Navbar brand icon pulse — keyframe 1 */
+@keyframes icon-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 0.85;
+  }
+}
+
+.navbar-brand .fa-layer-group {
+  animation: icon-pulse 2.5s ease-in-out infinite;
+  color: var(--ip-teal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-brand .fa-layer-group {
+    animation: none;
+  }
+}
+
+/* Hero — keyframe 2 */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  animation: hero-fade-up 0.9s ease forwards;
+}
+
+.hero-animate-delay {
+  animation: hero-fade-up 0.9s ease 0.15s forwards;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-animate,
+  .hero-animate-delay {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* Grid with named areas — bonus (about + image strip) */
+.about-grid-named {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "photo"
+    "copy"
+    "accordion";
+}
+
+@media (min-width: 992px) {
+  .about-grid-named {
+    grid-template-columns: 1fr 1.2fr;
+    grid-template-areas:
+      "photo copy"
+      "accordion accordion";
+  }
+}
+
+.about-grid-named .about-photo {
+  grid-area: photo;
+}
+
+.about-grid-named .about-copy {
+  grid-area: copy;
+}
+
+.about-grid-named .about-accordion {
+  grid-area: accordion;
+}
+
+/* Card hover: advanced selector :has() bonus */
+.card.ip-project-card:has(.stretched-link:hover) {
+  border-color: var(--ip-teal);
+  box-shadow: var(--ip-shadow);
+}
+
+.card.ip-project-card {
+  transition: border-color var(--ip-transition), box-shadow var(--ip-transition), transform var(--ip-transition);
+}
+
+.card.ip-project-card:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.row.g-4 > .col-md-4:nth-child(3n + 1) .ip-project-card .card-img-top {
+  border-bottom: 3px solid var(--ip-teal);
+}
+
+/* Skills: nth-of-type for bar colors */
+.progress:nth-of-type(odd) .progress-bar {
+  background: linear-gradient(90deg, var(--ip-teal-dark), var(--ip-teal)) !important;
+}
+
+/* Scroll-reveal (class added via IntersectionObserver) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Scroll-driven enhancement (supporting browsers) */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal-timeline {
+      animation: hero-fade-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+    }
+  }
+}
+
+/* Contact social icons */
+.contact-social a {
+  transition: color var(--ip-transition), transform var(--ip-transition);
+}
+
+.contact-social a:hover {
+  transform: scale(1.15) rotate(-3deg);
+  color: var(--ip-teal) !important;
+}
+
+/* Footer */
+.site-footer-ip {
+  border-top: 3px solid var(--ip-teal);
+}
+
+/* Accordion custom border */
+.accordion-button:not(.collapsed) {
+  background-color: var(--ip-accent-soft);
+  color: var(--ip-ink);
+}
+
+/* Form focus */
+.interactive-portfolio .form-control:focus {
+  border-color: var(--ip-teal);
+  box-shadow: 0 0 0 0.2rem rgba(13, 148, 136, 0.25);
+}
