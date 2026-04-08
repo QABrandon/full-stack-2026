@@ -1,36 +1,66 @@
-# My First Repo - Github Desktop Edition
+# My First Repo — GitHub Desktop Edition
 
-## Create a new repo
+> Uses the GitHub Desktop GUI
 
-0. Where do you want this repo to live?
-   - In Explorer/Finder, create a new folder and get the path
-1. Use the Github Desktop to create the repo
-   - Open Github Desktop
-   - File > New Repository
-   - Fill this out
-     ![alt text](github-desktop-images/create-repo.png)
-   - Create Repository
+---
 
-2. Notice it created a .git folder in the location you were in, this is the repo
-   - If you cant see the folder, look up how to show hidden files/folders in your operating system
+## Create a repo
 
-## Add files to it
+### Step 0 — Choose where your repo will live
 
-1. create a new file called hello.txt
+- In Explorer (Windows) or Finder (Mac), create a new folder
+- Note the folder path for the next step
 
-- Go to Github Deskop > Open In Visual Studio Code
-- Add the hello.txt file
+### Step 1 — Initialize the repo in GitHub Desktop
 
-2. Add "Hello World" to file contents and save
-3. check for status of your repo by looking at Github Desktop
-   ![alt text](github-desktop-images/hit-commit.png)
+- Open GitHub Desktop
+- Go to *File → New Repository*
+- Fill in the details and set the local path
 
-4/5/6.
+![Create repo dialog](github-desktop-images/create-repo.png)
 
-- Option A - hit commit button to commit checked files
-  with the default summary message
-- Option B - update summary/checked files and then commit
-  ![alt text](github-desktop-images/hit-commit.png)
+- Click *Create Repository*
 
-7. Just look at Github Desktop changes section
-![alt text](github-desktop-images/after-commit.png)
+### Step 2 — Confirm it worked
+
+A hidden `.git` folder is created — that's the repo.
+
+> **Can't see it?** Look up how to show hidden files for your OS.
+
+---
+
+## Add files and commit
+
+### Step 1 — Create a new file
+
+- In GitHub Desktop, click *Open in Visual Studio Code*
+- Create a new file called `hello.txt`
+
+### Step 2 — Add content and save
+
+Add "Hello World" to the file and save.
+
+### Step 3 — Check repo status
+
+Look at the Changes tab in GitHub Desktop.
+
+![Changes tab with new file](github-desktop-images/hit-commit.png)
+
+### Steps 4–5 — Review staged files
+
+Files are staged automatically — review them in the Changes tab.
+
+> Uncheck any files you don't want to include in this commit.
+
+### Step 6 — Commit the changes
+
+- **Option A** — Click Commit with the default summary message
+- **Option B** — Edit the summary first, then click Commit
+
+![Commit button](github-desktop-images/hit-commit.png)
+
+### Step 7 — Check status one more time
+
+The Changes tab is now empty.
+
+![After commit](github-desktop-images/after-commit.png)

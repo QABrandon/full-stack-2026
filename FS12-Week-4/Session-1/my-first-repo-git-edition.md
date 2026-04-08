@@ -1,47 +1,81 @@
-# My First Repo - Git Edition
+# My First Repo — Git Terminal Edition
 
-## Create a new repo
+> Uses the command line directly
 
-0. Where do you want this repo to live?
-   Option 1
-   - Open the terminal
-   - Navigate in the terminal
-   - Check the path with pwd
-     Option 2
-     Note: Open the path in VSCode via Right click on folder > "Open in Integrated Terminal"
-1. Use the git init commmand to create the repo
+---
 
-        - Type "git init" and hit enter in the terminal
-2. Notice it created a .git folder in the location you were in, this is the repo
-    - If you cant see the folder, "ls -a" will show the folder in the terminal
+## Create a repo
 
-## Add files to it   
-1. create a new file called hello.txt
+### Step 0 — Choose where your repo will live
+
+- Open a terminal and navigate to your folder
+- Confirm your location with `pwd`
+- Or right-click a folder in VS Code → *Open in Integrated Terminal*
+
+### Step 1 — Initialize the repo
+
+```bash
+git init
 ```
+
+### Step 2 — Confirm it worked
+
+A hidden `.git` folder is created — that's the repo.
+
+> **Can't see it?** Run `ls -a` to show hidden files.
+
+---
+
+## Add files and commit
+
+### Step 1 — Create a new file
+
+```bash
 touch hello.txt
 ```
-2. Add "Hello World" to file contents and save
-3. check for status of your repo
-```
+
+### Step 2 — Add content and save
+
+Add "Hello World" to the file and save.
+
+### Step 3 — Check repo status
+
+```bash
 git status
 ```
-![alt text](git-images/image.png)
-4. We now "stage" the file to let git know what we want to commit
-```
+
+![Status before staging](git-images/image.png)
+
+### Step 4 — Stage the file
+
+```bash
 git add hello.txt
 ```
-5. check for status of your repo
-```
+
+### Step 5 — Check status again
+
+The file is now staged.
+
+```bash
 git status
 ```
-![alt text](git-images/git-status-after-add.png)
-6. commit the changes to the repo
-```
+
+![Status after staging](git-images/git-status-after-add.png)
+
+### Step 6 — Commit the staged file
+
+```bash
 git commit -m "added hello.txt"
 ```
-![alt text](git-images/after-commit.png)
-7. check for status of your repo
-```
+
+![After commit](git-images/after-commit.png)
+
+### Step 7 — Check status one more time
+
+Working tree is clean.
+
+```bash
 git status
 ```
-![alt text](git-images/after-commit-after-status.png)
+
+![Status after commit](git-images/after-commit-after-status.png)
