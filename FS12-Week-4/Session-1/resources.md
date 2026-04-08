@@ -1,4 +1,8 @@
-## Coursed (Continued Practice)
+## Courses (Continued Practice)
+
+- [Learn Git and Github](https://www.codecademy.com/learn/learn-git)
+
+Next time -
 
 - [Learn JavaScript Fundamentals (Codecademy)](https://www.codecademy.com/learn/introduction-to-javascript)
 
