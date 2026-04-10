@@ -19,7 +19,7 @@
 
 ### Mac
 
-Note: This video may be useful.
+Note: This [video](https://www.youtube.com/watch?v=B4qsvQ5IqWk) may be useful.
 
 1. Open a terminal (cmd+space > Type "terminal") and hit enter
 2. Run the following command by copying and pasting the text and hitting enter
