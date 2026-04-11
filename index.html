@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="Brandon Mosco — portfolio home: coding projects, skills, experience, and contact. Built with Tailwind CSS and custom CSS."
+    content="Brandon Mosco — BM Web Studio. Webflow builds, migrations, and QA. Portfolio, contact, and selected projects."
   >
   <title>Brandon Mosco — Portfolio</title>
   <link rel="canonical" href="/">
@@ -23,23 +23,7 @@
     referrerpolicy="no-referrer"
   >
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: { DEFAULT: "#0d9488", dark: "#0f766e" },
-            ink: "#0f172a",
-            surface: "#f8fafc",
-          },
-          fontFamily: {
-            display: ["Fraunces", "Georgia", "serif"],
-            sans: ["DM Sans", "system-ui", "sans-serif"],
-          },
-        },
-      },
-    };
-  </script>
+  <script src="portfolio/js/tailwind-theme.js"></script>
   <link rel="stylesheet" href="portfolio/css/interactive-portfolio.css">
 </head>
 <body class="interactive-portfolio font-sans text-ink bg-surface antialiased">
@@ -47,7 +31,7 @@
 
   <header>
     <nav
-      class="sticky top-0 z-50 border-b border-slate-200/80 bg-white shadow-sm"
+      class="sticky top-0 z-50 border-b border-stone-200/90 bg-white/95 shadow-sm backdrop-blur-sm"
       aria-label="Primary"
     >
       <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
@@ -57,7 +41,7 @@
         </a>
         <button
           id="nav-toggle"
-          class="inline-flex items-center justify-center rounded-lg border border-slate-200 p-2 text-ink md:hidden"
+          class="inline-flex items-center justify-center rounded-lg border border-stone-200 p-2 text-ink md:hidden"
           type="button"
           aria-controls="nav-menu"
           aria-expanded="false"
@@ -69,19 +53,19 @@
           id="nav-menu"
           class="hidden w-full flex-col gap-1 pb-2 pt-2 md:flex md:w-auto md:flex-row md:items-center md:gap-2 md:pb-0 md:pt-0"
         >
-          <a class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100" href="#home">
+          <a class="rounded-lg px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-100" href="#home">
             <i class="fa-solid fa-house me-1" aria-hidden="true"></i> Home
           </a>
-          <a class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100" href="#projects">
+          <a class="rounded-lg px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-100" href="#projects">
             <i class="fa-solid fa-code me-1" aria-hidden="true"></i> Projects
           </a>
-          <a class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100" href="#skills">
+          <a class="rounded-lg px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-100" href="#skills">
             <i class="fa-solid fa-bolt me-1" aria-hidden="true"></i> Skills
           </a>
-          <a class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100" href="#about">
+          <a class="rounded-lg px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-100" href="#about">
             <i class="fa-solid fa-user me-1" aria-hidden="true"></i> About
           </a>
-          <a class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100" href="#contact">
+          <a class="rounded-lg px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-100" href="#contact">
             <i class="fa-solid fa-envelope me-1" aria-hidden="true"></i> Contact
           </a>
         </div>
@@ -90,18 +74,18 @@
   </header>
 
   <main id="main">
-    <section id="home" class="border-b border-slate-200 bg-slate-50 py-12 sm:py-16" aria-labelledby="hero-heading">
+    <section id="home" class="border-b border-stone-200/80 bg-surface py-12 sm:py-16" aria-labelledby="hero-heading">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
           <div class="lg:col-span-7">
-            <p class="hero-animate mb-2 text-xs font-semibold uppercase tracking-wide text-slate-600">
-              <i class="fa-solid fa-terminal me-1" aria-hidden="true"></i> BM Web Studio
+            <p class="hero-animate mb-2 text-xs font-semibold uppercase tracking-wide text-muted">
+              BM Web Studio
             </p>
             <h1 id="hero-heading" class="hero-animate mb-3 font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-              Webflow developer, QA-minded builder, systems thinker.
+              Webflow builds and migrations—with QA that catches what breaks later.
             </h1>
-            <p class="hero-animate-delay text-lg leading-relaxed text-slate-600">
-              I design and ship accessible, maintainable sites—migrations, CMS architecture, and front-end polish—with a focus on long-term quality.
+            <p class="hero-animate-delay text-lg leading-relaxed text-muted">
+              Most of my work is hands-on with clients: Webflow, structured content, CMS cleanup, and accessibility. I’m in Codecademy’s FS12 bootcamp to line up the fundamentals with how I already work in production.
             </p>
             <div class="hero-animate-delay mt-6 flex flex-wrap gap-3">
               <a
@@ -111,7 +95,7 @@
                 <i class="fa-solid fa-folder-open me-2" aria-hidden="true"></i> View projects
               </a>
               <a
-                class="inline-flex items-center justify-center rounded-xl border-2 border-slate-300 bg-white px-5 py-3 text-base font-semibold text-ink transition hover:border-primary hover:text-primary-dark"
+                class="inline-flex items-center justify-center rounded-xl border-2 border-stone-300 bg-white px-5 py-3 text-base font-semibold text-ink transition hover:border-primary hover:text-primary-dark"
                 href="#contact"
               >
                 <i class="fa-solid fa-paper-plane me-2" aria-hidden="true"></i> Contact
@@ -135,12 +119,12 @@
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="mb-10 text-center">
           <h2 id="projects-heading" class="font-display text-3xl font-bold text-ink">Coding projects</h2>
-          <p class="mt-2 text-slate-600">
-            Featured builds—styled landing page, personal bio, and this responsive portfolio (site home).
+          <p class="mt-2 text-muted">
+            Three exercises from this repo: HTML/CSS fundamentals, structured markup, and this responsive home page.
           </p>
         </div>
         <div class="ip-project-grid grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <article class="ip-project-card flex h-full flex-col overflow-hidden rounded-2xl border-2 border-slate-200 bg-white shadow-sm">
+          <article class="ip-project-card flex h-full flex-col overflow-hidden rounded-2xl border-2 border-stone-200 bg-white shadow-sm">
             <img
               src="portfolio/src/images/project-thumb.svg"
               alt="Thumbnail representing the styled landing page project with layout and CSS focus"
@@ -150,8 +134,8 @@
             >
             <div class="flex flex-grow flex-col p-5">
               <h3 class="font-display text-xl font-bold text-ink">Styled landing page</h3>
-              <p class="mt-2 flex-grow text-sm text-slate-600">
-                Single-page site with hero, sections, flex and grid, form, and breakpoints for mobile through desktop.
+              <p class="mt-2 flex-grow text-sm text-muted">
+                A single-page layout with hero, sections, a form, and breakpoints—practice in structure and layout.
               </p>
               <a
                 class="relative mt-4 inline-flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-white transition hover:bg-primary-dark"
@@ -161,7 +145,7 @@
               </a>
             </div>
           </article>
-          <article class="ip-project-card flex h-full flex-col overflow-hidden rounded-2xl border-2 border-slate-200 bg-white shadow-sm">
+          <article class="ip-project-card flex h-full flex-col overflow-hidden rounded-2xl border-2 border-stone-200 bg-white shadow-sm">
             <img
               src="portfolio/src/images/project-thumb.svg"
               alt="Thumbnail representing the personal bio page with long-form content and structure"
@@ -171,8 +155,8 @@
             >
             <div class="flex flex-grow flex-col p-5">
               <h3 class="font-display text-xl font-bold text-ink">Personal bio</h3>
-              <p class="mt-2 flex-grow text-sm text-slate-600">
-                Content-heavy bio with skills grids, lists, and a contact form—practice in semantics and hierarchy.
+              <p class="mt-2 flex-grow text-sm text-muted">
+                Long-form bio with skills, lists, and a contact form—heavy on semantics and hierarchy.
               </p>
               <a
                 class="relative mt-4 inline-flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-white transition hover:bg-primary-dark"
@@ -182,7 +166,7 @@
               </a>
             </div>
           </article>
-          <article class="ip-project-card flex h-full flex-col overflow-hidden rounded-2xl border-2 border-slate-200 bg-white shadow-sm">
+          <article class="ip-project-card flex h-full flex-col overflow-hidden rounded-2xl border-2 border-stone-200 bg-white shadow-sm">
             <img
               src="portfolio/src/images/project-thumb.svg"
               alt="Thumbnail representing this interactive responsive portfolio with Tailwind CSS and custom CSS"
@@ -192,8 +176,8 @@
             >
             <div class="flex flex-grow flex-col p-5">
               <h3 class="font-display text-xl font-bold text-ink">Interactive portfolio (site home)</h3>
-              <p class="mt-2 flex-grow text-sm text-slate-600">
-                Tailwind layout, responsive nav, skills indicators, details sections, and scroll-aware motion—served at the domain root.
+              <p class="mt-2 flex-grow text-sm text-muted">
+                This project: Tailwind, responsive nav, skill bars, and light motion. It’s the site home.
               </p>
               <span
                 class="relative mt-4 inline-flex w-full cursor-default items-center justify-center rounded-xl border-2 border-primary bg-primary/10 px-4 py-3 text-sm font-semibold text-primary-dark"
@@ -207,12 +191,12 @@
       </div>
     </section>
 
-    <section id="skills" class="reveal border-y border-slate-200 bg-slate-50 py-12 sm:py-16" aria-labelledby="skills-heading">
+    <section id="skills" class="reveal border-y border-stone-200/80 bg-surface py-12 sm:py-16" aria-labelledby="skills-heading">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="mx-auto mb-10 max-w-3xl text-center">
           <h2 id="skills-heading" class="font-display text-3xl font-bold text-ink">Skills &amp; technologies</h2>
-          <p class="mt-2 text-slate-600">
-            Visual indicators for strengths I lean on most in client work (illustrative, not a test score).
+          <p class="mt-2 text-muted">
+            Rough signal of where my time goes in client work—not a scorecard.
           </p>
         </div>
         <div class="ip-skills-grid grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -221,7 +205,7 @@
               <i class="fa-brands fa-html5 me-1 text-primary" aria-hidden="true"></i> Webflow &amp; HTML/CSS
             </p>
             <div
-              class="ip-progress h-9 overflow-hidden rounded-full bg-slate-200"
+              class="ip-progress h-9 overflow-hidden rounded-full bg-stone-200/90"
               role="progressbar"
               aria-valuenow="92"
               aria-valuemin="0"
@@ -238,7 +222,7 @@
               <i class="fa-solid fa-universal-access me-1 text-primary" aria-hidden="true"></i> Accessibility &amp; QA
             </p>
             <div
-              class="ip-progress h-9 overflow-hidden rounded-full bg-slate-200"
+              class="ip-progress h-9 overflow-hidden rounded-full bg-stone-200/90"
               role="progressbar"
               aria-valuenow="88"
               aria-valuemin="0"
@@ -255,7 +239,7 @@
               <i class="fa-brands fa-js me-1 text-primary" aria-hidden="true"></i> JavaScript
             </p>
             <div
-              class="ip-progress h-9 overflow-hidden rounded-full bg-slate-200"
+              class="ip-progress h-9 overflow-hidden rounded-full bg-stone-200/90"
               role="progressbar"
               aria-valuenow="78"
               aria-valuemin="0"
@@ -272,7 +256,7 @@
               <i class="fa-solid fa-database me-1 text-primary" aria-hidden="true"></i> CMS &amp; content structure
             </p>
             <div
-              class="ip-progress h-9 overflow-hidden rounded-full bg-slate-200"
+              class="ip-progress h-9 overflow-hidden rounded-full bg-stone-200/90"
               role="progressbar"
               aria-valuenow="90"
               aria-valuemin="0"
@@ -301,16 +285,16 @@
           >
         </div>
         <div class="about-copy">
-          <p class="text-lg leading-relaxed text-slate-600">
-            Founder of <strong class="text-ink">BM Web Studio</strong>, with 13+ years in web development and 7+ years focused on Webflow—plus deep QA, accessibility, and migration work.
+          <p class="text-lg leading-relaxed text-muted">
+            I run <strong class="text-ink">BM Web Studio</strong>. I’ve been in web development for 13+ years, with the last seven focused on Webflow—plus QA, accessibility, and migration work.
           </p>
-          <p class="mt-4 text-slate-700">
-            I help teams modernize sites, tighten CMS patterns, and ship experiences that stay fast and maintainable. This bootcamp stretch adds structured HTML/CSS practice alongside my production habits.
+          <p class="mt-4 text-stone-800">
+            I help teams modernize sites, tighten CMS patterns, and keep things maintainable. FS12 is my way of lining up formal HTML/CSS practice with what I already do in production.
           </p>
           <ul class="mt-4 space-y-2">
             <li class="flex gap-2">
               <i class="fa-solid fa-check mt-1 text-primary" aria-hidden="true"></i>
-              <span>Webflow builds, embeds, and component systems</span>
+              <span>Webflow builds, components, and embeds</span>
             </li>
             <li class="flex gap-2">
               <i class="fa-solid fa-check mt-1 text-primary" aria-hidden="true"></i>
@@ -318,70 +302,72 @@
             </li>
             <li class="flex gap-2">
               <i class="fa-solid fa-check mt-1 text-primary" aria-hidden="true"></i>
-              <span>Client communication, scoping, and documentation</span>
+              <span>Scoping, documentation, and client communication</span>
             </li>
           </ul>
         </div>
         <div class="about-accordion space-y-3">
-          <details class="ip-details group rounded-xl border border-slate-200 bg-white open:bg-teal-50/60" open>
+          <details class="ip-details group rounded-xl border border-stone-200 bg-white open:bg-primary/[0.06]" open>
             <summary
               class="flex cursor-pointer list-none items-center gap-2 rounded-xl px-4 py-3 font-semibold text-ink marker:content-none [&::-webkit-details-marker]:hidden"
             >
               <i class="fa-solid fa-briefcase text-primary" aria-hidden="true"></i>
               Current focus
-              <i class="fa-solid fa-chevron-down ms-auto text-slate-400 transition group-open:rotate-180" aria-hidden="true"></i>
+              <i class="fa-solid fa-chevron-down ms-auto text-muted transition group-open:rotate-180" aria-hidden="true"></i>
             </summary>
-            <div class="border-t border-slate-100 px-4 pb-4 pt-2 text-slate-700">
-              Webflow-first delivery, structured content, and automation-friendly workflows for small and mid-sized businesses.
+            <div class="border-t border-stone-100 px-4 pb-4 pt-2 text-ink">
+              Webflow work for small and mid-sized businesses—structured content, repeatable workflows, and room to grow.
             </div>
           </details>
-          <details class="ip-details group rounded-xl border border-slate-200 bg-white open:bg-teal-50/60">
+          <details class="ip-details group rounded-xl border border-stone-200 bg-white open:bg-primary/[0.06]">
             <summary
               class="flex cursor-pointer list-none items-center gap-2 rounded-xl px-4 py-3 font-semibold text-ink marker:content-none [&::-webkit-details-marker]:hidden"
             >
               <i class="fa-solid fa-code-branch text-primary" aria-hidden="true"></i>
               Background
-              <i class="fa-solid fa-chevron-down ms-auto text-slate-400 transition group-open:rotate-180" aria-hidden="true"></i>
+              <i class="fa-solid fa-chevron-down ms-auto text-muted transition group-open:rotate-180" aria-hidden="true"></i>
             </summary>
-            <div class="border-t border-slate-100 px-4 pb-4 pt-2 text-slate-700">
-              Technical support and QA roots evolved into full front-end ownership—HTML, CSS, JS, and CMS architecture.
+            <div class="border-t border-stone-100 px-4 pb-4 pt-2 text-ink">
+              Support and QA roots turned into owning front-end work: HTML, CSS, JavaScript, and CMS architecture.
             </div>
           </details>
-          <details class="ip-details group rounded-xl border border-slate-200 bg-white open:bg-teal-50/60">
+          <details class="ip-details group rounded-xl border border-stone-200 bg-white open:bg-primary/[0.06]">
             <summary
               class="flex cursor-pointer list-none items-center gap-2 rounded-xl px-4 py-3 font-semibold text-ink marker:content-none [&::-webkit-details-marker]:hidden"
             >
               <i class="fa-solid fa-graduation-cap text-primary" aria-hidden="true"></i>
               Learning
-              <i class="fa-solid fa-chevron-down ms-auto text-slate-400 transition group-open:rotate-180" aria-hidden="true"></i>
+              <i class="fa-solid fa-chevron-down ms-auto text-muted transition group-open:rotate-180" aria-hidden="true"></i>
             </summary>
-            <div class="border-t border-slate-100 px-4 pb-4 pt-2 text-slate-700">
-              Codecademy Full-Stack Bootcamp (FS12) to align fundamentals with real-world delivery and portfolio storytelling.
+            <div class="border-t border-stone-100 px-4 pb-4 pt-2 text-ink">
+              Codecademy Full-Stack Bootcamp (FS12): fundamentals in a structured format, alongside the portfolio work I’m shipping here.
             </div>
           </details>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="reveal border-t border-slate-200 bg-slate-50 py-12 sm:py-16" aria-labelledby="contact-heading">
+    <section id="contact" class="reveal border-t border-stone-200/80 bg-surface py-12 sm:py-16" aria-labelledby="contact-heading">
       <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="mx-auto mb-10 max-w-3xl text-center">
           <h2 id="contact-heading" class="font-display text-3xl font-bold text-ink">Contact</h2>
-          <p class="mt-2 text-slate-600">Reach out for Webflow work, QA, or accessibility support—or say hello.</p>
+          <p class="mt-2 text-muted">
+            Webflow help, a QA pass on a build, or a second opinion on accessibility—send a message. Or just say hello.
+          </p>
         </div>
         <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
           <div class="lg:col-span-5">
-            <div class="h-full rounded-2xl border-2 border-slate-200 bg-white p-6 shadow-sm">
+            <div class="h-full rounded-2xl border-2 border-stone-200 bg-white p-6 shadow-sm">
               <h3 class="font-display text-xl font-bold text-ink">
                 <i class="fa-solid fa-address-card me-2 text-primary" aria-hidden="true"></i> Connect
               </h3>
-              <p class="mt-3 text-sm text-slate-600">
-                <i class="fa-solid fa-envelope me-2 text-slate-500" aria-hidden="true"></i>
+              <p class="mt-3 text-sm text-muted">
+                <i class="fa-solid fa-envelope me-2 text-muted" aria-hidden="true"></i>
                 <a class="font-medium text-primary-dark underline-offset-2 hover:underline" href="mailto:hello@brandonmosco.com">hello@brandonmosco.com</a>
               </p>
               <p class="contact-social mt-4 flex gap-4 text-2xl">
                 <a
-                  class="text-slate-500 transition hover:text-primary"
+                  class="text-muted transition hover:text-primary"
                   href="https://www.linkedin.com/in/brandonmosco/"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -390,7 +376,7 @@
                   <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
                 </a>
                 <a
-                  class="text-slate-500 transition hover:text-primary"
+                  class="text-muted transition hover:text-primary"
                   href="https://github.com/QABrandon/full-stack-2026"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -398,19 +384,19 @@
                 >
                   <i class="fa-brands fa-github" aria-hidden="true"></i>
                 </a>
-                <a class="text-slate-500 transition hover:text-primary" href="#home" aria-label="Home">
+                <a class="text-muted transition hover:text-primary" href="#home" aria-label="Home">
                   <i class="fa-solid fa-house" aria-hidden="true"></i>
                 </a>
               </p>
             </div>
           </div>
           <div class="lg:col-span-7">
-            <form class="rounded-2xl border-2 border-slate-200 bg-white p-4 shadow-sm sm:p-6 md:p-8" action="#" method="post">
+            <form class="rounded-2xl border-2 border-stone-200 bg-white p-4 shadow-sm sm:p-6 md:p-8" action="#" method="post">
               <div class="mb-4">
                 <label for="ip-name" class="mb-1 block text-sm font-semibold text-ink">Name</label>
                 <input
                   type="text"
-                  class="ip-input w-full rounded-xl border border-slate-300 px-4 py-3 text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25"
+                  class="ip-input w-full rounded-xl border border-stone-300 px-4 py-3 text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/35"
                   id="ip-name"
                   name="name"
                   autocomplete="name"
@@ -421,7 +407,7 @@
                 <label for="ip-email" class="mb-1 block text-sm font-semibold text-ink">Email</label>
                 <input
                   type="email"
-                  class="ip-input w-full rounded-xl border border-slate-300 px-4 py-3 text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25"
+                  class="ip-input w-full rounded-xl border border-stone-300 px-4 py-3 text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/35"
                   id="ip-email"
                   name="email"
                   autocomplete="email"
@@ -431,7 +417,7 @@
               <div class="mb-4">
                 <label for="ip-msg" class="mb-1 block text-sm font-semibold text-ink">Message</label>
                 <textarea
-                  class="ip-input w-full rounded-xl border border-slate-300 px-4 py-3 text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25"
+                  class="ip-input w-full rounded-xl border border-stone-300 px-4 py-3 text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/35"
                   id="ip-msg"
                   name="message"
                   rows="5"
@@ -451,14 +437,14 @@
     </section>
   </main>
 
-  <footer class="site-footer-ip border-t border-primary bg-slate-900 py-8 text-slate-400">
+  <footer class="site-footer-ip border-t border-primary bg-ink py-8 text-footer-fg">
     <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-4 sm:flex-row sm:items-center sm:px-6 lg:px-8">
       <p class="text-sm">
         <i class="fa-regular fa-copyright me-1" aria-hidden="true"></i> 2026 Brandon Mosco · BM Web Studio
       </p>
       <div class="flex flex-wrap gap-4 text-sm">
-        <a class="text-slate-400 underline-offset-2 hover:text-white hover:underline" href="#home">Home</a>
-        <a class="text-slate-400 underline-offset-2 hover:text-white hover:underline" href="#home">
+        <a class="text-footer-fg underline-offset-2 hover:text-white hover:underline" href="#home">Home</a>
+        <a class="text-footer-fg underline-offset-2 hover:text-white hover:underline" href="#home">
           Back to top <i class="fa-solid fa-arrow-up ms-1" aria-hidden="true"></i>
         </a>
       </div>
