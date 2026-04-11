@@ -1,12 +1,12 @@
-/* Interactive portfolio — FS12 Week 3 Major Project (Option A) + Tailwind + custom layer */
-
-/* Mobile-first custom properties; Tailwind theme extends primary in HTML */
 :root {
-  --ip-teal: #0d9488;
-  --ip-teal-dark: #0f766e;
+  --ip-primary: #1d4ed8;
+  --ip-primary-dark: #1e40af;
+  --ip-primary-ring: rgba(29, 78, 216, 0.32);
+  --ip-accent-soft: rgba(29, 78, 216, 0.12);
   --ip-ink: #0f172a;
   --ip-surface: #f8fafc;
-  --ip-accent-soft: rgba(13, 148, 136, 0.12);
+  --ip-muted: #475569;
+  --ip-footer-fg: #cbd5e1;
   --ip-font-body: "DM Sans", system-ui, sans-serif;
   --ip-font-display: "Fraunces", Georgia, serif;
   --ip-radius: 12px;
@@ -20,13 +20,12 @@ body.interactive-portfolio {
   background-color: var(--ip-surface);
 }
 
-/* Skip link */
 .skip-link {
   position: absolute;
   left: -9999px;
   z-index: 1080;
   padding: 0.5rem 1rem;
-  background: var(--ip-teal);
+  background: var(--ip-primary);
   color: #fff;
   font-weight: 600;
   border-radius: 8px;
@@ -39,7 +38,6 @@ body.interactive-portfolio {
   outline-offset: 2px;
 }
 
-/* Nav brand icon pulse — keyframe 1 */
 @keyframes icon-pulse {
   0%,
   100% {
@@ -55,7 +53,7 @@ body.interactive-portfolio {
 
 .ip-nav-brand .fa-layer-group {
   animation: icon-pulse 2.5s ease-in-out infinite;
-  color: var(--ip-teal);
+  color: var(--ip-primary);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -64,7 +62,6 @@ body.interactive-portfolio {
   }
 }
 
-/* Hero — keyframe 2 */
 @keyframes hero-fade-up {
   from {
     opacity: 0;
@@ -94,7 +91,6 @@ body.interactive-portfolio {
   }
 }
 
-/* Grid with named areas — bonus (about + image strip) */
 .about-grid-named {
   display: grid;
   gap: 1.5rem;
@@ -126,9 +122,8 @@ body.interactive-portfolio {
   grid-area: accordion;
 }
 
-/* Card hover: advanced selector :has() bonus */
 .ip-project-card:has(a:hover) {
-  border-color: var(--ip-teal);
+  border-color: var(--ip-primary);
   box-shadow: var(--ip-shadow);
 }
 
@@ -144,15 +139,13 @@ body.interactive-portfolio {
 }
 
 .ip-project-grid .ip-project-card:nth-child(3n + 1) .ip-card-img {
-  border-bottom: 3px solid var(--ip-teal);
+  border-bottom: 3px solid var(--ip-primary);
 }
 
-/* Skills: alternate bar styling (nth-child in grid) */
 .ip-skills-grid > div:nth-child(odd) .ip-progress-bar {
-  background: linear-gradient(90deg, var(--ip-teal-dark), var(--ip-teal)) !important;
+  background: linear-gradient(90deg, var(--ip-primary-dark), var(--ip-primary)) !important;
 }
 
-/* Scroll-reveal (class added via IntersectionObserver) */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -172,7 +165,6 @@ body.interactive-portfolio {
   }
 }
 
-/* Scroll-driven enhancement (supporting browsers) */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .reveal-timeline {
@@ -183,28 +175,25 @@ body.interactive-portfolio {
   }
 }
 
-/* Contact social icons */
 .contact-social a {
   transition: color var(--ip-transition), transform var(--ip-transition);
 }
 
 .contact-social a:hover {
   transform: scale(1.15) rotate(-3deg);
-  color: var(--ip-teal) !important;
+  color: var(--ip-primary) !important;
 }
 
-/* Footer */
 .site-footer-ip {
   border-top-width: 3px;
 }
 
-/* Details / accordion open state (fallback if group-open utilities differ) */
 .ip-details[open] > summary {
   background-color: var(--ip-accent-soft);
   color: var(--ip-ink);
 }
 
 .ip-input:focus {
-  border-color: var(--ip-teal);
-  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.25);
+  border-color: var(--ip-primary);
+  box-shadow: 0 0 0 3px var(--ip-primary-ring);
 }
