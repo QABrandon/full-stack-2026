@@ -1,6 +1,6 @@
-/* Interactive portfolio — FS12 Week 3 Major Project (Option A) + custom layer */
+/* Interactive portfolio — FS12 Week 3 Major Project (Option A) + Tailwind + custom layer */
 
-/* Mobile-first custom properties; Bootstrap handles base breakpoints */
+/* Mobile-first custom properties; Tailwind theme extends primary in HTML */
 :root {
   --ip-teal: #0d9488;
   --ip-teal-dark: #0f766e;
@@ -14,30 +14,10 @@
   --ip-transition: 0.3s ease;
 }
 
-/* Bootstrap theme hooks (bonus: framework customization) */
 body.interactive-portfolio {
-  --bs-primary: #0d9488;
-  --bs-primary-rgb: 13, 148, 136;
-  --bs-link-color: #0f766e;
-  --bs-link-hover-color: #0d9488;
   font-family: var(--ip-font-body);
   color: var(--ip-ink);
   background-color: var(--ip-surface);
-}
-
-h1,
-h2,
-h3,
-.h1,
-.h2,
-.h3 {
-  font-family: var(--ip-font-display);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.display-5 {
-  font-family: var(--ip-font-display);
 }
 
 /* Skip link */
@@ -59,7 +39,7 @@ h3,
   outline-offset: 2px;
 }
 
-/* Navbar brand icon pulse — keyframe 1 */
+/* Nav brand icon pulse — keyframe 1 */
 @keyframes icon-pulse {
   0%,
   100% {
@@ -73,13 +53,13 @@ h3,
   }
 }
 
-.navbar-brand .fa-layer-group {
+.ip-nav-brand .fa-layer-group {
   animation: icon-pulse 2.5s ease-in-out infinite;
   color: var(--ip-teal);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .navbar-brand .fa-layer-group {
+  .ip-nav-brand .fa-layer-group {
     animation: none;
   }
 }
@@ -147,25 +127,28 @@ h3,
 }
 
 /* Card hover: advanced selector :has() bonus */
-.card.ip-project-card:has(.stretched-link:hover) {
+.ip-project-card:has(a:hover) {
   border-color: var(--ip-teal);
   box-shadow: var(--ip-shadow);
 }
 
-.card.ip-project-card {
-  transition: border-color var(--ip-transition), box-shadow var(--ip-transition), transform var(--ip-transition);
+.ip-project-card {
+  transition:
+    border-color var(--ip-transition),
+    box-shadow var(--ip-transition),
+    transform var(--ip-transition);
 }
 
-.card.ip-project-card:hover {
+.ip-project-card:hover {
   transform: translateY(-4px) scale(1.01);
 }
 
-.row.g-4 > .col-md-4:nth-child(3n + 1) .ip-project-card .card-img-top {
+.ip-project-grid .ip-project-card:nth-child(3n + 1) .ip-card-img {
   border-bottom: 3px solid var(--ip-teal);
 }
 
-/* Skills: nth-of-type for bar colors */
-.progress:nth-of-type(odd) .progress-bar {
+/* Skills: alternate bar styling (nth-child in grid) */
+.ip-skills-grid > div:nth-child(odd) .ip-progress-bar {
   background: linear-gradient(90deg, var(--ip-teal-dark), var(--ip-teal)) !important;
 }
 
@@ -212,17 +195,16 @@ h3,
 
 /* Footer */
 .site-footer-ip {
-  border-top: 3px solid var(--ip-teal);
+  border-top-width: 3px;
 }
 
-/* Accordion custom border */
-.accordion-button:not(.collapsed) {
+/* Details / accordion open state (fallback if group-open utilities differ) */
+.ip-details[open] > summary {
   background-color: var(--ip-accent-soft);
   color: var(--ip-ink);
 }
 
-/* Form focus */
-.interactive-portfolio .form-control:focus {
+.ip-input:focus {
   border-color: var(--ip-teal);
-  box-shadow: 0 0 0 0.2rem rgba(13, 148, 136, 0.25);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.25);
 }
