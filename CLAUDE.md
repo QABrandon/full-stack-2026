@@ -5,8 +5,9 @@
 ## What this is
 
 This Git repository is a **portfolio showcase**: static HTML/CSS/JS (and related
-assets) checked in under **`portfolio/`**, plus root docs (`README.md`,
-`CLAUDE.md`, `LICENSE`, `.gitignore`, `vercel.json` for deploy redirects).
+assets) under **`portfolio/`**, plus a root **`index.html`** (interactive
+portfolio home), and root docs (`README.md`, `CLAUDE.md`, `LICENSE`, `.gitignore`,
+`vercel.json` for deploy redirects).
 
 Codecademy FS12 week materials, cohort sync scripts, and Cursor skills may still
 exist **on disk** next to this clone, but they are **gitignored** and are **not**
@@ -14,12 +15,13 @@ pushed to `origin`.
 
 ## Repo layout (tracked on GitHub)
 
+- **`index.html`** — site home (interactive portfolio).
 - **`portfolio/`** — one subdirectory or file group per project (e.g.
   `portfolio/personal-bio.html`, `portfolio/src/...`). Add new work here.
 - **`README.md`** — short repo description for visitors.
 - **`CLAUDE.md`** — this file; context for assistants.
-- **`LICENSE`**, **`.gitignore`**, **`vercel.json`** — standard root files (redirect
-  `/index.html` → `/` on Vercel).
+- **`LICENSE`**, **`.gitignore`**, **`vercel.json`** — standard root files (redirects
+  `/index.html` and `/portfolio/interactive-portfolio.html` → `/` on Vercel).
 
 ## Conventions for assistants
 
@@ -31,11 +33,11 @@ pushed to `origin`.
    Do not re-add `FS12-Week-*/`, `scripts/`, or `.cursor/` to Git unless the
    user explicitly changes that policy.
 4. **Hub navigation** — The site home page is **`index.html`** at the repo root
-   (served at **`/`** when published; use `href="/"` so the address bar stays on
-   the domain root, not `/index.html`). Any HTML under **`portfolio/`** should
-   include at least one clear link back to that hub. Apply this
-   when adding new pages and when editing existing pages that do not yet link
-   home.
+   (interactive portfolio; served at **`/`** when published; use `href="/"` so
+   the address bar stays on the domain root, not `/index.html`). Any HTML under
+   **`portfolio/`** should include at least one clear link back to that home.
+   Apply this when adding new pages and when editing existing pages that do not
+   yet link home.
 
 ## When in doubt
 
