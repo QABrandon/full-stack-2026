@@ -5,49 +5,522 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="Brandon Mosco — portfolio hub for bootcamp and personal front-end projects (HTML, CSS, and more)."
+    content="Brandon Mosco — portfolio home: coding projects, skills, experience, and contact. Built with Tailwind CSS and custom CSS."
   >
   <title>Brandon Mosco — Portfolio</title>
-  <link rel="stylesheet" href="portfolio/css/portfolio-home.css">
+  <link rel="canonical" href="/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: "#0d9488", dark: "#0f766e" },
+            ink: "#0f172a",
+            surface: "#f8fafc",
+          },
+          fontFamily: {
+            display: ["Fraunces", "Georgia", "serif"],
+            sans: ["DM Sans", "system-ui", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="portfolio/css/interactive-portfolio.css">
 </head>
-<body>
-  <div class="page">
-    <header class="site-header">
-      <h1>Brandon Mosco</h1>
-      <p class="lede">
-        Full-stack bootcamp work and experiments. Open a project below; this page is the site home when published (for example on Vercel).
+<body class="interactive-portfolio font-sans text-ink bg-surface antialiased">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <nav
+      class="sticky top-0 z-50 border-b border-slate-200/80 bg-white shadow-sm"
+      aria-label="Primary"
+    >
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <a class="ip-nav-brand flex items-center gap-2 font-bold text-ink" href="#home">
+          <i class="fa-solid fa-layer-group text-primary" aria-hidden="true"></i>
+          <span>Brandon Mosco</span>
+        </a>
+        <button
+          id="nav-toggle"
+          class="inline-flex items-center justify-center rounded-lg border border-slate-200 p-2 text-ink md:hidden"
+          type="button"
+          aria-controls="nav-menu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fa-solid fa-bars text-lg" aria-hidden="true"></i>
+        </button>
+        <div
+          id="nav-menu"
+          class="hidden w-full flex-col gap-1 pb-2 pt-2 md:flex md:w-auto md:flex-row md:items-center md:gap-2 md:pb-0 md:pt-0"
+        >
+          <a class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100" href="#home">
+            <i class="fa-solid fa-house me-1" aria-hidden="true"></i> Home
+          </a>
+          <a class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100" href="#projects">
+            <i class="fa-solid fa-code me-1" aria-hidden="true"></i> Projects
+          </a>
+          <a class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100" href="#skills">
+            <i class="fa-solid fa-bolt me-1" aria-hidden="true"></i> Skills
+          </a>
+          <a class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100" href="#about">
+            <i class="fa-solid fa-user me-1" aria-hidden="true"></i> About
+          </a>
+          <a class="rounded-lg px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100" href="#contact">
+            <i class="fa-solid fa-envelope me-1" aria-hidden="true"></i> Contact
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="home" class="border-b border-slate-200 bg-slate-50 py-12 sm:py-16" aria-labelledby="hero-heading">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
+          <div class="lg:col-span-7">
+            <p class="hero-animate mb-2 text-xs font-semibold uppercase tracking-wide text-slate-600">
+              <i class="fa-solid fa-terminal me-1" aria-hidden="true"></i> BM Web Studio
+            </p>
+            <h1 id="hero-heading" class="hero-animate mb-3 font-display text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+              Webflow developer, QA-minded builder, systems thinker.
+            </h1>
+            <p class="hero-animate-delay text-lg leading-relaxed text-slate-600">
+              I design and ship accessible, maintainable sites—migrations, CMS architecture, and front-end polish—with a focus on long-term quality.
+            </p>
+            <div class="hero-animate-delay mt-6 flex flex-wrap gap-3">
+              <a
+                class="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-primary-dark"
+                href="#projects"
+              >
+                <i class="fa-solid fa-folder-open me-2" aria-hidden="true"></i> View projects
+              </a>
+              <a
+                class="inline-flex items-center justify-center rounded-xl border-2 border-slate-300 bg-white px-5 py-3 text-base font-semibold text-ink transition hover:border-primary hover:text-primary-dark"
+                href="#contact"
+              >
+                <i class="fa-solid fa-paper-plane me-2" aria-hidden="true"></i> Contact
+              </a>
+            </div>
+          </div>
+          <div class="text-center lg:col-span-5">
+            <img
+              src="portfolio/src/images/brandon-mosco-headshot.jpeg"
+              alt="Portrait of Brandon Mosco, Webflow designer and developer"
+              class="mx-auto max-h-[400px] w-full max-w-sm rounded-2xl object-cover shadow-lg"
+              width="400"
+              height="400"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal py-12 sm:py-16" aria-labelledby="projects-heading">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 text-center">
+          <h2 id="projects-heading" class="font-display text-3xl font-bold text-ink">Coding projects</h2>
+          <p class="mt-2 text-slate-600">
+            Featured builds—styled landing page, personal bio, and this responsive portfolio (site home).
+          </p>
+        </div>
+        <div class="ip-project-grid grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <article class="ip-project-card flex h-full flex-col overflow-hidden rounded-2xl border-2 border-slate-200 bg-white shadow-sm">
+            <img
+              src="portfolio/src/images/project-thumb.svg"
+              alt="Thumbnail representing the styled landing page project with layout and CSS focus"
+              class="ip-card-img h-48 w-full object-cover"
+              width="400"
+              height="240"
+            >
+            <div class="flex flex-grow flex-col p-5">
+              <h3 class="font-display text-xl font-bold text-ink">Styled landing page</h3>
+              <p class="mt-2 flex-grow text-sm text-slate-600">
+                Single-page site with hero, sections, flex and grid, form, and breakpoints for mobile through desktop.
+              </p>
+              <a
+                class="relative mt-4 inline-flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-white transition hover:bg-primary-dark"
+                href="portfolio/styled-landing-page.html"
+              >
+                Open project <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+          <article class="ip-project-card flex h-full flex-col overflow-hidden rounded-2xl border-2 border-slate-200 bg-white shadow-sm">
+            <img
+              src="portfolio/src/images/project-thumb.svg"
+              alt="Thumbnail representing the personal bio page with long-form content and structure"
+              class="ip-card-img h-48 w-full object-cover"
+              width="400"
+              height="240"
+            >
+            <div class="flex flex-grow flex-col p-5">
+              <h3 class="font-display text-xl font-bold text-ink">Personal bio</h3>
+              <p class="mt-2 flex-grow text-sm text-slate-600">
+                Content-heavy bio with skills grids, lists, and a contact form—practice in semantics and hierarchy.
+              </p>
+              <a
+                class="relative mt-4 inline-flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-white transition hover:bg-primary-dark"
+                href="portfolio/personal-bio.html"
+              >
+                Open project <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+          <article class="ip-project-card flex h-full flex-col overflow-hidden rounded-2xl border-2 border-slate-200 bg-white shadow-sm">
+            <img
+              src="portfolio/src/images/project-thumb.svg"
+              alt="Thumbnail representing this interactive responsive portfolio with Tailwind CSS and custom CSS"
+              class="ip-card-img h-48 w-full object-cover"
+              width="400"
+              height="240"
+            >
+            <div class="flex flex-grow flex-col p-5">
+              <h3 class="font-display text-xl font-bold text-ink">Interactive portfolio (site home)</h3>
+              <p class="mt-2 flex-grow text-sm text-slate-600">
+                Tailwind layout, responsive nav, skills indicators, details sections, and scroll-aware motion—served at the domain root.
+              </p>
+              <span
+                class="relative mt-4 inline-flex w-full cursor-default items-center justify-center rounded-xl border-2 border-primary bg-primary/10 px-4 py-3 text-sm font-semibold text-primary-dark"
+                aria-current="page"
+              >
+                Site home <i class="fa-solid fa-house ms-2" aria-hidden="true"></i>
+              </span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal border-y border-slate-200 bg-slate-50 py-12 sm:py-16" aria-labelledby="skills-heading">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto mb-10 max-w-3xl text-center">
+          <h2 id="skills-heading" class="font-display text-3xl font-bold text-ink">Skills &amp; technologies</h2>
+          <p class="mt-2 text-slate-600">
+            Visual indicators for strengths I lean on most in client work (illustrative, not a test score).
+          </p>
+        </div>
+        <div class="ip-skills-grid grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div>
+            <p class="mb-1 text-sm font-semibold text-ink" id="skill-webflow-label">
+              <i class="fa-brands fa-html5 me-1 text-primary" aria-hidden="true"></i> Webflow &amp; HTML/CSS
+            </p>
+            <div
+              class="ip-progress h-9 overflow-hidden rounded-full bg-slate-200"
+              role="progressbar"
+              aria-valuenow="92"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-labelledby="skill-webflow-label"
+            >
+              <div class="ip-progress-bar flex h-full w-[92%] items-center justify-end rounded-full bg-primary px-2 text-xs font-semibold text-white">
+                92%
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="mb-1 text-sm font-semibold text-ink" id="skill-access-label">
+              <i class="fa-solid fa-universal-access me-1 text-primary" aria-hidden="true"></i> Accessibility &amp; QA
+            </p>
+            <div
+              class="ip-progress h-9 overflow-hidden rounded-full bg-slate-200"
+              role="progressbar"
+              aria-valuenow="88"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-labelledby="skill-access-label"
+            >
+              <div class="ip-progress-bar flex h-full w-[88%] items-center justify-end rounded-full bg-primary px-2 text-xs font-semibold text-white">
+                88%
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="mb-1 text-sm font-semibold text-ink" id="skill-js-label">
+              <i class="fa-brands fa-js me-1 text-primary" aria-hidden="true"></i> JavaScript
+            </p>
+            <div
+              class="ip-progress h-9 overflow-hidden rounded-full bg-slate-200"
+              role="progressbar"
+              aria-valuenow="78"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-labelledby="skill-js-label"
+            >
+              <div class="ip-progress-bar flex h-full w-[78%] items-center justify-end rounded-full bg-primary px-2 text-xs font-semibold text-white">
+                78%
+              </div>
+            </div>
+          </div>
+          <div>
+            <p class="mb-1 text-sm font-semibold text-ink" id="skill-cms-label">
+              <i class="fa-solid fa-database me-1 text-primary" aria-hidden="true"></i> CMS &amp; content structure
+            </p>
+            <div
+              class="ip-progress h-9 overflow-hidden rounded-full bg-slate-200"
+              role="progressbar"
+              aria-valuenow="90"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-labelledby="skill-cms-label"
+            >
+              <div class="ip-progress-bar flex h-full w-[90%] items-center justify-end rounded-full bg-primary px-2 text-xs font-semibold text-white">
+                90%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="reveal reveal-timeline py-12 sm:py-16" aria-labelledby="about-heading">
+      <div class="about-grid-named mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="about-photo text-center lg:text-left">
+          <h2 id="about-heading" class="font-display text-3xl font-bold text-ink">About &amp; experience</h2>
+          <img
+            src="portfolio/src/images/brandon-mosco-headshot.jpeg"
+            alt="Brandon Mosco professional headshot beside biography"
+            class="mt-4 inline-block max-h-80 w-full max-w-xs rounded-2xl object-cover shadow-md lg:mt-6"
+            width="320"
+            height="320"
+          >
+        </div>
+        <div class="about-copy">
+          <p class="text-lg leading-relaxed text-slate-600">
+            Founder of <strong class="text-ink">BM Web Studio</strong>, with 13+ years in web development and 7+ years focused on Webflow—plus deep QA, accessibility, and migration work.
+          </p>
+          <p class="mt-4 text-slate-700">
+            I help teams modernize sites, tighten CMS patterns, and ship experiences that stay fast and maintainable. This bootcamp stretch adds structured HTML/CSS practice alongside my production habits.
+          </p>
+          <ul class="mt-4 space-y-2">
+            <li class="flex gap-2">
+              <i class="fa-solid fa-check mt-1 text-primary" aria-hidden="true"></i>
+              <span>Webflow builds, embeds, and component systems</span>
+            </li>
+            <li class="flex gap-2">
+              <i class="fa-solid fa-check mt-1 text-primary" aria-hidden="true"></i>
+              <span>Cross-browser testing and accessibility reviews</span>
+            </li>
+            <li class="flex gap-2">
+              <i class="fa-solid fa-check mt-1 text-primary" aria-hidden="true"></i>
+              <span>Client communication, scoping, and documentation</span>
+            </li>
+          </ul>
+        </div>
+        <div class="about-accordion space-y-3">
+          <details class="ip-details group rounded-xl border border-slate-200 bg-white open:bg-teal-50/60" open>
+            <summary
+              class="flex cursor-pointer list-none items-center gap-2 rounded-xl px-4 py-3 font-semibold text-ink marker:content-none [&::-webkit-details-marker]:hidden"
+            >
+              <i class="fa-solid fa-briefcase text-primary" aria-hidden="true"></i>
+              Current focus
+              <i class="fa-solid fa-chevron-down ms-auto text-slate-400 transition group-open:rotate-180" aria-hidden="true"></i>
+            </summary>
+            <div class="border-t border-slate-100 px-4 pb-4 pt-2 text-slate-700">
+              Webflow-first delivery, structured content, and automation-friendly workflows for small and mid-sized businesses.
+            </div>
+          </details>
+          <details class="ip-details group rounded-xl border border-slate-200 bg-white open:bg-teal-50/60">
+            <summary
+              class="flex cursor-pointer list-none items-center gap-2 rounded-xl px-4 py-3 font-semibold text-ink marker:content-none [&::-webkit-details-marker]:hidden"
+            >
+              <i class="fa-solid fa-code-branch text-primary" aria-hidden="true"></i>
+              Background
+              <i class="fa-solid fa-chevron-down ms-auto text-slate-400 transition group-open:rotate-180" aria-hidden="true"></i>
+            </summary>
+            <div class="border-t border-slate-100 px-4 pb-4 pt-2 text-slate-700">
+              Technical support and QA roots evolved into full front-end ownership—HTML, CSS, JS, and CMS architecture.
+            </div>
+          </details>
+          <details class="ip-details group rounded-xl border border-slate-200 bg-white open:bg-teal-50/60">
+            <summary
+              class="flex cursor-pointer list-none items-center gap-2 rounded-xl px-4 py-3 font-semibold text-ink marker:content-none [&::-webkit-details-marker]:hidden"
+            >
+              <i class="fa-solid fa-graduation-cap text-primary" aria-hidden="true"></i>
+              Learning
+              <i class="fa-solid fa-chevron-down ms-auto text-slate-400 transition group-open:rotate-180" aria-hidden="true"></i>
+            </summary>
+            <div class="border-t border-slate-100 px-4 pb-4 pt-2 text-slate-700">
+              Codecademy Full-Stack Bootcamp (FS12) to align fundamentals with real-world delivery and portfolio storytelling.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal border-t border-slate-200 bg-slate-50 py-12 sm:py-16" aria-labelledby="contact-heading">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto mb-10 max-w-3xl text-center">
+          <h2 id="contact-heading" class="font-display text-3xl font-bold text-ink">Contact</h2>
+          <p class="mt-2 text-slate-600">Reach out for Webflow work, QA, or accessibility support—or say hello.</p>
+        </div>
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div class="lg:col-span-5">
+            <div class="h-full rounded-2xl border-2 border-slate-200 bg-white p-6 shadow-sm">
+              <h3 class="font-display text-xl font-bold text-ink">
+                <i class="fa-solid fa-address-card me-2 text-primary" aria-hidden="true"></i> Connect
+              </h3>
+              <p class="mt-3 text-sm text-slate-600">
+                <i class="fa-solid fa-envelope me-2 text-slate-500" aria-hidden="true"></i>
+                <a class="font-medium text-primary-dark underline-offset-2 hover:underline" href="mailto:hello@brandonmosco.com">hello@brandonmosco.com</a>
+              </p>
+              <p class="contact-social mt-4 flex gap-4 text-2xl">
+                <a
+                  class="text-slate-500 transition hover:text-primary"
+                  href="https://www.linkedin.com/in/brandonmosco/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a
+                  class="text-slate-500 transition hover:text-primary"
+                  href="https://github.com/QABrandon/full-stack-2026"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub repository"
+                >
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                </a>
+                <a class="text-slate-500 transition hover:text-primary" href="#home" aria-label="Home">
+                  <i class="fa-solid fa-house" aria-hidden="true"></i>
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="lg:col-span-7">
+            <form class="rounded-2xl border-2 border-slate-200 bg-white p-4 shadow-sm sm:p-6 md:p-8" action="#" method="post">
+              <div class="mb-4">
+                <label for="ip-name" class="mb-1 block text-sm font-semibold text-ink">Name</label>
+                <input
+                  type="text"
+                  class="ip-input w-full rounded-xl border border-slate-300 px-4 py-3 text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25"
+                  id="ip-name"
+                  name="name"
+                  autocomplete="name"
+                  required
+                >
+              </div>
+              <div class="mb-4">
+                <label for="ip-email" class="mb-1 block text-sm font-semibold text-ink">Email</label>
+                <input
+                  type="email"
+                  class="ip-input w-full rounded-xl border border-slate-300 px-4 py-3 text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25"
+                  id="ip-email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                >
+              </div>
+              <div class="mb-4">
+                <label for="ip-msg" class="mb-1 block text-sm font-semibold text-ink">Message</label>
+                <textarea
+                  class="ip-input w-full rounded-xl border border-slate-300 px-4 py-3 text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25"
+                  id="ip-msg"
+                  name="message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-primary-dark"
+              >
+                <i class="fa-solid fa-paper-plane me-2" aria-hidden="true"></i> Send message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer-ip border-t border-primary bg-slate-900 py-8 text-slate-400">
+    <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-4 sm:flex-row sm:items-center sm:px-6 lg:px-8">
+      <p class="text-sm">
+        <i class="fa-regular fa-copyright me-1" aria-hidden="true"></i> 2026 Brandon Mosco · BM Web Studio
       </p>
-    </header>
+      <div class="flex flex-wrap gap-4 text-sm">
+        <a class="text-slate-400 underline-offset-2 hover:text-white hover:underline" href="#home">Home</a>
+        <a class="text-slate-400 underline-offset-2 hover:text-white hover:underline" href="#home">
+          Back to top <i class="fa-solid fa-arrow-up ms-1" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
 
-    <main id="main">
-      <h2 class="projects-title">Projects</h2>
-      <!-- To add a project: copy a <li> block, set href under portfolio/, and update the title + description. -->
-      <ul class="project-list">
-        <li class="project-card">
-          <a href="portfolio/styled-landing-page.html">
-            <h2>Styled landing page</h2>
-            <p>
-              Semantic layout, external CSS, hero, sections, contact, and responsive breakpoints (FS12 styled landing page project).
-            </p>
-            <p class="meta">portfolio/styled-landing-page.html</p>
-          </a>
-        </li>
-        <li class="project-card">
-          <a href="portfolio/personal-bio.html">
-            <h2>Personal bio</h2>
-            <p>
-              Long-form bio page with skills, experience, and contact form (structure-focused markup).
-            </p>
-            <p class="meta">portfolio/personal-bio.html</p>
-          </a>
-        </li>
-        <!-- Interactive responsive portfolio (FS12 Major Project): course due April 18 — add to this list after submit (target before then, e.g. April 16). -->
-      </ul>
-    </main>
+  <script>
+    (function () {
+      var toggle = document.getElementById("nav-toggle");
+      var menu = document.getElementById("nav-menu");
+      if (toggle && menu) {
+        toggle.addEventListener("click", function () {
+          if (window.matchMedia("(min-width: 768px)").matches) {
+            return;
+          }
+          if (menu.classList.contains("hidden")) {
+            menu.classList.remove("hidden");
+            menu.classList.add("flex");
+            toggle.setAttribute("aria-expanded", "true");
+          } else {
+            menu.classList.add("hidden");
+            menu.classList.remove("flex");
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        });
+        window.addEventListener(
+          "resize",
+          function () {
+            if (window.matchMedia("(min-width: 768px)").matches) {
+              menu.classList.remove("flex");
+              toggle.setAttribute("aria-expanded", "false");
+            } else {
+              menu.classList.add("hidden");
+              menu.classList.remove("flex");
+              toggle.setAttribute("aria-expanded", "false");
+            }
+          },
+          { passive: true }
+        );
+      }
 
-    <footer class="site-footer">
-      <p>Repository: full-stack-2026 · Projects live under <strong>portfolio/</strong></p>
-    </footer>
-  </div>
+      var nodes = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        nodes.forEach(function (el) {
+          el.classList.add("visible");
+        });
+        return;
+      }
+      var obs = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -5% 0px" }
+      );
+      nodes.forEach(function (el) {
+        obs.observe(el);
+      });
+    })();
+  </script>
 </body>
 </html>
