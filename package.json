@@ -1,7 +1,8 @@
 {
   "scripts": {
     "lint:md": "markdownlint-cli2",
-    "lint:md:all": "markdownlint-cli2 \"**/*.md\" \"**/*.mdc\" \"!**/node_modules/**\""
+    "lint:md:all": "markdownlint-cli2 \"**/*.md\" \"**/*.mdc\" \"!**/node_modules/**\"",
+    "lint:md:fs12-demo-my": "cd FS12-Week-4/Session-3/demo && markdownlint-cli2 my.md"
   },
   "dependencies": {
     "bootstrap": "^5.3.8"
