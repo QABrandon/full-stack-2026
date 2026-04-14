@@ -22,4 +22,4 @@
 
 ### Submission
 
-Submit to project-showcase with your profile link: github.com/<yourprofile>
+Submit to #project-showcase channel in discord with your profile link: github.com/<yourprofile>
