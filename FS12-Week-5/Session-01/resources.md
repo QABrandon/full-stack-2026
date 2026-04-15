@@ -11,4 +11,5 @@
 
 **Debugging**
 
+- [VSCode Debugger] (https://code.visualstudio.com/docs/debugtest/debugging)
 - [Understanding JavaScript by Debugging](https://www.youtube.com/watch?v=bx8Pc-Si-3g)
