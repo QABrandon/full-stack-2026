@@ -4,7 +4,7 @@
 
 // Regular function declaration
 function greetUser(name, timeOfDay) {
-    return `Good ${timeOfDay}, ${name}! Welcome to our site.`;
+  return `Good ${timeOfDay}, ${name}! Welcome to our site.`;
 }
 
 // TODO: Convert the greetUser function above into a named arrow function
@@ -16,27 +16,26 @@ function greetUser(name, timeOfDay) {
 // - Name it: greetUserArrow
 
 // Write your arrow function here:
-const greetUserArrow = (name, timeOfDay) =>{
-    return `Good ${timeOfDay}, ${name}! Welcome to our site.`;
-}
-
+// Trick here is to reference the arrow vs standard function.svg file
+const greetUserArrow = (name, timeOfDay) => {
+  return `Good ${timeOfDay} ${name}`;
+};
 
 // Test your function (uncomment to test):
 console.log(greetUserArrow("Alice", "morning"));
-
 
 // ============================================
 // GUIDED PRACTICE SESSION 2: Math Operations
 // ============================================
 
 // Regular function expression
-const calculateArea = function(length, width, height) {
-    const area = length * width;
-    const volume = area * height;
-    return {
-        surfaceArea: area,
-        volume: volume
-    };
+const calculateArea = function (length, width, height) {
+  const area = length * width;
+  const volume = area * height;
+  return {
+    surfaceArea: area,
+    volume: volume,
+  };
 };
 
 // TODO: Convert the calculateArea function above into a named arrow function
@@ -50,10 +49,8 @@ const calculateArea = function(length, width, height) {
 
 // Write your arrow function here:
 
-
 // Test your function (uncomment to test):
 // console.log(calculateAreaArrow(5, 3, 2));
-
 
 // ============================================
 // GUIDED PRACTICE SESSION 3: Array Processing
@@ -61,17 +58,17 @@ const calculateArea = function(length, width, height) {
 
 // Regular function with array processing
 function processStudentGrades(students, passingGrade) {
-    const results = [];
-    for (let i = 0; i < students.length; i++) {
-        const student = students[i];
-        const status = student.grade >= passingGrade ? 'PASS' : 'FAIL';
-        results.push({
-            name: student.name,
-            grade: student.grade,
-            status: status
-        });
-    }
-    return results;
+  const results = [];
+  for (let i = 0; i < students.length; i++) {
+    const student = students[i];
+    const status = student.grade >= passingGrade ? "PASS" : "FAIL";
+    results.push({
+      name: student.name,
+      grade: student.grade,
+      status: status,
+    });
+  }
+  return results;
 }
 
 // TODO: Convert the processStudentGrades function above into a named arrow function
@@ -85,7 +82,6 @@ function processStudentGrades(students, passingGrade) {
 
 // Write your arrow function here:
 
-
 // Test data (uncomment to test):
 // const testStudents = [
 //     { name: "John", grade: 85 },
@@ -96,7 +92,6 @@ function processStudentGrades(students, passingGrade) {
 
 // Test your function (uncomment to test):
 // console.log(processStudentGradesArrow(testStudents, 70));
-
 
 // ============================================
 // BONUS CHALLENGE
