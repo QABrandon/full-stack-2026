@@ -138,5 +138,5 @@ only in script.js - the HTML, CSS, and display functions are provided.
 
 ## Submission Requirements
 
-**Due Date:** March 11
+**Due Date:** April 25
 **Submission Method:** Copy/paste Github Repo link on #projects-showcase - just submit the files from your project-start without the project start folder
