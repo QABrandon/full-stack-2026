@@ -145,3 +145,130 @@ console.log(fruitsTwo.find((fruit) => fruit.length > 3).charAt(3));
 // console.log("banana".charAt(3));
 // console.log("a");
 console.log("banana".charAt(3));
+
+// for in loops
+// loop over objects using key/value pairs
+
+// type forin + tab to get an example below
+
+// for (const key in object) {
+//     if (!Object.hasOwn(object, key)) continue;
+
+//     const element = object[key];
+
+// }
+
+for (const key in otherCar) {
+  console.log("key:", key);
+  // what can we do with this key?
+
+  // the type of each key is a string
+  // that means we can use bracket notation to get all of the values
+
+  console.log("value:", otherCar[key]);
+}
+
+// hasOwnProperty
+// we can check if a object has a property
+// error checking to make sure property isn't undefined when accessed
+// pretty useful for JS to check if your objects in the right state
+// less useful once you use TypeScript
+console.log(otherCar.hasOwnProperty("year")); // we deleted year earlier
+console.log(otherCar.hasOwnProperty("make"));
+
+// methods (actions/functions)
+
+const bankAccount = {
+  accountNumber: "12345-67890",
+  owner: "Sarah Johnson",
+  balance: 1250.75,
+};
+
+
+// whats a method that could help us get all of the values of the properties?
+const accountNumber = "987654321";
+const owner = "Joe Whatever";
+const balance = 9876.54;
+
+
+const smartBankAccount = {
+  accountNumber: "12345-67890",
+  owner: "Sarah Johnson",
+  balance: 1250.75,
+
+  //method
+  // this refers to scope and will make more sense next lesson
+  // referring to the objects accountNumber vs one that is declare outside of the 
+  // object
+  print: function () {
+    console.log(`${this.accountNumber}, ${this.owner}, ${this.balance}`);
+  },
+
+  //desposit
+  //withdraw
+  //getStatement
+};
+
+smartBankAccount.print();
+
+
+// Object Methods
+
+const user = {
+  name: "Alex Thompson",
+  email: "alex@email.com",
+  age: 28,
+  skills: ["JavaScript", "React", "Node.js"],
+};
+
+// Object methods are off of an object called Object not chained
+// off of your object
+
+// extract all of the keys
+const keys = Object.keys(user);
+console.log(keys);
+
+// extract all of the values
+const values = Object.values(user);
+console.log(values);
+
+// get both keys/values
+const entries = Object.entries(user);
+console.log(entries);
+
+console.log(entries[0][0]); //name key
+console.log(entries[0][1]); //name value
+
+// - **Missing `this` keyword:** `balance += amount` instead of `this.balance += amount` in methods
+// - **Arrow functions in methods:** `deposit: (amount) => { this.balance += amount }` - `this` doesn't work!
+
+// create a car object that is reusable
+
+// this is a blueprint for making objects
+function Car(make, model, year, color) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.color = color;
+
+  this.start = function () {
+    console.log(`you started your ${this.model}`);
+  };
+}
+
+const honda = new Car("Honda", "Accord", 2025, "Orange")
+const ford = new Car("Ford", "Mustang", 2010, "Red")
+
+console.log(honda)
+console.log(ford)
+
+let cars = [honda, ford]
+
+// perform the same action on the car list
+for (const car of cars){
+  car.start();
+}
+
+
+// Object Oriented Programming
+// Classes 
