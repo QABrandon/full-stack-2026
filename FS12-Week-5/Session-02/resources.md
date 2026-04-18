@@ -6,6 +6,7 @@
 
 - [Codecademy Arrays](https://www.codecademy.com/article/js-fwd-arrays)
 - [CodeAnalogies Objects and Arrays](https://blog.codeanalogies.com/2017/04/29/javascript-arrays-and-objects-are-just-like-books-and-newspapers/)
+- [Immutable vs Mutable](https://www.freecodecamp.org/news/mutability-vs-immutability-in-javascript/)
 
 ## Visuals
 
