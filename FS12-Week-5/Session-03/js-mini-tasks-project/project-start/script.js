@@ -20,96 +20,68 @@
 
 showSection("Part 1: Arrays");
 
-
 // ---- Task 1: Create an Array ----
-// Create a const variable called parkNames.
-// Assign it an array of at least 6 U.S. national park names as strings.
-// Display the array using show().
+const parkNames = [
+  "Yellowstone",
+  "Yosemite",
+  "Glacier",
+  "Zion",
+  "Great Smoky Mountains",
+  "Grand Canyon",
+];
 
-// TODO: Create the parkNames array here
-
-
-// TODO: show("Task 1: Parks Array", parkNames)
-
+show("Task 1: Parks Array", parkNames);
 
 // ---- Task 2: Access Elements by Index ----
-// Remember: the first element is at index 0.
-// Display the first park, the last park, and any park in the middle.
-// Hint: use parkNames.length - 1 to get the index of the last item.
-// Use show() for each one.
+// kinda middle? i just picked 2 bc it looked close enough
+let middleIndex = 2;
 
-// TODO: show the first park using bracket notation
-
-
-// TODO: show the last park using parkNames.length - 1
-
-
-// TODO: show any park in the middle
-
+show("Task 2: First park (index 0)", parkNames[0]);
+show("Task 2: Last park (index length - 1)", parkNames[parkNames.length - 1]);
+show("Task 2: Middle park", parkNames[middleIndex]);
 
 // ---- Task 3: Loop with a Standard for Loop ----
-// Write a for loop that goes through every item in parkNames.
-// Inside the loop, use console.log() to log: "Park #0: Yellowstone", etc.
-// Use the index variable to show the position number and the value.
-
 showSection("Task 3: Standard for Loop (check console)");
 
-// TODO: Write a for loop here
-
+for (let i = 0; i < parkNames.length; i++) {
+  console.log("Park #" + i + ": " + parkNames[i]);
+}
 
 // ---- Task 4: Loop with for...of ----
-// Write a for...of loop that goes through every item in parkNames.
-// Use console.log() inside the loop to log each park name.
-
 showSection("Task 4: for...of Loop (check console)");
 
-// TODO: Write a for...of loop here
-
+for (const parkName of parkNames) {
+  console.log(parkName);
+}
 
 // ---- Task 5: Loop with forEach ----
-// Call .forEach() on parkNames.
-// Pass a function that receives each park name and logs it with console.log().
-
 showSection("Task 5: forEach (check console)");
 
-// TODO: Call parkNames.forEach() here
-
+parkNames.forEach(function (name) {
+  console.log(name);
+});
 
 // ---- Task 6: Use map() to Transform the Array ----
-// Use .map() to create a new array called officialNames.
-// Each item should be the park name with " National Park" added to the end.
-// Example: "Yellowstone" becomes "Yellowstone National Park"
-// Show both the original and the new array. The original should not change.
+const officialNames = parkNames.map((name) => {
+  return name + " National Park";
+});
 
-// TODO: Create officialNames using .map()
-
-
-// TODO: show("Task 6: Original parkNames (unchanged)", parkNames)
-// TODO: show("Task 6: officialNames from map()", officialNames)
-
+show("Task 6: Original parkNames (unchanged)", parkNames);
+show("Task 6: officialNames from map()", officialNames);
 
 // ---- Task 7: Use filter() to Narrow Down ----
-// Use .filter() to create a new array called longParkNames.
-// Include only park names that are longer than 7 characters.
-// Show the new array.
+const longParkNames = parkNames.filter((name) => {
+  return name.length > 7;
+});
 
-// TODO: Create longParkNames using .filter()
-
-
-// TODO: show("Task 7: Names longer than 7 characters", longParkNames)
-
+show("task 7: Names longer than 7 characters", longParkNames);
 
 // ---- Task 8: Use find() to Locate One Item ----
-// Use .find() on parkNames to get the first park name that starts with "G".
-// Store the result in a variable called firstGPark.
-// Show the result.
-// Note: find() returns a single value, not an array.
+const firstGPark = parkNames.find((name) => {
+  return name.charAt(0) == "G";
+});
 
-// TODO: Use .find() here
-
-
-// TODO: show("Task 8: First park starting with G", firstGPark)
-
+show("Task 8: First park starting with G", firstGPark);
 
 // ============================================================
 // PART 2: OBJECTS
@@ -117,128 +89,91 @@ showSection("Task 5: forEach (check console)");
 
 showSection("Part 2: Objects");
 
-
 // ---- Task 9: Create an Empty Object and Add Properties ----
-// Create a const variable called myPark assigned to an empty object {}.
-// Then, on separate lines, add these properties one at a time:
-//   name, state, established (a year), entranceFee (a number), isWilderness (true)
-// Show myPark after adding all the properties.
+const myPark = {};
 
-// TODO: Create myPark as an empty object
+myPark.name = "Yellowstone";
+myPark.state = "Wyoming";
+myPark.established = 1872;
+myPark.entranceFee = 35;
+myPark.isWilderness = true;
 
-
-// TODO: Add name, state, established, entranceFee, isWilderness properties
-
-
-// TODO: show("Task 9: myPark (built property by property)", myPark)
-
+show("Task 9: myPark (built property by property)", myPark);
 
 // ---- Task 10: Create an Object with Literal Notation ----
-// Create a const variable called otherPark using object literal notation.
-// Define these properties inside the curly braces:
-//   name, state, established, entranceFee
-// Also add a property with a space in its name: "managed by" set to "National Park Service"
-// Also add a nested object called location with properties: region and latitude
-// Show otherPark after creating it.
+const otherPark = {
+  name: "Acadia",
+  state: "Maine",
+  established: 1929,
+  entranceFee: 30,
+  "managed by": "National Park Service",
+  location: {
+    region: "Northeast",
+    latitude: 44.35,
+  },
+};
 
-// TODO: Create otherPark with object literal notation here
-
-
-// TODO: show("Task 10: otherPark (object literal)", otherPark)
-
+show("Task 10: otherPark (object literal)", otherPark);
 
 // ---- Task 11: Dot Notation Access ----
-// Show the name and the established year from otherPark using dot notation.
-
-// TODO: show("Task 11: otherPark.name", otherPark.name)
-
-
-// TODO: show("Task 11: otherPark.established", otherPark.established)
-
+show("Task 11: otherPark.name", otherPark.name);
+show("Task 11: otherPark.established", otherPark.established);
 
 // ---- Task 12: Bracket Notation Access ----
-// Show the state and the entranceFee from otherPark using bracket notation.
-// Then create a variable called propertyToAccess set to the string "name"
-// and use that variable inside bracket notation to access the property.
+show("Task 12: otherPark[\"state\"]", otherPark["state"]);
+show("Task 12: otherPark[\"entranceFee\"]", otherPark["entranceFee"]);
 
-// TODO: show("Task 12: otherPark[\"state\"]", otherPark["state"])
-
-
-// TODO: show("Task 12: otherPark[\"entranceFee\"]", otherPark["entranceFee"])
-
-
-// TODO: Create propertyToAccess and use it inside bracket notation
-
+const propertyToAccess = "name";
+show("Task 12: via variable propertyToAccess", otherPark[propertyToAccess]);
 
 // ---- Task 13: Access a Property with a Space in the Name ----
-// Dot notation causes a SyntaxError for property names that contain a space.
-// Use bracket notation to show the value of the "managed by" property.
-
-// TODO: show("Task 13: otherPark[\"managed by\"]", otherPark["managed by"])
-
+show("Task 13: otherPark[\"managed by\"]", otherPark["managed by"]);
 
 // ---- Task 14: Delete a Property ----
-// Use the delete keyword to remove the entranceFee property from otherPark.
-// Show the value of otherPark.entranceFee before and after deletion.
-// Show the full otherPark object after deletion to confirm it is gone.
+show("Task 14: entranceFee BEFORE delete", otherPark.entranceFee);
 
-// TODO: show the value of entranceFee BEFORE delete
+delete otherPark.entranceFee;
 
-
-// TODO: delete otherPark.entranceFee
-
-
-// TODO: show the value of entranceFee AFTER delete (should be undefined)
-
-
-// TODO: show the full otherPark object
-
+show("Task 14: entranceFee AFTER delete (undefined)", otherPark.entranceFee);
+show("Task 14: otherPark after deletion", otherPark);
 
 // ---- Task 15: Access Nested Objects ----
-// Access the region value inside otherPark.location.
-// First do it the longhand way (using an intermediate variable),
-// then do it the shorthand way (chained dot notation).
-// Show both results.
+const locationRef = otherPark.location;
+const regionLonghand = locationRef.region;
 
-// TODO: Longhand - store otherPark.location in a variable, then access region from it
-
-
-// TODO: show the region value from your intermediate variable
-
-
-// TODO: show("Task 15 shorthand", otherPark.location.region)
-
+show("Task 15 longhand: region", regionLonghand);
+show("Task 15 shorthand", otherPark.location.region);
 
 // ---- Task 16: Add a Method to an Object ----
-// Add a method called getDescription to myPark.
-// The method should return a sentence like:
-//   "Yellowstone was established in 1872 in Wyoming"
-// Call the method and show the result.
+myPark.getDescription = function () {
+  return (
+    this.name +
+    " was established in " +
+    this.established +
+    " in " +
+    this.state
+  );
+};
 
-// TODO: Add a getDescription method to myPark
-// Hint: myPark.getDescription = function() { ... }
-
-
-// TODO: show("Task 16: myPark.getDescription()", myPark.getDescription())
-
+show("Task 16: myPark.getDescription()", myPark.getDescription());
 
 // ---- Task 17: Use 'this' Inside a Method ----
-// Create a new const variable called featuredPark using object literal notation.
-// Give it: name, state, established, annualVisitors, and two methods:
-//   getLabel    - returns "[name] National Park ([state])"
-//   getAge      - returns how many years since it was established (use 2026)
-// Inside both methods, use the 'this' keyword.
-// Show both method results.
-//
-// Important: use the 'function' keyword, not an arrow function.
-// Arrow functions do not have their own 'this'.
+// using 2026 because thats what the assigment said
+const featuredPark = {
+  name: "Grand Canyon",
+  state: "Arizona",
+  established: 1919,
+  annualVisitors: 4733705,
+  getLabel: function () {
+    return this.name + " National Park (" + this.state + ")";
+  },
+  getAge: function () {
+    return 2026 - this.established;
+  },
+};
 
-// TODO: Create featuredPark with getLabel and getAge methods using 'this'
-
-
-// TODO: show("Task 17: featuredPark.getLabel()", featuredPark.getLabel())
-// TODO: show("Task 17: featuredPark.getAge()", featuredPark.getAge())
-
+show("Task 17: featuredPark.getLabel()", featuredPark.getLabel());
+show("Task 17: featuredPark.getAge()", featuredPark.getAge());
 
 // ============================================================
 // PART 3: ARRAYS OF OBJECTS
@@ -246,58 +181,82 @@ showSection("Part 2: Objects");
 
 showSection("Part 3: Arrays of Objects");
 
-
 // ---- Task 18: Create an Array of Park Objects ----
-// Create a const variable called parks.
-// Assign it an array of at least 5 park objects.
-// Each object should have: name, state, established, areaSqMiles, annualVisitors, entranceFee
-// Display the array as a table using showTable().
+// Sizes / 2023 visits from NPS park statistics & park fact pages (nps.gov).
+const parks = [
+  {
+    name: "Yellowstone",
+    state: "Wyoming",
+    established: 1872,
+    areaSqMiles: 3468,
+    annualVisitors: 4501382,
+    entranceFee: 35,
+  },
+  {
+    name: "Yosemite",
+    state: "California",
+    established: 1890,
+    areaSqMiles: 1187,
+    annualVisitors: 4057237,
+    entranceFee: 35,
+  },
+  {
+    name: "Great Smoky Mountains",
+    state: "North Carolina and Tennessee",
+    established: 1934,
+    areaSqMiles: 800,
+    annualVisitors: 13294000,
+    entranceFee: 0,
+  },
+  {
+    name: "Zion",
+    state: "Utah",
+    established: 1919,
+    areaSqMiles: 229,
+    annualVisitors: 4620000,
+    entranceFee: 35,
+  },
+  {
+    name: "Acadia",
+    state: "Maine",
+    established: 1929,
+    areaSqMiles: 77,
+    annualVisitors: 3879890,
+    entranceFee: 30,
+  },
+];
 
-// TODO: Create the parks array of park objects
-
-
-// TODO: showTable("Task 18: Parks Inventory", parks)
-
+showTable("Task 18: Parks Inventory", parks);
 
 // ---- Task 19: Loop Through the Array of Objects ----
-// Use .forEach() to loop through parks.
-// For each park, use console.log() to log a sentence like:
-//   "Yellowstone (Wyoming) - Est. 1872"
-
 showSection("Task 19: Loop through Parks (check console)");
 
-// TODO: Loop through parks with .forEach() and console.log each one
+parks.forEach((park) => {
+  const line =
+    park.name + " (" + park.state + ") - Est. " + park.established;
+  console.log(line);
+});
 
+console.log("(extra log left over from debugging task 19)");
 
 // ---- Task 20: Filter the Parks Array ----
-// Use .filter() twice:
-//   1. Create freeParks - parks where entranceFee === 0
-//   2. Create busyParks - parks where annualVisitors > 4000000
-// Show both results as tables using showTable().
+const freeParks = parks.filter((park) => {
+  return park.entranceFee == 0;
+});
 
-// TODO: Create freeParks using .filter()
+const busyParks = parks.filter((park) => park.annualVisitors > 4000000);
 
-
-// TODO: showTable("Task 20: Free parks", freeParks)
-
-
-// TODO: Create busyParks using .filter()
-
-
-// TODO: showTable("Task 20: Busy parks (4M+ visitors)", busyParks)
-
+showTable("Task 20: Free parks", freeParks);
+showTable("Task 20: Busy parks (4M+ visitors)", busyParks);
 
 // ---- Task 21: Map the Parks Array to Labels ----
-// Use .map() to create a new array called parkLabels.
-// Each item should be a string in the format:
-//   "Yellowstone - Wyoming (1872)"
-// Show the result using show().
+const parkLabels = parks.map((park) => {
+  return (
+    park.name + " - " + park.state + " (" + park.established + ")"
+  );
+});
 
-// TODO: Create parkLabels using .map()
-
-
-// TODO: show("Task 21: Park labels from map()", parkLabels)
-
+show("Task 21: Park labels from map()", parkLabels);
 
 // ============================================================
 // PART 4: OBJECT MANIPULATION
@@ -305,76 +264,103 @@ showSection("Task 19: Loop through Parks (check console)");
 
 showSection("Part 4: Object Manipulation");
 
-
 // ---- Task 22: Copy an Object with Object.assign() ----
-// Create a const variable called basePark with at least 4 properties.
-// Use Object.assign() to create a copy called updatedPark.
-//   Syntax: Object.assign({}, sourceObject)
-// Change one property on updatedPark.
-// Show both objects to confirm the original was not affected.
+const basePark = {
+  name: "Rocky Mountain",
+  state: "Colorado",
+  established: 1915,
+  entranceFee: 30,
+};
 
-// TODO: Create basePark
+const updatedPark = Object.assign({}, basePark);
+updatedPark.entranceFee = 0;
 
-
-// TODO: Copy it into updatedPark using Object.assign({}, basePark)
-
-
-// TODO: Change one property on updatedPark
-
-
-// TODO: show("Task 22: Original basePark (unchanged)", basePark)
-// TODO: show("Task 22: updatedPark with changed property", updatedPark)
-
+show("Task 22: Original basePark (unchanged)", basePark);
+show("Task 22: updatedPark with changed property", updatedPark);
 
 // ---- Task 23: Reference vs Value ----
-// Part A: Primitive copy by value
-//   Create a let variable called originalFee set to 35.
-//   Assign it to a new let variable called saleFee.
-//   Change saleFee to 0.
-//   Show both - originalFee should still be 35.
-//
-// Part B: Object copy by reference
-//   Create a const called parkA with name and entranceFee properties.
-//   Assign parkA to a new const called parkB (plain = assignment, no Object.assign).
-//   Change entranceFee on parkB.
-//   Show both - what do you notice about parkA?
-//
-// Part C: Object equality
-//   Create park1 and park2 with identical properties but as separate objects.
-//   Show park1 === park2 - what does it return and why?
+let originalFee = 35;
+let saleFee = originalFee;
+saleFee = 0;
 
-// TODO: Part A - primitive copy demo
+show("Task 23 Part A: originalFee (still 35)", originalFee);
+show("Task 23 Part A: saleFee (changed to 0)", saleFee);
 
+const parkA = { name: "Test Park", entranceFee: 25 };
+const parkB = parkA;
+parkB.entranceFee = 10;
 
-// TODO: Part B - object reference demo
+show("Task 23 Part B: parkA (fee changed via parkB)", parkA);
+show("Task 23 Part B: parkB (same object as parkA)", parkB);
 
+const park1 = { name: "Demo", entranceFee: 15 };
+const park2 = { name: "Demo", entranceFee: 15 };
 
-// TODO: Part C - object equality demo
-
+show("Task 23 Part C: park1 === park2", park1 === park2);
+show(
+  "Task 23 Part C: why false",
+  "bc === is checking if its the same object in memory not if the stuff inside matches",
+);
 
 // ---- Task 24: const with Objects and Arrays ----
-// Part A: Create a const object called myFavoritePark with a name property.
-//   Change the name property to something different.
-//   Show that the change worked.
-//
-// Part B: Write the line that would try to reassign myFavoritePark to a new object.
-//   Comment it out so the file still runs.
-//   Add a comment explaining what error it would throw.
-//
-// Part C: Create a const array called parkList with two park names.
-//   Push a third park name onto it using .push().
-//   Show that the new item is there.
+const myFavoritePark = { name: "Glacier" };
+myFavoritePark.name = "Olympic";
 
-// TODO: Part A - mutating a const object
+show("Task 24 Part A: myFavoritePark after property change", myFavoritePark);
 
+// myFavoritePark = { name: "New Park" };
+// ^ would throw TypeError: Assignment to constant variable (cant reassign a const)
 
-// TODO: show("Task 24 Part A: myFavoritePark after property change", myFavoritePark)
+const parkList = ["Yellowstone", "Yosemite"];
+parkList.push("Glacier");
 
+show("Task 24 Part C: parkList after .push()", parkList);
 
-// TODO: Part B - commented-out reassignment with error explanation
+// ============================================================
+// BONUS
+// ============================================================
 
+showSection("Bonus: Object.keys / Object.values / Object.entries");
 
-// TODO: Part C - mutating a const array
+const bonusKeysDemo = {
+  unit: "Week 5",
+  topic: "Objects and arrays",
+  hoursLogged: 3,
+};
 
+show("Bonus: Object.keys(bonusKeysDemo)", Object.keys(bonusKeysDemo));
+show("Bonus: Object.values(bonusKeysDemo)", Object.values(bonusKeysDemo));
 
-// TODO: show("Task 24 Part C: parkList after .push()", parkList)
+const bonusEntries = Object.entries(bonusKeysDemo);
+show("Bonus: Object.entries(bonusKeysDemo)", bonusEntries);
+show("Bonus: entries[0][0] (first key)", bonusEntries[0][0]);
+show("Bonus: entries[0][1] (first value)", bonusEntries[0][1]);
+
+showSection("Bonus: Chain .filter() then .map()");
+
+// filter then map (i rewrote it twice to make sure i understood)
+const freeParksForChain = parks.filter((park) => park.entranceFee == 0);
+const longhandLabels = freeParksForChain.map((park) => {
+  return park.name + " (free)";
+});
+
+const chainedLabels = parks
+  .filter((park) => {
+    return park.entranceFee == 0;
+  })
+  .map((park) => park.name + " (free)");
+
+show("Bonus: longhand filter, then map", longhandLabels);
+show("Bonus: chained .filter().map()", chainedLabels);
+show(
+  "Bonus: chained matches longhand (same join string)",
+  chainedLabels.join(" | ") === longhandLabels.join(" | "),
+);
+
+showSection("Bonus: Copy with object spread { ...obj }");
+
+const spreadCopy = { ...basePark };
+spreadCopy.state = "Montana (hypothetical)";
+
+show("Bonus: basePark unchanged after spread copy edit", basePark);
+show("Bonus: spreadCopy with changed state", spreadCopy);
