@@ -2,7 +2,7 @@
 
 - [Learn JavaScript Fundamentals (Codecademy)](https://www.codecademy.com/learn/introduction-to-javascript)
   - Section 5: Scope
-- [Learn JavaScript Classes and Modules]https://www.codecademy.com/learn/learn-javascript-classes-and-modules
+- [Learn JavaScript Classes and Modules](https://www.codecademy.com/learn/learn-javascript-classes-and-modules)
   - Section 1: Classes
 
 ## Docs
