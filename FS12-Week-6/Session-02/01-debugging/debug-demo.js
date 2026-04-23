@@ -6,7 +6,7 @@ for (let i = 1; i <= 10; i++) {
   console.log(i + " hahaha");
 }
 
-temperature = 80;
+const temperature = 80;
 
 if (temperature > 90) {
   console.log("Extremely hot!");
