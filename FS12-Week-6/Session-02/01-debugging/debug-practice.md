@@ -5,7 +5,7 @@
 0. Set a single breakpoint on line 1 (console.log)
 
 1. Start a debug session as shown on the debug.svg
-   for the debug.js file under demo
+   for the debug-demo.js file under demo
 
 - Do either 1 Run and Debug
 - Or 2 - JavaScript Debug Terminal
