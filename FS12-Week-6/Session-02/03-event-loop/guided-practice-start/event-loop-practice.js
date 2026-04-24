@@ -11,7 +11,7 @@
 // -------------------------------------------------------
 
 // Snippet A:
-// Your predicted order: ___________________
+// Your predicted order: 1, 3, 2
 console.log("1");
 setTimeout(function() { console.log("2"); }, 0);
 console.log("3");

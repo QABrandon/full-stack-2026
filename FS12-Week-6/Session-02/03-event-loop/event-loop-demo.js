@@ -1,4 +1,4 @@
-// Module 33e: The Event Loop and Call Stack
+// The Event Loop and Call Stack
 // Run this file with the VS Code debugger - NOT in a browser
 //
 // How to start:
