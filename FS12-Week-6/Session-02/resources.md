@@ -7,7 +7,6 @@
 - [CodeCademy Article - Concurrency and the Event Loop](https://www.codecademy.com/courses/learn-javascript-best-practices/articles/javascript-concurrency-model-and-event-loop)
 - [JavaScript Event Loop](https://www.codecademy.com/resources/docs/javascript/event-loop)
 - https://www.lydiahallie.com/blog/event-loop
-- https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria
 
 ## Interactive Tools
 
