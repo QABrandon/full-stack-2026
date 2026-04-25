@@ -4,7 +4,17 @@
 
 You are building a branching story game that runs in the terminal. You write the story and four functions. The console interface is already written for you at the bottom of script.js - you do not need to touch it.
 
-Run the game at any point with: `node script.js`
+Run the game at any point by:
+
+1. Opening the terminal where your files are located at (check with ls to see script.js in the results)
+2. Put this into the terminal
+
+```bash
+node script.js
+```
+
+3. Hit Enter
+4. Your game will run
 
 ---
 
@@ -60,10 +70,10 @@ const storyNodes = {
     text: "Your opening scene goes here. Set the world, the problem, the stakes.",
     choices: [
       { text: "Your first choice", nextId: "scene-two-a" },
-      { text: "Your second choice", nextId: "scene-two-b" }
+      { text: "Your second choice", nextId: "scene-two-b" },
     ],
-    isEnding: false
-  }
+    isEnding: false,
+  },
 };
 ```
 
@@ -109,12 +119,14 @@ Use this in your other functions instead of writing `storyNodes[sceneId]` direct
 Logs the current scene to the console. This function only logs - it does not ask for input or call any other functions.
 
 What to log:
+
 1. A divider line (optional, but helps readability)
 2. The scene text
 3. If `scene.isEnding` is true: log the `endingTitle`
 4. If `scene.isEnding` is false: log each choice as a numbered list (starting at 1)
 
 Example output for a non-ending scene:
+
 ```
 You wake up in the museum after-hours. The alarm is ringing.
 
@@ -123,6 +135,7 @@ You wake up in the museum after-hours. The alarm is ringing.
 ```
 
 Example output for an ending:
+
 ```
 You made it out. The guard found you at dawn.
 
@@ -136,6 +149,7 @@ The game loop will add the "Quit" option and prompt for input after your functio
 Handles the player selecting a numbered choice.
 
 What to do:
+
 1. Get the scene using `getCurrentScene(sceneId)`
 2. Get the selected choice: `scene.choices[choiceNumber - 1]`
    - `choiceNumber` is 1-based (player sees 1, 2, 3...)
@@ -151,6 +165,7 @@ The game loop will use the returned id to update `currentSceneId` and call `runG
 Resets all state back to the beginning.
 
 What to do:
+
 1. Set `currentSceneId` back to `"start"`
 2. Clear `visitedScenes`: `visitedScenes.length = 0`
 
@@ -190,24 +205,31 @@ Your functions are pure: they read data, update the two state variables, and log
 ## Development Strategy
 
 ### Phase 1: Write the Story (1-2 hours)
+
 1. Pick your genre and sketch your map on paper
 2. Write all scenes in `storyNodes` with real text
 3. Check that every `nextId` matches a real scene key
 
 ### Phase 2: Test the Story Data (5-10 minutes)
+
 Before implementing any functions, add a temporary line to verify your data loads:
+
 ```javascript
 console.log(Object.keys(storyNodes));
 ```
+
 Run `node script.js`. If it crashes before showing anything, you have a syntax error in `storyNodes`. Fix it before continuing. Remove the test line when done.
 
 ### Phase 3: Implement the Functions (30-45 minutes)
+
 Build and test one function at a time:
 
 1. Implement `getCurrentScene`. Test it by temporarily adding:
+
    ```javascript
    console.log(getCurrentScene("start"));
    ```
+
    Run `node script.js` - you should see your start scene object logged.
 
 2. Implement `displayScene`. The game will now show scene text when you run it, but crash when it tries to read your choice (because `makeChoice` is not done yet). That is fine.
@@ -217,6 +239,7 @@ Build and test one function at a time:
 4. Implement `restartGame`. Test by playing to an ending and choosing "Play Again."
 
 ### Phase 4: Test Every Path (15-30 minutes)
+
 Play through every branch in your story map. Every path should reach an ending. No path should crash or lead to a missing scene.
 
 ---
