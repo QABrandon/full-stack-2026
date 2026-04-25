@@ -71,7 +71,7 @@ const items = [
 // Could add pre-steps
 
 // create a working function that print "hello" in the console
-// pass in items as a parameter and prints items to console
+// pass in items as a parameter and prints items to console to that function
 
 // Lets do the pre-steps - Step 6 - write minimal code and test
 
@@ -187,7 +187,7 @@ function getTotalInventoryAmount(items) {
   return total;
 }
 
-console.log(getTotalInventoryAmount(itemsSimple));
+console.log(getTotalInventoryAmount(items));
 
 // 7 - try a different, simpler approach
 

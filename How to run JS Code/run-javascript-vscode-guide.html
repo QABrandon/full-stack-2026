@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Running JavaScript in VSCode – Student Guide</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f4f6f9;
+      color: #1a1a2e;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+    .container { max-width: 820px; margin: 0 auto; }
+
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: white;
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+    header h1 { font-size: 1.9rem; margin-bottom: 0.5rem; }
+    header p { opacity: 0.8; font-size: 1rem; }
+
+    .tip-box {
+      background: #fff8e1;
+      border-left: 4px solid #f9a825;
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+    .tip-box strong { color: #e65100; }
+
+    .method-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+    .method-header {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .method-header.green  { background: #e8f5e9; border-bottom: 3px solid #43a047; }
+    .method-header.blue   { background: #e3f2fd; border-bottom: 3px solid #1e88e5; }
+    .method-header.purple { background: #f3e5f5; border-bottom: 3px solid #8e24aa; }
+    .method-header.orange { background: #fff3e0; border-bottom: 3px solid #fb8c00; }
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge.easiest  { background: #43a047; color: white; }
+    .badge.easy     { background: #1e88e5; color: white; }
+    .badge.medium   { background: #8e24aa; color: white; }
+    .badge.plugin   { background: #fb8c00; color: white; }
+    .method-header h2 { font-size: 1.2rem; flex: 1; }
+
+    .method-body { padding: 1.5rem; }
+    .method-body p { margin-bottom: 0.9rem; color: #333; }
+
+    ol.steps { padding-left: 0; list-style: none; counter-reset: step-counter; }
+    ol.steps li {
+      counter-increment: step-counter;
+      position: relative;
+      padding: 0.75rem 0.75rem 0.75rem 3.2rem;
+      margin-bottom: 0.5rem;
+      background: #f8f9fc;
+      border-radius: 8px;
+    }
+    ol.steps li::before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 0.75rem;
+      top: 0.75rem;
+      width: 1.6rem;
+      height: 1.6rem;
+      background: #1a1a2e;
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      text-align: center;
+    }
+
+    code {
+      background: #1e1e2e;
+      color: #a9dc76;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-family: "Fira Code", "Cascadia Code", Consolas, monospace;
+      font-size: 0.88em;
+    }
+
+    .code-block {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      padding: 1rem 1.25rem;
+      border-radius: 8px;
+      font-family: "Fira Code", "Cascadia Code", Consolas, monospace;
+      font-size: 0.9rem;
+      margin: 0.75rem 0 1rem;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+    .code-block .keyword  { color: #cba6f7; }
+    .code-block .fn       { color: #89b4fa; }
+    .code-block .string   { color: #a6e3a1; }
+    .code-block .comment  { color: #6c7086; font-style: italic; }
+    .code-block .output   { color: #f9e2af; }
+
+    .result-box {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #0f1117;
+      border: 1px solid #2a2a3e;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-family: monospace;
+      color: #a6e3a1;
+      margin: 0.75rem 0;
+      font-size: 0.95rem;
+    }
+    .result-box .label {
+      font-size: 0.72rem;
+      color: #6c7086;
+      background: #1e1e2e;
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-family: sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .warning-box {
+      background: #fce4ec;
+      border-left: 4px solid #e53935;
+      padding: 0.9rem 1.1rem;
+      border-radius: 0 8px 8px 0;
+      margin: 0.9rem 0;
+      font-size: 0.92rem;
+    }
+    .warning-box strong { color: #b71c1c; }
+
+    .note-box {
+      background: #e8f5e9;
+      border-left: 4px solid #43a047;
+      padding: 0.9rem 1.1rem;
+      border-radius: 0 8px 8px 0;
+      margin: 0.9rem 0;
+      font-size: 0.92rem;
+    }
+
+    .divider { border: none; border-top: 1px solid #e0e0e0; margin: 2rem 0; }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+    .comparison-table th {
+      background: #1a1a2e;
+      color: white;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    .comparison-table td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    .comparison-table tr:nth-child(even) td { background: #f8f9fc; }
+    .comparison-table tr:hover td { background: #eef2ff; }
+
+    .checkmark { color: #43a047; font-weight: bold; }
+    .cross     { color: #e53935; font-weight: bold; }
+
+    footer {
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>🚀 Running JavaScript in VS Code</h1>
+    <p>A step-by-step student guide — from <code style="background:rgba(255,255,255,0.15);color:#a6e3a1">console.log("Hello, Codecademy")</code> to running in seconds</p>
+  </header>
+
+  <div class="tip-box">
+    <strong>🎯 Goal:</strong> By the end of this guide you will be able to type a line of JavaScript and see its output instantly inside VS Code — using whichever method works best for you.
+  </div>
+
+
+  <!-- ───────────────────────────────────────────────── -->
+  <!-- METHOD 1 – Run & Debug Panel                      -->
+  <!-- ───────────────────────────────────────────────── -->
+  <div class="method-card">
+    <div class="method-header" style="background:#e8eaf6; border-bottom:3px solid #3949ab">
+      <span class="badge easiest">⭐ Start Here</span>
+      <h2>Method 1 — Run &amp; Debug Panel (built-in, no extensions needed)</h2>
+    </div>
+    <div class="method-body">
+      <p>VS Code has a built-in <strong>Run and Debug</strong> panel that can run a JavaScript file directly using Node.js — no extensions, no terminal commands. It also lets you set breakpoints and step through your code line by line when you're ready to debug.</p>
+
+      <div class="warning-box">
+        <strong>⚠️ Node.js must be installed</strong> and available in your PATH for this to work. See Method 2 for how to install Node.js, and Method 5 for Mac and Windows PATH setup instructions.
+      </div>
+
+      <p style="margin-top:0.75rem"><strong>Step-by-step</strong></p>
+      <ol class="steps">
+        <li>
+          Create a file called <code>hello.js</code> and add your code:
+          <div class="code-block"><span class="fn">console</span>.<span class="fn">log</span>(<span class="string">"Hello, Codecademy"</span>);</div>
+          Save the file with <code>Ctrl+S</code> / <code>Cmd+S</code>.
+        </li>
+        <li>
+          Open the <strong>Run and Debug</strong> panel — click the bug-with-play-button icon in the left sidebar, or press <code>Ctrl+Shift+D</code> (Windows/Linux) / <code>Cmd+Shift+D</code> (Mac).
+        </li>
+        <li>
+          At the top of the panel you'll see a blue <strong>"Run and Debug"</strong> button. Click it.<br>
+          <small style="color:#666">Alternatively, press <code>F5</code> from anywhere in the editor while your <code>.js</code> file is open.</small>
+        </li>
+        <li>
+          VS Code will ask you to <strong>select a debugger</strong>. Choose <strong>Node.js</strong> from the dropdown list.
+        </li>
+        <li>
+          Your file runs immediately. The output appears in the <strong>DEBUG CONSOLE</strong> panel at the bottom:
+          <div class="result-box"><span class="label">debug console</span> Hello, Codecademy</div>
+        </li>
+      </ol>
+
+      <p><strong>Bonus: setting breakpoints</strong></p>
+      <p>Click in the grey margin to the left of any line number to add a red dot — a <strong>breakpoint</strong>. When you run with <code>F5</code>, execution will pause at that line so you can inspect variables. This is handy once you start writing longer scripts and need to see what's happening inside your code.</p>
+
+      <div class="note-box">
+        💡 <strong>Tip:</strong> If VS Code asks you to create a <code>launch.json</code> file, you can safely ignore it for simple scripts — just pick <strong>Node.js</strong> and your file runs directly without any configuration file needed.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ───────────────────────────────────────────────── -->
+  <!-- METHOD 2 – Node.js in the Terminal                -->
+  <!-- ───────────────────────────────────────────────── -->
+  <div class="method-card">
+    <div class="method-header green">
+      <span class="badge easiest">Reliable</span>
+      <h2>Method 2 — Run with Node.js in the VS Code Terminal</h2>
+    </div>
+    <div class="method-body">
+      <p>This is the most reliable and universally recommended approach. Node.js lets you run JavaScript files directly from your terminal — no browser needed.</p>
+
+      <p><strong>Step 1 – Install Node.js</strong> (skip if already installed)</p>
+      <ol class="steps">
+        <li>Go to <strong>nodejs.org</strong> and download the <strong>LTS</strong> version for your operating system.</li>
+        <li>Run the installer and accept all defaults.</li>
+        <li>
+          Verify it worked. Open the VS Code terminal (<code>Ctrl + `</code> on Windows/Linux, <code>Cmd + `</code> on Mac) and type:
+          <div class="code-block">node --version</div>
+          You should see something like <code>v20.x.x</code>. If you do, Node is ready.
+        </li>
+      </ol>
+
+      <p style="margin-top:1rem"><strong>Step 2 – Create and run your first file</strong></p>
+      <ol class="steps">
+        <li>In VS Code, open a folder (<code>File → Open Folder</code>) or create a new one.</li>
+        <li>Create a new file. Click the <strong>New File</strong> icon in the Explorer panel and name it <code>hello.js</code>.</li>
+        <li>
+          Type the following into <code>hello.js</code>:
+          <div class="code-block"><span class="fn">console</span>.<span class="fn">log</span>(<span class="string">"Hello, Codecademy"</span>);</div>
+        </li>
+        <li>Save the file (<code>Ctrl+S</code> / <code>Cmd+S</code>).</li>
+        <li>
+          Open the terminal in VS Code (<code>Ctrl + `</code>) and run:
+          <div class="code-block">node hello.js</div>
+        </li>
+        <li>
+          You should see:
+          <div class="result-box"><span class="label">output</span> Hello, Codecademy</div>
+        </li>
+      </ol>
+
+      <div class="note-box">
+        ✅ <strong>It works!</strong> You can now edit <code>hello.js</code>, add more <code>console.log</code> lines, and re-run with <code>node hello.js</code> any time.
+      </div>
+
+      <div class="warning-box">
+        <strong>Common error:</strong> <em>"node is not recognized as a command"</em> — this means Node.js was not installed or VS Code needs to be restarted after installation. Close and reopen VS Code, then try again.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ───────────────────────────────────────────────── -->
+  <!-- METHOD 3 – Code Runner Extension                  -->
+  <!-- ───────────────────────────────────────────────── -->
+  <div class="method-card">
+    <div class="method-header blue">
+      <span class="badge easy">Easy</span>
+      <h2>Method 3 — Code Runner Extension (one-click run button)</h2>
+    </div>
+    <div class="method-body">
+      <p>The <strong>Code Runner</strong> extension adds a ▶ Run button to VS Code. It uses Node.js under the hood but saves you typing in the terminal every time.</p>
+
+      <ol class="steps">
+        <li>Make sure <strong>Node.js is installed</strong> first (see Method 2, Step 1).</li>
+        <li>
+          In VS Code, click the <strong>Extensions</strong> icon in the left sidebar (or press <code>Ctrl+Shift+X</code>).
+        </li>
+        <li>Search for <code>Code Runner</code> and install the one by <strong>Jun Han</strong> (it has millions of downloads).</li>
+        <li>Create or open your <code>hello.js</code> file with <code>console.log("Hello, Codecademy")</code>.</li>
+        <li>
+          Run it in one of three ways:
+          <ul style="padding-left:1.5rem; margin-top:0.5rem">
+            <li>Click the <strong>▶ Run Code</strong> button in the top-right corner of the editor</li>
+            <li>Right-click in the file → <strong>Run Code</strong></li>
+            <li>Press <code>Ctrl+Alt+N</code> (Windows/Linux) or <code>Ctrl+Option+N</code> (Mac)</li>
+          </ul>
+        </li>
+        <li>
+          The output appears in the <strong>OUTPUT</strong> panel at the bottom:
+          <div class="result-box"><span class="label">output</span> Hello, Codecademy</div>
+        </li>
+      </ol>
+
+      <div class="warning-box">
+        <strong>Note:</strong> Code Runner's OUTPUT panel is read-only. If your code uses <code>prompt()</code> or needs user input, use Method 2 (terminal) instead.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ───────────────────────────────────────────────── -->
+  <!-- METHOD 4 – Quokka.js                              -->
+  <!-- ───────────────────────────────────────────────── -->
+  <div class="method-card">
+    <div class="method-header purple">
+      <span class="badge medium">Popular</span>
+      <h2>Method 4 — Quokka.js (live inline output)</h2>
+    </div>
+    <div class="method-body">
+      <p>Quokka.js shows output <em>right next to your code</em> as you type — great for experimenting and learning. The free "Community" version covers most student needs.</p>
+
+      <p><strong>Troubleshooting common Quokka problems:</strong></p>
+      <div class="warning-box">
+        <strong>⚠️ Quokka requires Node.js.</strong> If Quokka shows a red error or nothing happens, install Node.js first (Method 2, Step 1), then restart VS Code.
+      </div>
+
+      <ol class="steps">
+        <li>Ensure <strong>Node.js is installed</strong> (see Method 2).</li>
+        <li>Install the <strong>Quokka.js</strong> extension: press <code>Ctrl+Shift+X</code>, search <code>Quokka.js</code>, and install.</li>
+        <li>
+          Start Quokka on a file two ways:
+          <ul style="padding-left:1.5rem; margin-top:0.5rem">
+            <li><strong>New scratch file:</strong> Press <code>Ctrl+Shift+P</code>, type <code>Quokka: New JavaScript File</code>, hit Enter</li>
+            <li><strong>Existing file:</strong> Open <code>hello.js</code>, then press <code>Ctrl+Shift+P</code> → <code>Quokka: Start on Current File</code></li>
+          </ul>
+        </li>
+        <li>
+          Type your code:
+          <div class="code-block"><span class="fn">console</span>.<span class="fn">log</span>(<span class="string">"Hello, Codecademy"</span>); <span class="comment">// ← Quokka shows output here inline</span></div>
+        </li>
+        <li>
+          You will see the result appear right in the editor next to the line:
+          <div class="result-box"><span class="label">quokka</span> Hello, Codecademy</div>
+        </li>
+      </ol>
+
+      <p><strong>Quokka error troubleshooting:</strong></p>
+      <ul style="padding-left:1.5rem; margin-bottom:0.75rem">
+        <li style="margin-bottom:0.4rem"><strong>Red squiggle / "Cannot find module"</strong> — run <code>npm init -y</code> in the terminal inside your folder, then restart Quokka.</li>
+        <li style="margin-bottom:0.4rem"><strong>"Quokka license required"</strong> — use the free Community version: press <code>Ctrl+Shift+P</code> → <code>Quokka: Use Community</code>.</li>
+        <li style="margin-bottom:0.4rem"><strong>Nothing appears</strong> — make sure the file extension is <code>.js</code> (not <code>.txt</code>) and Node.js is installed.</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- ───────────────────────────────────────────────── -->
+  <!-- METHOD 5 – JavaScript REPL Extension               -->
+  <!-- ───────────────────────────────────────────────── -->
+  <div class="method-card">
+    <div class="method-header orange">
+      <span class="badge plugin">Extension</span>
+      <h2>Method 5 — JavaScript REPL VS Code Extension</h2>
+    </div>
+    <div class="method-body">
+      <p>The <strong>JavaScript REPL</strong> extension by achil brings an interactive scratchpad directly inside VS Code — run any JavaScript expression and see results inline without leaving your editor.</p>
+
+      <p><strong>Extension ID:</strong> <code>achil.vscode-javascript-repl</code></p>
+
+      <div class="warning-box">
+        <strong>⚠️ Requires Node.js version 10.11.0 or higher,</strong> and the <code>node</code> executable must be available in your system <strong>PATH</strong>. See below for how to set this up on Mac and Windows.
+      </div>
+
+      <!-- PATH setup -->
+      <p style="margin-top:1rem"><strong>How to make sure Node is in your PATH</strong></p>
+
+      <div style="background:#f0f4ff; border-radius:8px; padding:1rem 1.25rem; margin-bottom:1rem">
+        <p style="font-weight:700; margin-bottom:0.6rem">🍎 Mac</p>
+        <ol class="steps">
+          <li>Download and run the <strong>Node.js LTS installer</strong> from <strong>nodejs.org</strong>. The Mac installer automatically adds <code>node</code> to your PATH — no extra steps needed.</li>
+          <li>
+            Verify it worked. Open <strong>Terminal</strong> (search Spotlight for "Terminal") and run:
+            <div class="code-block">node --version</div>
+            You should see a version number like <code>v20.x.x</code>.
+          </li>
+          <li>
+            If you see <em>"command not found"</em>, Node may have been installed via a version manager. Run this to check where it lives:
+            <div class="code-block">which node</div>
+            Then add that path to your shell profile. For most Macs (zsh), open Terminal and run:
+            <div class="code-block">echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc &amp;&amp; source ~/.zshrc</div>
+            Then restart VS Code.
+          </li>
+        </ol>
+      </div>
+
+      <div style="background:#f0f8ff; border-radius:8px; padding:1rem 1.25rem; margin-bottom:1.25rem">
+        <p style="font-weight:700; margin-bottom:0.6rem">🪟 Windows</p>
+        <ol class="steps">
+          <li>Download and run the <strong>Node.js LTS installer</strong> from <strong>nodejs.org</strong>. During install, make sure the option <strong>"Add to PATH"</strong> is checked (it is by default).</li>
+          <li>
+            After installing, <strong>fully close and reopen VS Code</strong> — this is required for VS Code to pick up the new PATH.
+          </li>
+          <li>
+            Verify in the VS Code terminal (<code>Ctrl + `</code>):
+            <div class="code-block">node --version</div>
+            You should see <code>v20.x.x</code> or similar.
+          </li>
+          <li>
+            If you see <em>"node is not recognized"</em>, add Node manually:
+            <ul style="padding-left:1.5rem; margin-top:0.4rem">
+              <li>Search Windows for <strong>"Environment Variables"</strong> → click <em>Edit the system environment variables</em></li>
+              <li>Click <strong>Environment Variables</strong> → find <strong>Path</strong> under System variables → click <strong>Edit</strong></li>
+              <li>Click <strong>New</strong> and add: <code>C:\Program Files\nodejs\</code></li>
+              <li>Click OK on all dialogs, then <strong>restart VS Code</strong>.</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Install & use the extension -->
+      <p><strong>Installing and using the JavaScript REPL extension</strong></p>
+      <ol class="steps">
+        <li>
+          In VS Code, press <code>Ctrl+Shift+X</code> to open Extensions, then search for <code>achil.vscode-javascript-repl</code>. Click <strong>Install</strong>.
+          <br><small style="color:#666">You can also paste the extension ID directly into the search box for an exact match.</small>
+        </li>
+        <li>Create or open any <code>.js</code> file, or open a new untitled file and set the language to JavaScript.</li>
+        <li>
+          Type your code:
+          <div class="code-block"><span class="fn">console</span>.<span class="fn">log</span>(<span class="string">"Hello, Codecademy"</span>);</div>
+        </li>
+        <li>
+          The REPL evaluates your code as you type and shows the result inline in the editor:
+          <div class="result-box"><span class="label">repl</span> Hello, Codecademy</div>
+        </li>
+        <li>To exit the REPL or stop evaluation, close the file or switch to a non-JS file.</li>
+      </ol>
+
+      <div class="warning-box">
+        <strong>Still getting errors after installing Node?</strong> The most common fix is to <strong>fully close and reopen VS Code</strong> after installing Node.js — VS Code only reads PATH when it first launches.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ───────────────────────────────────────────────── -->
+  <!-- METHOD 6 – External JS file linked from HTML      -->
+  <!-- ───────────────────────────────────────────────── -->
+  <div class="method-card">
+    <div class="method-header" style="background:#fff8e1; border-bottom:3px solid #f9a825">
+      <span class="badge" style="background:#f9a825;color:#1a1a2e">No Node needed</span>
+      <h2>Method 6 — Link an external JS file to HTML &amp; open in the browser</h2>
+    </div>
+    <div class="method-body">
+      <p>This approach requires <strong>zero installs</strong> — every computer already has a web browser that can run JavaScript. You keep your JavaScript in its own <code>.js</code> file, link it from an HTML file, open the HTML in Chrome/Firefox/Edge, and see the output in the browser's built-in Developer Console. This is also how real web projects are structured.</p>
+
+      <div class="note-box">
+        ✅ <strong>No Node.js required.</strong> This is the only method on this list that works without installing anything extra.
+      </div>
+
+      <p style="margin-top:0.75rem"><strong>Step 1 — Create your two files</strong></p>
+      <p>You need both files in the <strong>same folder</strong>.</p>
+      <ol class="steps">
+        <li>
+          In VS Code, open a folder (<code>File → Open Folder</code>). Create a new file called <code>hello.js</code> and add your JavaScript:
+          <div class="code-block"><span class="fn">console</span>.<span class="fn">log</span>(<span class="string">"Hello, Codecademy"</span>);</div>
+          Save the file.
+        </li>
+        <li>
+          Create a second file in the same folder called <code>index.html</code>. Paste in the following — notice the <code>&lt;script src="hello.js"&gt;</code> tag at the bottom, which loads your external JS file:
+          <div class="code-block"><span class="keyword">&lt;!DOCTYPE html&gt;</span>
+<span class="keyword">&lt;html&gt;</span>
+  <span class="keyword">&lt;head&gt;</span>
+    <span class="keyword">&lt;title&gt;</span>Hello<span class="keyword">&lt;/title&gt;</span>
+  <span class="keyword">&lt;/head&gt;</span>
+  <span class="keyword">&lt;body&gt;</span>
+
+    <span class="comment">&lt;!-- This loads hello.js from the same folder --&gt;</span>
+    <span class="keyword">&lt;script </span><span class="fn">src</span>=<span class="string">"hello.js"</span><span class="keyword">&gt;&lt;/script&gt;</span>
+
+  <span class="keyword">&lt;/body&gt;</span>
+<span class="keyword">&lt;/html&gt;</span></div>
+          Save this file too.
+        </li>
+      </ol>
+
+      <p style="margin-top:1rem"><strong>Step 2 — Open in the browser</strong></p>
+      <ol class="steps">
+        <li>
+          Open <code>index.html</code> in your browser. Two easy ways:
+          <ul style="padding-left:1.5rem; margin-top:0.4rem">
+            <li><strong>Drag and drop</strong> <code>index.html</code> from your file explorer into a browser window</li>
+            <li><strong>Right-click</strong> <code>index.html</code> in VS Code's Explorer panel → <em>Reveal in File Explorer / Finder</em>, then double-click it</li>
+          </ul>
+        </li>
+        <li>
+          The page will look blank — that's normal. <code>console.log</code> writes to the <strong>Developer Console</strong>, not the visible page. Open it with:
+          <ul style="padding-left:1.5rem; margin-top:0.4rem">
+            <li><strong>Windows/Linux:</strong> <code>F12</code> or <code>Ctrl+Shift+J</code></li>
+            <li><strong>Mac:</strong> <code>Cmd+Option+J</code></li>
+          </ul>
+          Then click the <strong>Console</strong> tab.
+        </li>
+        <li>
+          You should see your output:
+          <div class="result-box"><span class="label">browser console</span> Hello, Codecademy</div>
+        </li>
+        <li>
+          Each time you edit <code>hello.js</code> and save, <strong>refresh the browser</strong> (<code>F5</code> or <code>Ctrl+R</code>) to re-run the code.
+        </li>
+      </ol>
+
+      <p><strong>Bonus: use Live Server for auto-refresh</strong></p>
+      <p>Install the <strong>Live Server</strong> extension by Ritwick Dey (<code>ritwickdey.liveserver</code>) from the Extensions panel. Then right-click <code>index.html</code> in VS Code → <strong>Open with Live Server</strong>. The browser will automatically refresh every time you save either file — no manual reloading needed.</p>
+
+      <div class="warning-box">
+        <strong>Important:</strong> Both <code>index.html</code> and <code>hello.js</code> must be in the <strong>same folder</strong>, otherwise the browser can't find the script. Also remember: <code>console.log</code> output is invisible on the page itself — always open the Developer Console (F12) to see it.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ───────────────────────────────────────────────── -->
+  <!-- ───────────────────────────────────────────────── -->
+  <div class="method-card">
+    <div class="method-header" style="background:#f3f4f6; border-bottom:3px solid #888">
+      <h2>📊 Which Method Should I Use?</h2>
+    </div>
+    <div class="method-body">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Best for…</th>
+            <th>Needs install?</th>
+            <th>Beginner friendly?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Run &amp; Debug Panel</strong></td>
+            <td>Running &amp; debugging, no extra extensions</td>
+            <td>Node.js only</td>
+            <td><span class="checkmark">✔ Yes</span></td>
+          </tr>
+          <tr>
+            <td><strong>2. Node in Terminal</strong></td>
+            <td>All projects, always reliable</td>
+            <td>Node.js only</td>
+            <td><span class="checkmark">✔ Yes</span></td>
+          </tr>
+          <tr>
+            <td><strong>3. Code Runner</strong></td>
+            <td>Quick runs with a button click</td>
+            <td>Node.js + extension</td>
+            <td><span class="checkmark">✔ Yes</span></td>
+          </tr>
+          <tr>
+            <td><strong>4. Quokka.js</strong></td>
+            <td>Live feedback while typing</td>
+            <td>Node.js + extension</td>
+            <td><span class="checkmark">✔ Yes</span></td>
+          </tr>
+          <tr>
+            <td><strong>5. JavaScript REPL extension</strong></td>
+            <td>Inline results as you type</td>
+            <td>Node.js + extension</td>
+            <td><span class="checkmark">✔ Yes</span></td>
+          </tr>
+          <tr>
+            <td><strong>6. JS in HTML file</strong></td>
+            <td>No Node.js install, browser only</td>
+            <td>Nothing — browser only</td>
+            <td><span class="checkmark">✔ Yes</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note-box" style="margin-top:1.25rem">
+        💡 <strong>Recommendation for students:</strong> If you can't install Node.js, start with <strong>Method 6</strong> — just a browser and VS Code. Otherwise, start with <strong>Method 1</strong> (Run &amp; Debug Panel) — built into VS Code, no extra extensions needed.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ───────────────────────────────────────────────── -->
+  <!-- TROUBLESHOOTING                                   -->
+  <!-- ───────────────────────────────────────────────── -->
+  <div class="method-card">
+    <div class="method-header" style="background:#fce4ec; border-bottom:3px solid #e53935">
+      <h2>🔧 General Troubleshooting</h2>
+    </div>
+    <div class="method-body">
+      <ol class="steps">
+        <li><strong>"command not found: node"</strong> — Install Node.js from nodejs.org, then <em>fully close and reopen VS Code</em>.</li>
+        <li><strong>Nothing happens when I run my file</strong> — Make sure your file is saved (<code>Ctrl+S</code>) and ends in <code>.js</code>.</li>
+        <li><strong>Output shows an error, not my text</strong> — Check your code carefully. Common mistakes: missing quotes around text, missing parentheses after <code>log</code>, or a typo in <code>console</code>.</li>
+        <li><strong>VS Code terminal won't open</strong> — Go to <code>View → Terminal</code> from the menu bar.</li>
+        <li><strong>Still stuck?</strong> — Copy the exact error message and search for it on Stack Overflow or ask your instructor.</li>
+      </ol>
+    </div>
+  </div>
+
+  <footer>
+    Guide created for Codecademy students • Works on Windows, Mac, and Linux
+  </footer>
+
+</div>
+</body>
+</html>
