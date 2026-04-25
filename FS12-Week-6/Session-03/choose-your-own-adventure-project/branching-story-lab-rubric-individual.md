@@ -79,5 +79,5 @@ Students build a playable branching story game that runs in the Node.js terminal
 
 ## Submission Requirements
 
-**Due Date:** March 14
+**Due Date:** May 2
 **Submission Method:** GitHub repo link posted in the #projects-showcase channel
