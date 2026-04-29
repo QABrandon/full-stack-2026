@@ -1,10 +1,14 @@
 **Choose one of the following paths:**
 
 ### Option A: Individual Courses
+
 - [Build Interactive Websites (Codecademy)](https://www.codecademy.com/learn/build-interactive-websites)
+  - Focus on just sections 1 and 2
 
 ### Option B: Career Path
-- [Front-End Engineer Career Journey - Building Interactive Websites](https://www.codecademy.com/career-journey/front-end-engineer/path/fecj-22-building-interactive-websites/track/fecj-22-building-interactive-websites)
+
+- [Front-End Engineer Path - Building Interactive Websites](https://www.codecademy.com/career-journey/front-end-engineer/path/fecj-22-building-interactive-websites/track/fecj-22-building-interactive-websites)
+  - Focus on just sections 1 and 2
 
 ## Docs
 
@@ -15,6 +19,7 @@
 - [Event Loop (Lydia Hallie)](https://www.lydiahallie.com/blog/event-loop)
 
 ## Interactive Tools
+
 - [ Event Propagation ](https://www.theclientside.net/dom/dom-event-propagation/)
 - [Interactive Guide to JavaScript Events](https://www.aleksandrhovhannisyan.com/blog/interactive-guide-to-javascript-events/)
 - [DOM Events - Interactive Reference](https://domevents.dev)
