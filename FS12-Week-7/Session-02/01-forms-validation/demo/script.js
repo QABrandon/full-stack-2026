@@ -33,4 +33,26 @@ jobApplicationForm.addEventListener("submit", function (event) {
   const experienceInput = formElements.experience;
 
   console.log("experience input value", experienceInput.value);
+
+  // Practice - 1 - Get the value from the "position" option/drop down
+
+  // Practice - 2 - Get the value from the "availability" checkbox
+
+  if (!hasValidExperience(experienceInput.value)) {
+    alert("Your experience is invalid but thanks for applying");
+  } else {
+    alert("From Submitted");
+  }
 });
+
+// Validation
+
+function hasValidExperience(text){
+    // does this have a particular value in it?
+    if (text.toLowerCase().includes("windows")) {
+        return false;
+    }
+    return true;
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/API/FormData
