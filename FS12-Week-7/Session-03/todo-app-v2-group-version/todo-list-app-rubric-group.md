@@ -67,5 +67,5 @@ Do this in a group of 2 only. No more.
 
 ## Submission Requirements
 
-**Due Date:** March 22, 2025
-**Submission Method:** Github Repo link on #projects channel
+**Due Date:** May 10, 2026
+**Submission Method:** Github Repo link on #project-showcase channel

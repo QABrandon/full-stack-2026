@@ -67,5 +67,5 @@ This rubric evaluates the Simple Todo List App project based on fundamental Java
 
 ## **Submission Requirements**
 
-**Due Date:** March 22, 2025
+**Due Date:** May 10, 2026
 **Submission Method:** Github Repo link on #projects-showcase channel
