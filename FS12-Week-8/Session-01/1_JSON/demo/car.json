@@ -1,0 +1,7 @@
+{
+    "color": "blue",
+    "year": 2010
+    // candrive - boolean
+    // glovebox - array of items as strings
+    // engine object - with hp / liters as properties
+}
