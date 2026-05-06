@@ -1,14 +1,9 @@
 // endpoints on APIS
 
 // Go weather
-
+// gives us back a 404 - not found because api no longer works
 const url = "https://goweather.xyz/weather/Berlin";
 
-// common errors
-// go to a resource that doesn't exist
-
-// gives us back a 404 - not found
-const typoUrl = "https://goweather.xyz/wether/Berlin";
 
 fetch(url) // does a GET request
   // wait for the reponse to come back
