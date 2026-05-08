@@ -5,7 +5,7 @@ const myPromise = new Promise((resolve, reject) => {
 
   // Simulate async work with setTimeout
   setTimeout(() => {
-    const success = Math.random() > 2; // 50% chance
+    const success = true; // 50% chance
 
     if (success) {
       resolve("Task completed successfully!"); // Promise fulfilled

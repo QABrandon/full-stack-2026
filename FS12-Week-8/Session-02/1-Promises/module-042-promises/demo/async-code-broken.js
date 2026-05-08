@@ -34,12 +34,29 @@ console.log(3); // this immediately executes after line 8
 console.log(4); // ...
 console.log(5); // ... this is synchronous
 
+let weatherGlobal = "";
+
 // asynchronous call
 getTodaysWeather(); //
 getTomorrowsWeather().then((weather) => {
-  console.log(weather); // returns last because of the 1000 return time
+  console.log(weather); // returns last because of the 1000 return
+  //set weather here
+  weatherGlobal = weather;
 });
-// console.log(6);
+
+console.log(6);
+console.log("weatherGlobal value is", weatherGlobal);
+
+// working version
+// getTodaysWeather(); //
+// getTomorrowsWeather().then((weather) => {
+//   console.log(weather); // returns last because of the 1000 return
+//   //set weather here
+//   weatherGlobal = weather;
+
+//   console.log(6);
+//   console.log("weatherGlobal value is", weatherGlobal);
+// });
 
 // What will happen when this runs?
 // Option A
