@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-This rubric evaluates the Vanilla JS API Integration Project based on API consumption, asynchronous JavaScript patterns, error handling, data processing, and user interface implementation covered in modules 039-045.
+This rubric evaluates the Vanilla JS API Integration Project based on API consumption, asynchronous JavaScript patterns, error handling, data processing, and user interface.
 
 Note: Consider using this as a starting point for the API(s) you use https://github.com/public-apis/public-apis
 
@@ -48,7 +48,7 @@ Create a user-friendly recipe finder app that allows users to discover recipes u
 
 ## Security
 
-- [ ] Any API tokens needed are not commited or included in code base
+- [ ] Any API keys needed are not commited or included in code base
 
 ### **API Integration and HTTP Fundamentals**
 
@@ -117,4 +117,4 @@ Create a user-friendly recipe finder app that allows users to discover recipes u
 ## Submission Requirements
 
 **Due Date:**(start of major project #3)
-**Submission Method:** Github Repo link on #projects channel
+**Submission Method:** Github Repo link on #project-showcase channel

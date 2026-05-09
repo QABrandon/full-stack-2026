@@ -1,6 +1,8 @@
 // You can use the response from hitting an endpoint
 // to mock or fake out an actual call to your API
 
+// You can grab this data from your network calls by right clicking in the response and copying the object
+
 // flag
 
 const useFakeData = true;
