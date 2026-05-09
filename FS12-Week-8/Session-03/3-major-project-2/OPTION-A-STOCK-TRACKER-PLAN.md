@@ -1,11 +1,10 @@
-# Option A: Stock Tracker Implementation Plan 
+# Option A: Stock Tracker Implementation Plan
 
 Note. This project is significanly simpler than the recipe application and is recommended for most students.
 
 ## Base Features Only - Required Features from Rubric
 
 This plan focuses on implementing the MINIMUM required features to pass. Build features one at a time and test each before moving to the next.
-
 
 ## Remember
 
@@ -93,7 +92,7 @@ Now make it look professional:
 
 **CRITICAL STEP:** You need a working API before coding JavaScript.
 
-**Recommended API:** Alpha Vantage (free tier available)
+**Recommended API:** Alpha Vantage (free tier available) - only 25 req/day
 
 1. Go to https://www.alphavantage.co/support/#api-key
 2. Sign up for a FREE API key
@@ -101,6 +100,7 @@ Now make it look professional:
 4. Test your API using Postman or your browser
 
 **Test this URL in your browser (replace YOUR_API_KEY):**
+
 ```
 https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=YOUR_API_KEY
 ```
@@ -108,8 +108,9 @@ https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=YOUR_
 **You should see JSON data with stock information.**
 
 **Alternative APIs if Alpha Vantage doesn't work:**
+
 - Finnhub (finnhub.io)
-- Twelve Data (twelvedata.com)
+- Twelve Data (twelvedata.com) - 800/req per day limit
 
 **IMPORTANT:** Never commit your API key to GitHub. Use a separate config file.
 
@@ -185,6 +186,7 @@ https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=YOUR_
    - "API error. Try again later."
 
 **Test:**
+
 - Search for "INVALID123" - should show "stock not found" error
 - Turn off WiFi and search - should show network error
 
@@ -200,9 +202,10 @@ https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=YOUR_
 2. Add "Update Shares" button
 3. Create function to save shares to localStorage (Dont forget JSON.stringify)
 4. Load portfolio data when page loads
-5. Display total value of each position (shares * current price)
+5. Display total value of each position (shares \* current price)
 
 **Test:**
+
 - Enter 10 shares for a stock and update
 - Refresh the page
 - The 10 shares should still be displayed
@@ -238,6 +241,7 @@ https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=YOUR_
 5. Prevent adding duplicate stocks
 
 **Test:**
+
 - Add 3 stocks to watchlist
 - Refresh page
 - All 3 stocks should still be in watchlist
@@ -296,31 +300,38 @@ https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=YOUR_
 Go through the rubric and check off each requirement:
 
 **Files:**
+
 - [ ] Separate HTML, CSS, and JS files
 
 **Security:**
+
 - [ ] API key not in code (use separate config or environment variable)
 
 **API Integration:**
+
 - [ ] Successfully connects to stock API
 - [ ] Uses fetch with async/await or .then()
 - [ ] Handles errors with try/catch
 
 **Stock Search:**
+
 - [ ] Users can search by stock symbol
 - [ ] Displays current price
 - [ ] Shows daily change and percentage change
 
 **Portfolio:**
+
 - [ ] Users can enter number of shares
 - [ ] Shares stored in localStorage
 - [ ] Shows total value of stocks owned
 
 **Watchlist:**
+
 - [ ] Users can add stocks to watchlist
 - [ ] Watchlist persists in localStorage
 
 **UI:**
+
 - [ ] Dynamic content display
 - [ ] Loading indicator during API calls
 - [ ] Error messages shown to user
@@ -331,31 +342,41 @@ Go through the rubric and check off each requirement:
 ## Common Problems and Solutions
 
 ### Problem: API returns "Invalid API Key"
+
 **Solution:**
+
 - Double-check you copied the API key correctly
 - Make sure there are no extra spaces
 - Verify the API key is active on the provider's website
 
 ### Problem: API returns "Rate limit exceeded"
+
 **Solution:**
+
 - Free APIs have limited requests per minute
 - Wait 60 seconds and try again
 - Consider using demo/mock data for development
 
 ### Problem: Stock data not displaying
+
 **Solution:**
+
 - Check browser console for errors
 - Verify the API response structure matches your code
 - Use `console.log(data)` to see what the API actually returns
 
 ### Problem: LocalStorage not working
+
 **Solution:**
+
 - Check browser privacy settings
 - Try opening in regular window (not private/incognito)
 - Verify you're using `JSON.stringify()` when saving and `JSON.parse()` when loading
 
 ### Problem: Stock symbol not found
+
 **Solution:**
+
 - Make sure to use proper stock symbols (AAPL, GOOGL, MSFT, etc.)
 - Some APIs only support US stocks
 - Check API documentation for supported exchanges
@@ -389,4 +410,3 @@ Only add these AFTER all required features work:
 - [ ] Error messages are user-friendly
 
 ---
-

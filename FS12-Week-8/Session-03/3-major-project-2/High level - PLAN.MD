@@ -8,6 +8,7 @@
     - Static structure
   - I need to integrate an API
     - Find an test out APIs, POSTMAN
+      - Google search API name + Postman to find postman collections
     - build out each call that that interacts with APi
   - Local Storage features
      - favorites/amounts of stocks
