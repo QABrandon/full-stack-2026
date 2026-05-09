@@ -12,7 +12,7 @@ We'll use OpenWeather API because it's free, beginner-friendly, and widely used 
 
 ### Step 1: Sign Up for an API Key
 
-1. Go to [https://openweathermap.org/api](https://openweathermap.org/api)
+1. Go to [https://openweathermap.org/price](https://openweathermap.org/price)
 2. Click "Sign Up" in the top right corner
 3. Fill out the registration form with your email
 4. Check your email and verify your account
@@ -20,6 +20,9 @@ We'll use OpenWeather API because it's free, beginner-friendly, and widely used 
 6. Copy your API key (it looks like: `a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6`)
 
 **Important:** It may take 10-15 minutes for your API key to activate after signup.
+
+You may get an email that looks like this:
+  - ![alt text](image.png)
 
 ---
 
@@ -34,7 +37,8 @@ Before writing code, test if your API key works:
 https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY
 ```
 
-3. You should see JSON data about London's weather
+3. You should see JSON data about London's weather similar to 
+  - ![alt text](image-1.png)
 4. If you see an error, wait a few minutes for your key to activate
 
 ---
