@@ -57,6 +57,11 @@ https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY
    - 5e. update the value as your API key you got
    - 6f. Add to: "Query Params"
      ![alt text](image-2.png)
+3. Create a new request and name it GetByCity
+
+- Change the request GET and the url to "https://api.openweathermap.org/data/2.5/weather?q=London"
+
+4. Send to test the request. If it works hit Save
 
 ---
 
