@@ -2,7 +2,7 @@
 
 ## Courses - Continued Practice
 
-- [Learn React Introduction](https://www.codecademy.com/learn/learn-react-introduction) (for Modules 47, 48)
+- [Learn React Introduction](https://www.codecademy.com/learn/learn-react-introduction)
 
 ## Articles
 
