@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function InteractiveCounter() {
-  const [count, setCount] = useState(0); // useState returns [ value, function]
+  const [count, setCount] = useState(0) // useState returns [ value, function]
 
 
   // alternatively we could do the following
