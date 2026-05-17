@@ -17,7 +17,6 @@ function App() {
       <ProductList />
       <PizzaMenu />
       <PizzaMenuUseState />
-      <SignUpForm />
     </>
   );
 }
