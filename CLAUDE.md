@@ -1,6 +1,6 @@
 # full-stack-2026 — project context
 
-**Last updated:** April 21, 2026
+**Last updated:** May 19, 2026
 
 ## What this is
 
@@ -24,8 +24,10 @@ Cohort sync scripts and Cursor-only config live under paths like `scripts/` and
 ## Repo layout (tracked on GitHub)
 
 - **`index.html`** — site home (interactive portfolio).
-- **`portfolio/`** — one subdirectory or file group per project (e.g.
-  `portfolio/personal-bio.html`, `portfolio/src/...`). Add new work here.
+- **`portfolio/`** — one subdirectory per finished project, named by project
+  type and sequence (e.g. `portfolio/minor-01-personal-bio/`,
+  `portfolio/major-02-recipe-finder/`), plus shared assets under
+  `portfolio/src/...`. Add new finished work here.
 - **`README.md`** — short repo description for visitors.
 - **`CLAUDE.md`** — this file; context for assistants.
 - **`LICENSE`**, **`.gitignore`**, **`vercel.json`** — standard root files (redirects

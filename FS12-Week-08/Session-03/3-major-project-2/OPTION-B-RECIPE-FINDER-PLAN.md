@@ -119,6 +119,7 @@ https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=YOUR_API_KE
 
 **Alternative APIs if Spoonacular doesn't work:**
 
+- [TheMealDB](https://www.themealdb.com/documentation) — meal/recipe API documentation (free test key `1` while learning; see endpoints for search, lookup, filter, and images)
 - Edamam Recipe API (edamam.com)
 
 **IMPORTANT:** Never commit your API key to GitHub. Use a separate config file.

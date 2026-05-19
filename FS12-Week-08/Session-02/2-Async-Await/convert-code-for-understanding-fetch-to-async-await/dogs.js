@@ -51,6 +51,37 @@ const typoUrl = "https://dogapi.dog/api/v1/facts?number=1";
 
 // later on when we get to modules in react/node you would call this with "await fetchData()"
 
+async function fetchData() {
+  try {
+    const response = await fetch(url);
+
+    if (response.status >= 400 && response.status < 500) {
+      const errorMessage = handleClientErrors(response);
+      throw new Error(errorMessage);
+    }
+
+    const data = await response.json();
+
+    console.log("break");
+
+    const dogFactSection = document.querySelector("#dog-fact");
+
+    const h2 = document.createElement("h2");
+    h2.textContent = data.facts[0];
+
+    dogFactSection.appendChild(h2);
+  } catch (error) {
+    console.log("caught error", error);
+    document.querySelector("#user-error").innerHTML = `
+      <div class="error-message">
+        <h3>Oops! ${error.message}</h3>
+      </div>
+    `;
+  }
+}
+
+fetchData();
+
 function handleClientErrors(response) {
   switch (response.status) {
     case 400:
