@@ -1,0 +1,60 @@
+body {
+  background-color: lightblue;
+  padding: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  font-style: italic;
+}
+
+.container {
+  display: flex;
+  /* by default row */
+  flex-direction: row;
+}
+
+/* media queries to our css */
+/* they give us the ability to do things when our viewport is a specific size */
+/* have overrides for css */
+
+/* Tablet Media Query */
+/* media queries at the bottom of our pages */
+@media screen and (max-width: 768px) {
+  /* override only the css that I need to change */
+  /* rules/rulesets go in here */
+  body {
+    /* only add the properties that you want to override */
+    background-color: orange;
+    /* we are not adding padding here */
+  }
+
+  .container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    /* only add the properties that you want to override */
+    background-color: pink;
+    /* we are not adding padding here */
+  }
+
+  .container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  body {
+    /* only add the properties that you want to override */
+    font-weight: bold;
+    /* we are not adding padding here */
+  }
+}

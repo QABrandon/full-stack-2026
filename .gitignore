@@ -17,25 +17,4 @@
 
 # misc
 .DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# local env files
-.env*.local
-.env
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-
-# Local-only (not published to this portfolio repo; keeps copies on disk untracked)
-/scripts/
-/.cursor/
-/FS12-Week-*/
+node_modules/

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Basics</title>
+    <style>
+        .container {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        /* Basic flex container */
+        .flex-container {
+            display: flex;
+            background-color: #e0e0e0;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .flex-item {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            margin: 5px;
+            text-align: center;
+            min-width: 100px;
+        }
+        
+        /* Flex direction examples */
+        .flex-row { flex-direction: row; }
+        .flex-column { flex-direction: column; }
+        .flex-row-reverse { flex-direction: row-reverse; }
+        
+        /* Justify content examples */
+        .justify-start { justify-content: flex-start; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .justify-around { justify-content: space-around; }
+        
+        /* Align items examples */
+        .align-stretch { align-items: stretch; height: 100px; }
+        .align-center { align-items: center; height: 100px; }
+        .align-start { align-items: flex-start; height: 100px; }
+        
+        /* Flex item properties */
+        .grow-1 { flex-grow: 1; }
+        .grow-2 { flex-grow: 2; }
+        .shrink-0 { flex-shrink: 0; }
+        
+        h3 {
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flexbox Examples</h1>
+    
+    <div class="container">
+        <h3>1. Basic Flex Container (Row)</h3>
+        <div class="flex-container flex-row">
+            <div class="flex-item">Item 1</div>
+            <div class="flex-item">Item 2</div>
+            <div class="flex-item">Item 3</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h3>2. Flex Direction: Column</h3>
+        <div class="flex-container flex-column">
+            <div class="flex-item">Item 1</div>
+            <div class="flex-item">Item 2</div>
+            <div class="flex-item">Item 3</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h3>3. Justify Content: Center</h3>
+        <div class="flex-container justify-center">
+            <div class="flex-item">Item 1</div>
+            <div class="flex-item">Item 2</div>
+            <div class="flex-item">Item 3</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h3>4. Justify Content: Space Between</h3>
+        <div class="flex-container justify-between">
+            <div class="flex-item">Item 1</div>
+            <div class="flex-item">Item 2</div>
+            <div class="flex-item">Item 3</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h3>5. Align Items: Center</h3>
+        <div class="flex-container align-center">
+            <div class="flex-item">Short</div>
+            <div class="flex-item">Taller<br>Item</div>
+            <div class="flex-item">Item 3</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h3>6. Flex Grow Properties</h3>
+        <div class="flex-container">
+            <div class="flex-item">Fixed</div>
+            <div class="flex-item grow-1">Grow 1</div>
+            <div class="flex-item grow-2">Grow 2</div>
+        </div>
+    </div>
+</body>
+</html>

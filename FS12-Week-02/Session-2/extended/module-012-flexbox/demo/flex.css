@@ -1,0 +1,32 @@
+body{
+    height: 500px;
+}
+
+/* master these ones first  - flex container properties*/
+.container{
+     /* I want to control the direct children elements to act in a certain way */
+    display:flex;
+ /* flex-direction - defaults to row */
+    justify-content: center;
+    /* align-items */
+    flex-wrap: wrap;
+    height: 300px;
+}
+
+.items {
+    /* items have specific properties that we apply as well */
+    /* align-self */
+    /* flex grow */
+    /* order */
+}
+
+#item2{
+    align-self: flex-end;
+}
+
+div{
+    width: 50px;
+    background-color: aqua;
+    border: 1px solid black;
+    padding:20px;
+}

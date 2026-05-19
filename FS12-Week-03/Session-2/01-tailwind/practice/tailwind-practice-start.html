@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jordan Chen</title>
+
+    <!-- Tailwind is loaded here. It reads your class names and applies the styles. -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+
+<!--
+    ============================================================
+    WELCOME! Here's how Tailwind works in one sentence:
+    Instead of writing CSS, you add small class names to your HTML.
+
+    Example:
+        BEFORE:  <p>Hello</p>
+        AFTER:   <p class="text-blue-600 text-xl">Hello</p>
+
+    That's it. Each class does one thing.
+    Add a class → save the file → refresh the browser → see the change.
+
+    Work through the steps below from top to bottom.
+    The finished file shows you what you're building toward.
+    ============================================================
+-->
+
+<!--
+    STEP 1 — Give the page a background colour.
+
+    Add this to the <body> tag:   bg-gray-100
+
+    bg-       = background
+    gray-100  = a very light grey (100 is lightest, 900 is darkest)
+
+    Try it: <body class="bg-gray-100">
+-->
+<body>
+
+
+    <!--
+        STEP 2 — Style the header.
+
+        The header looks plain right now. Let's give it a white background,
+        some breathing room, and a line underneath to separate it from the page.
+
+        Add to <header>:   bg-white p-6 border-b border-gray-200
+
+        bg-white        = white background
+        p-6             = padding on all sides (space inside the element)
+        border-b        = a line on the bottom edge
+        border-gray-200 = make that line light grey
+    -->
+    <header>
+
+        <!--
+            STEP 3 — Make the name big and bold.
+
+            Add to <h1>:   text-3xl font-bold
+
+            text-3xl  = large font size
+            font-bold = bold text
+        -->
+        <h1>Jordan Chen</h1>
+
+        <!--
+            STEP 4 — Make the subtitle smaller and grey.
+
+            Add to <p>:   text-gray-500 mt-1
+
+            text-gray-500 = medium grey text
+            mt-1          = a tiny bit of space above (mt = margin-top)
+        -->
+        <p>Finance Professional Transitioning to Software Development</p>
+
+        <!--
+            STEP 5 — Put the nav links in a row.
+
+            Right now the links are stacked. Flex puts them side by side.
+
+            Add to <nav>:   flex gap-6 mt-4
+
+            flex  = lay children out in a row (flexbox)
+            gap-6 = space between each link
+            mt-4  = space above the nav
+
+            Then add to each <a>:   text-blue-600 hover:underline
+
+            text-blue-600   = blue link colour
+            hover:underline = underline appears when you mouse over
+        -->
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!--
+        STEP 6 — Centre the page content and limit its width.
+
+        Without this, text stretches across the full screen on wide monitors.
+
+        Add to <main>:   max-w-3xl mx-auto p-8 space-y-12
+
+        max-w-3xl   = maximum width of ~768px
+        mx-auto     = centre it horizontally (mx = margin left+right, auto = equal both sides)
+        p-8         = padding around all the content inside
+        space-y-12  = adds vertical space between each direct child (the sections)
+    -->
+    <main>
+
+
+        <!-- ── ABOUT SECTION ────────────────────────────────── -->
+        <section id="about">
+
+            <!--
+                STEP 7 — Style the section heading.
+
+                Add to <h2>:   text-2xl font-bold mb-4
+
+                text-2xl  = a good size for section headings
+                font-bold = bold
+                mb-4      = space below the heading (mb = margin-bottom)
+            -->
+            <h2>About Me</h2>
+
+            <!--
+                STEP 8 — Make the photo round.
+
+                Add to <img>:   w-36 h-36 rounded-full object-cover mb-6
+
+                w-36         = width of 9rem
+                h-36         = height of 9rem (same as width = square before rounding)
+                rounded-full = makes it a circle
+                object-cover = crops the image nicely so it fills the circle
+                mb-6         = space below the photo
+            -->
+            <img src="photo.png" alt="Photo of Jordan Chen">
+
+            <!--
+                STEP 9 — Style the paragraphs.
+
+                Add to each <p>:   text-gray-700 mb-3
+
+                text-gray-700 = dark grey (easier to read than pure black)
+                mb-3          = space below each paragraph
+            -->
+            <p>I'm a finance professional with 8 years of experience in corporate financial analysis, budgeting, and strategic planning who is making an exciting career transition into software development.</p>
+            <p>After years of working with complex financial models and data analysis, I discovered my passion for technology and decided to pursue a career where I can build solutions rather than just analyze numbers.</p>
+            <p>When I'm not studying code or crunching numbers, you'll find me hiking mountain trails, trying new restaurants with friends, or reading about the latest fintech innovations.</p>
+
+        </section>
+
+
+        <!-- ── SKILLS SECTION ───────────────────────────────── -->
+        <section id="skills">
+
+            <!-- Add the same heading style as Step 7: text-2xl font-bold mb-6 -->
+            <h2>Skills &amp; Experience</h2>
+
+            <!--
+                STEP 10 — Put the skill cards in a grid.
+
+                Right now the three cards stack on top of each other.
+                A grid lays them out in columns.
+
+                Add to this <div>:   grid grid-cols-3 gap-6
+
+                grid         = turn this into a grid container
+                grid-cols-3  = three equal columns
+                gap-6        = space between the columns and rows
+            -->
+            <div>
+
+                <!--
+                    STEP 11 — Style each card.
+
+                    Add to each of the three card <div>s:
+                        bg-white rounded-xl p-5 shadow-sm
+
+                    bg-white    = white card on the grey background
+                    rounded-xl  = nicely rounded corners
+                    p-5         = padding inside the card
+                    shadow-sm   = a subtle drop shadow so it lifts off the page
+                -->
+
+                <div>
+                    <!-- Add to <h3>:  font-bold mb-3 -->
+                    <h3>Financial Analysis &amp; Business</h3>
+                    <!-- Add to <ul>:  text-gray-600 text-sm space-y-1 -->
+                    <ul>
+                        <li>Financial Modeling &amp; Forecasting</li>
+                        <li>Data Analysis &amp; Excel Advanced Functions</li>
+                        <li>Budget Planning &amp; Variance Analysis</li>
+                        <li>SQL for Financial Reporting</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Professional Skills</h3>
+                    <ul>
+                        <li>Project Management</li>
+                        <li>Cross-functional Team Leadership</li>
+                        <li>Client Presentation &amp; Communication</li>
+                        <li>Problem-solving &amp; Critical Thinking</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Currently Learning</h3>
+                    <ul>
+                        <li>HTML &amp; CSS Fundamentals</li>
+                        <li>JavaScript Programming</li>
+                        <li>Web Development Best Practices</li>
+                        <li>Version Control with Git</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ── CONTACT SECTION ──────────────────────────────── -->
+        <section id="contact">
+
+            <!-- Add the same heading style: text-2xl font-bold mb-4 -->
+            <h2>Let's Connect</h2>
+
+            <!-- Add to each contact <p>:   text-gray-700 -->
+            <p>Email: jordan.chen@email.com</p>
+            <p>LinkedIn: linkedin.com/in/jordanchen</p>
+            <p>GitHub: github.com/jordanchen</p>
+
+            <!-- Add to <h3>:   font-bold mt-8 mb-4 -->
+            <h3>Send me a message</h3>
+
+            <!--
+                STEP 12 — Stack the form fields neatly.
+
+                Add to <form>:   flex flex-col gap-4 max-w-md
+
+                flex        = flexbox layout
+                flex-col    = stack children vertically (column direction)
+                gap-4       = space between each field
+                max-w-md    = don't let the form get too wide
+            -->
+            <form>
+
+                <div>
+                    <!-- Add to <label>:  text-sm font-medium text-gray-700 -->
+                    <label>Your Name</label>
+                    <!--
+                        STEP 13 — Style the inputs.
+
+                        Add to each <input> and <textarea>:
+                            border border-gray-300 rounded-lg px-4 py-2 text-sm w-full
+
+                        border          = adds a visible border
+                        border-gray-300 = light grey border colour
+                        rounded-lg      = rounded corners
+                        px-4 py-2       = padding inside the field
+                        text-sm         = slightly smaller text
+                        w-full          = stretch to full width of the form
+                    -->
+                    <input type="text" placeholder="Jane Smith">
+                </div>
+
+                <div>
+                    <label>Your Email</label>
+                    <input type="email" placeholder="jane@example.com">
+                </div>
+
+                <div>
+                    <label>Message</label>
+                    <textarea rows="4" placeholder="I'd love to hear from you..."></textarea>
+                </div>
+
+                <!--
+                    STEP 14 — Style the button.
+
+                    Add to <button>:
+                        bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-medium
+
+                    bg-blue-600       = blue background
+                    hover:bg-blue-700 = slightly darker blue on hover
+                    text-white        = white text
+                    px-6 py-2         = padding (wider sides, smaller top/bottom)
+                    rounded-lg        = rounded corners
+                    font-medium       = slightly bold text
+                -->
+                <button type="submit">Send Message</button>
+
+            </form>
+        </section>
+
+    </main>
+
+
+    <!--
+        STEP 15 — Style the footer.
+
+        Add to <footer>:   text-center text-sm text-gray-400 py-8 border-t border-gray-200
+
+        text-center     = centre the text
+        text-sm         = small font
+        text-gray-400   = light grey (fades it into the background)
+        py-8            = padding top and bottom
+        border-t        = a line along the top
+        border-gray-200 = light grey line
+    -->
+    <footer>
+        <p>© 2024 Jordan Chen. From spreadsheets to code — embracing the journey.</p>
+    </footer>
+
+</body>
+</html>
