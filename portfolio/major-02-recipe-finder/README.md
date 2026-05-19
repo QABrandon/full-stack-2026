@@ -16,6 +16,16 @@ Users can:
 - Save favorite recipes with localStorage.
 - Remove saved favorites.
 
+## Design Approach
+
+The app uses a clean, card-based recipe finder layout with a warm, food-inspired
+color palette. The design is mobile-first: sections stack on small screens and
+shift into a two-column layout on desktop.
+
+It was built with plain HTML, CSS, and JavaScript to match the class project
+requirements. It does not use Tailwind, Bootstrap, Webflow, or a professional
+design system.
+
 ## API Used
 
 Primary API: <https://www.themealdb.com/api/json/v1/1/>
