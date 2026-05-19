@@ -10,13 +10,13 @@ import WelcomeMessage from "./components/WelcomeMessage";
 function App() {
   return (
     <>
-      <h2> Basic Usage</h2>
-      <WelcomeMessage />
+      {/* <h2> Basic Usage</h2>
+      <WelcomeMessage /> */}
       {/* <h2>Dependency Array</h2>
       <UserDashboard /> */}
-      <h2>API calls - one of the most common times to use useEffect</h2>
-      {/* <Pokemon /> - try to fix this one */} - 
-      <h2>Dependncy + API call</h2>
+      {/* <h2>API calls - one of the most common times to use useEffect</h2> */}
+      {/* <Pokemon />  */}
+      {/* <h2>Dependency + API call</h2> */}
       <PokemonSelector />
     </>
   );

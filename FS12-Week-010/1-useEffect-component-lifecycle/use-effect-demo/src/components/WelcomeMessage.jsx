@@ -10,7 +10,7 @@ export default function WelcomeMessage() {
   useEffect(() => {
     console.log("Component Rendered!");
     setMessage("Welcome to our app!");
-  });
+  }, []);
 
   return (
     <>

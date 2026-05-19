@@ -10,34 +10,34 @@ export default function UserDashboard({ userId }) {
   // refer to this to modify
   // welcome message
 
-  // No dependency array - runs after EVERY render
-  useEffect(() => {
-    console.log("This runs after every render!");
-  });
+  // // No dependency array - runs after EVERY render
+  // useEffect(() => {
+  //   console.log("This runs after every render!");
+  // });
 
   // Only want to update the component mounts
   // run only once
   // useEffect(()=>{}, [])
 
-  // Empty dependency array - runs ONLY on mount
-  useEffect(() => {
-    console.log("This runs only once when component mounts!");
-  }, []);
+  // // Empty dependency array - runs ONLY on mount
+  // useEffect(() => {
+  //   console.log("This runs only once when component mounts!");
+  // }, []);
 
-  // Update on a specific state change
+  // // Update on a specific state change
 
-  // when the user changes, I want to rerun my
-  // useEffect
+  // // when the user changes, I want to rerun my
+  // // useEffect
 
   useEffect(() => {
     console.log("runs when user changes");
     loadInitialData();
   }, [user]);
 
-  // Update on a specific state change
+  // // Update on a specific state change
 
-  // when the user changes, I want to rerun my
-  // useEffect
+  // // when the user changes, I want to rerun my
+  // // useEffect
 
   useEffect(() => {
     console.log("runs when user or post changes");

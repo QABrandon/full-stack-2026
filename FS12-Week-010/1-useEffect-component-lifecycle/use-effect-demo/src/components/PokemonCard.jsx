@@ -30,7 +30,7 @@ export default function PokemonCard({ pokemonName = "ditto" }) {
     }
 
     fetchPokemon();
-  },[pokemonName]); //Empty array to have this run once
+  },[pokemonName]); //Updates when the user changes the dropdown in PokemonSelector component
 
   return (
     <>
