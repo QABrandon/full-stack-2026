@@ -167,9 +167,11 @@ button:hover {
   color: #7c4a03;
 }
 
-.button-danger {
-  background: #fee2e2;
-  color: #991b1b;
+button.button-secondary:hover,
+button.button-secondary:focus-visible {
+  border-color: #92400e;
+  background: #92400e;
+  color: #ffffff;
 }
 
 .icon-button {

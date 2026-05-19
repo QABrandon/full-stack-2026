@@ -244,7 +244,7 @@ function renderFavorites() {
           <div class="favorite-card-body">
             <h3>${recipe.strMeal}</h3>
             <p>${recipe.strCategory || "Category not listed"} · ${recipe.strArea || "Area not listed"}</p>
-            <button class="button-danger" type="button" data-remove-id="${recipe.idMeal}">
+            <button class="button-secondary" type="button" data-remove-id="${recipe.idMeal}">
               Remove
             </button>
           </div>
