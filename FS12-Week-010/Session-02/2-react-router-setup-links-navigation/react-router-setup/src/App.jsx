@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 function App() {
   return (
     <BrowserRouter>
+    {/* Header Component could go here */}
       <Routes>
         {/* for the root patch  */}
         {/* prefix to path will typically be http://localhost:5173 or something similar or the deployed domain name */}
@@ -24,6 +25,7 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Navigation />
+      {/* Footer component could go here */}
     </BrowserRouter>
   );
 }
