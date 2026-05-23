@@ -89,5 +89,5 @@ Design an interactive game like memory or tic-tac-toe using React components, ho
 
 ## Submission Requirements
 
-**Due Date:** April 25th
-**Submission Method:** Github Repo link on #projects channel
+**Due Date:** Start of Major Project 4
+**Submission Method:** Github Repo link on #project-showcase channel

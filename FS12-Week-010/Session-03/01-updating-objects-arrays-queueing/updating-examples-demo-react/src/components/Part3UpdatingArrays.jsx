@@ -37,6 +37,18 @@ export default function Part3UpdatingArrays() {
     };
 
     setItems((prev) => [...prev, newItem]); // New array created
+
+    // You could also do
+    setItems([...items, newItem])
+
+    // this is the same as doing
+    setItems([
+      { id: 1, name: "Apple", price: 1.5, quantity: 5 },
+      { id: 2, name: "Banana", price: 0.8, quantity: 3 },
+      { id: 3, name: "Orange", price: 2.0, quantity: 2 },
+      newItem
+    ]);
+
     setNewItemName("");
   };
 

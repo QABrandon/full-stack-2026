@@ -36,6 +36,8 @@ export default function Part2UpdatingNestedObjects() {
   // RIGHT WAY - Spread all levels that change
   const updateThemeRight = () => {
     console.log("RIGHT: Spreading all nested levels");
+    // this way lets you pull in the values in order if you
+    // were to spam the update button
     setUserProfile((prev) => ({
       ...prev,
       preferences: {
@@ -43,7 +45,44 @@ export default function Part2UpdatingNestedObjects() {
         theme: prev.preferences.theme === "dark" ? "light" : "dark",
       },
     }));
+
+    // alternatively - in this case not an issue
+
+    // setUserProfile({
+    //   ...userProfile,
+    //   preferences: {
+    //     ...userProfile.preferences,
+    //     theme: userProfile.preferences.theme === "dark" ? "light" : "dark",
+    //   },
+    // });
+
+    // you are essentially doing this either way
+
+    setUserProfile({
+      personal: {
+        name: "Alice",
+        age: 25,
+        email: "alice@example.com",
+      },
+      preferences: {
+        theme: "dark",
+        notifications: true,
+        language: "en",
+      },
+      settings: {
+        privacy: "public",
+        newsletter: false,
+      },
+      profileId: 123,
+      anotherProperty: "This is another primitive",
+      preferences: {
+        ...userProfile.preferences,
+        theme: userProfile.preferences.theme === "dark" ? "light" : "dark",
+      },
+    });
   };
+
+  // a
 
   // Reset function to restore initial state
   const resetProfile = () => {
@@ -58,10 +97,11 @@ export default function Part2UpdatingNestedObjects() {
       <div
         className="current-state"
         style={{
-          backgroundColor: userProfile.preferences.theme === "dark" ? "#2d3748" : "#f7fafc",
+          backgroundColor:
+            userProfile.preferences.theme === "dark" ? "#2d3748" : "#f7fafc",
           color: userProfile.preferences.theme === "dark" ? "#fff" : "#000",
           transition: "all 0.3s ease",
-          border: `2px solid ${userProfile.preferences.theme === "dark" ? "#4a5568" : "#e2e8f0"}`
+          border: `2px solid ${userProfile.preferences.theme === "dark" ? "#4a5568" : "#e2e8f0"}`,
         }}
       >
         <h3>Current State:</h3>

@@ -19,12 +19,12 @@ export default function Part1UpdatingObjects() {
   const updateNameRight = () => {
     console.log("RIGHT: create new user object");
     // spread is only a shallow copy of the object
-    setUser({ ...user, name: "Bob" });
+    setUser({ ...user, name: "Bob" }); // the order here is important
     // equivalent to 
       // setUser({
       //   name: "Alice",
       //   age: 25,
-      //   name: "Bob"
+      //   name: "Bob" // because bob is second it is the final name value
       // })d
   };
 
