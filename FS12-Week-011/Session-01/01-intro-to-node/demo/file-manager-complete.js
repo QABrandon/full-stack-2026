@@ -30,10 +30,20 @@ createFile(nameOfFile, contentsOfFile);
 //   //use fs.readFile here - https://nodejs.org/learn/manipulating-files/reading-files-with-nodejs
 // }
 
-//readFile("test.txt"); //uncomment this
+function readFile(filename) {
+  console.log("Reading file:", filename);
+  fs.readFile(filename, "utf8", (err, data) => {
+    if (err) {
+      console.error("Error reading file", err.message);
+      return;
+    }
+    console.log("File Contents:");
+    console.log(data);
+  });
+}
+
+readFile("test.txt");
 
 // read the file back out to the console
 
 // execute and read from test.txt
-
-
