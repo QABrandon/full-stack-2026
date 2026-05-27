@@ -1,0 +1,18 @@
+{
+  "name": "basic-demo",
+  "version": "1.0.0",
+  "description": "This is the basic demo",
+  "license": "ISC",
+  "author": "Tyler",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

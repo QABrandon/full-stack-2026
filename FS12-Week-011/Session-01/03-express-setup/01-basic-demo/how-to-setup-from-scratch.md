@@ -3,7 +3,7 @@
 
 ```json
 "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon server.js"
   },
 ```
 
@@ -13,5 +13,5 @@
 npm install nodemon express
 ```
 
-4. create a index.js file
-5. follow the code in index.js
+4. create a server.js file
+5. follow the code in server.js
