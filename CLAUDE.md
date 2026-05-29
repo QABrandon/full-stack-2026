@@ -18,8 +18,8 @@ individual todo app under
 may push updates to those tracked paths when they choose; staging can require
 **`git add -f`** on specific files because of the ignore rule.
 
-Cohort sync scripts and Cursor-only config live under paths like `scripts/` and
-`.cursor/` and remain **out of Git** unless policy changes.
+Cohort sync scripts and other local-only tooling live under paths like `scripts/`
+and remain **out of Git** unless policy changes.
 
 ## Repo layout (tracked on GitHub)
 
@@ -46,7 +46,7 @@ Cohort sync scripts and Cursor-only config live under paths like `scripts/` and
    root files, or **explicit paths** (including tracked `FS12-Week-*` coursework).
    Do not widen scope into unrelated week folders or cohort-only materials.
 3. **Git** — Remote: [github.com/QABrandon/full-stack-2026](https://github.com/QABrandon/full-stack-2026).
-   Do not re-add **`scripts/`** or **`.cursor/`** unless the user explicitly
+   Do not re-add **`scripts/`** or other local-only tooling paths unless the user explicitly
    changes that policy. Treat **`FS12-Week-*`** as ignore-shielded: do not mass-stage
    untracked cohort trees; for **tracked** FS12 files the owner requests, stage
    **only those paths** (use **`git add -f`** when Git refuses ignored paths).
