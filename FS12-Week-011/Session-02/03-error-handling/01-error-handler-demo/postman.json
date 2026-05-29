@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "error-handler-demo",
+		"name": "Error Handler Demo - Users API",
+		"description": "Test collection for Express error handling demonstration with users API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API Documentation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3600/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3600",
+					"path": [
+						""
+					]
+				},
+				"description": "Get API documentation and available endpoints"
+			}
+		},
+		{
+			"name": "Get All Users (Success)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3600/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3600",
+					"path": [
+						"users"
+					]
+				},
+				"description": "Successfully retrieve all users - should return 200"
+			}
+		},
+		{
+			"name": "Create User (Success)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Charlie\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3600/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3600",
+					"path": [
+						"users"
+					]
+				},
+				"description": "Successfully create a new user - should return 201"
+			}
+		},
+		{
+			"name": "Create User - Missing Name (400 Error)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "http://localhost:3600/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3600",
+					"path": [
+						"users"
+					]
+				},
+				"description": "Test validation error - missing name field should return 400"
+			}
+		},
+		{
+			"name": "Create User - Name Too Short (400 Error)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"A\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3600/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3600",
+					"path": [
+						"users"
+					]
+				},
+				"description": "Test validation error - name too short should return 400"
+			}
+		},
+		{
+			"name": "Create User - Duplicate Name (500 Error)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Alice\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3600/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3600",
+					"path": [
+						"users"
+					]
+				},
+				"description": "Test unhandled error - duplicate name causes 500 server error due to accessing property on undefined"
+			}
+		},
+		{
+			"name": "Create User - Duplicate Name (500 Error - Bob)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Bob\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3600/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3600",
+					"path": [
+						"users"
+					]
+				},
+				"description": "Test unhandled error - another duplicate name test with Bob"
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3600",
+			"type": "string"
+		}
+	]
+}
