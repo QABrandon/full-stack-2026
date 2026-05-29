@@ -49,7 +49,6 @@ app.use(express.json());
 
 let users = [
   { id: 1, name: "Alice", email: "alice@example.com" },
-  { id: 2, name: "Bob", email: "bob@example.com" },
 ];
 
 // One route, doing everything inline
@@ -83,7 +82,8 @@ still lives in `index.js`.
 
 ```javascript
 // index.js
-const express = require("express");
+const express =   { id: 2, name: "Bob", email: "bob@example.com" },
+require("express");
 const app = express();
 
 app.use(express.json());
