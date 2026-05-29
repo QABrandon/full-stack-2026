@@ -1,4 +1,4 @@
-# Major 03: React Todo List App
+# Minor 04: React Todo List App
 
 FS12 Week 9 Session 3 — React + Vite rebuild of the Week 7 vanilla todo app.
 
@@ -8,7 +8,7 @@ FS12 Week 9 Session 3 — React + Vite rebuild of the Week 7 vanilla todo app.
 
 | Location | Purpose |
 |----------|---------|
-| `portfolio/major-03-react-todo/` (this folder) | Source code, local dev, portfolio build |
+| `portfolio/minor-04-react-todo/` (this folder) | Source code, local dev, portfolio build |
 | `portfolio/minor-03-todo-list-app/` | Vanilla JavaScript version (Week 7) |
 | [github.com/QABrandon/react-todo](https://github.com/QABrandon/react-todo) | Separate class submission repo for `#project-showcase` |
 
@@ -30,4 +30,4 @@ npm run dev
 npm run build
 ```
 
-After `npm run build`, open the portfolio card or visit `/portfolio/major-03-react-todo/dist/` on the deployed site.
+After `npm run build`, open the portfolio card or visit `/portfolio/minor-04-react-todo/dist/` on the deployed site.
