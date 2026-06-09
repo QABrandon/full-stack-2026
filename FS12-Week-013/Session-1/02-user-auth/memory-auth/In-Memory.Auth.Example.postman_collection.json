@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "063fb715-37f0-4017-ab47-0f8355e78a1d",
+    "_postman_id": "c150931b-5ab4-4f43-adae-e1884045bf3c",
     "name": "In-Memory Auth Example",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "48235078"
@@ -49,14 +49,14 @@
           }
         },
         "url": {
-          "raw": "http://localhost:3000/signup",
+          "raw": "http://localhost:3000/login",
           "protocol": "http",
           "host": [
             "localhost"
           ],
           "port": "3000",
           "path": [
-            "signup"
+            "login"
           ]
         }
       },
@@ -66,7 +66,18 @@
       "name": "users",
       "request": {
         "method": "GET",
-        "header": []
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "users"
+          ]
+        }
       },
       "response": []
     }
