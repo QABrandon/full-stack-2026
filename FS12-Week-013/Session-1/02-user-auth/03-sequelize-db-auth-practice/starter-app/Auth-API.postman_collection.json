@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "sequelize-auth-api",
+		"name": "Sequelize Auth API",
+		"description": "Tests for the signup and login endpoints. Run requests in order - some depend on variables set by earlier requests. The pre-request script on 'Signup Success' generates a unique username each run so the collection works on repeat executions.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup Success",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"// Generate a unique username so the test can be re-run without conflicts",
+							"const uniqueUsername = 'testuser_' + Date.now();",
+							"pm.collectionVariables.set('test_username', uniqueUsername);",
+							"pm.collectionVariables.set('test_password', 'securePassword123');"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 201', function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test('Response contains username and userId', function () {",
+							"    const res = pm.response.json();",
+							"    pm.expect(res).to.have.property('username');",
+							"    pm.expect(res).to.have.property('userId');",
+							"});",
+							"",
+							"pm.test('Response does NOT contain password fields', function () {",
+							"    const res = pm.response.json();",
+							"    pm.expect(res).to.not.have.property('password');",
+							"    pm.expect(res).to.not.have.property('hashedPassword');",
+							"});",
+							"",
+							"if (pm.response.code === 201) {",
+							"    pm.collectionVariables.set('user_id', pm.response.json().userId);",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"{{test_username}}\",\n  \"password\": \"{{test_password}}\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/signup",
+					"host": ["{{base_url}}"],
+					"path": ["signup"]
+				}
+			}
+		},
+		{
+			"name": "Signup Missing Fields",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 400', function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test('Returns a required-fields message', function () {",
+							"    const res = pm.response.json();",
+							"    pm.expect(res.message).to.include('required');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"justausername\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/signup",
+					"host": ["{{base_url}}"],
+					"path": ["signup"]
+				}
+			}
+		},
+		{
+			"name": "Signup Duplicate Username",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 400', function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test('Returns duplicate username message', function () {",
+							"    const res = pm.response.json();",
+							"    pm.expect(res.message.toLowerCase()).to.include('already exists');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"{{test_username}}\",\n  \"password\": \"anotherPassword\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/signup",
+					"host": ["{{base_url}}"],
+					"path": ["signup"]
+				}
+			}
+		},
+		{
+			"name": "Login Success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Returns success message and userId', function () {",
+							"    const res = pm.response.json();",
+							"    pm.expect(res.message).to.eql('Login successful');",
+							"    pm.expect(res).to.have.property('userId');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"{{test_username}}\",\n  \"password\": \"{{test_password}}\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": ["{{base_url}}"],
+					"path": ["login"]
+				}
+			}
+		},
+		{
+			"name": "Login Wrong Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 401', function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test('Returns invalid credentials message', function () {",
+							"    const res = pm.response.json();",
+							"    pm.expect(res.message).to.eql('Invalid username or password');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"{{test_username}}\",\n  \"password\": \"wrongPassword\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": ["{{base_url}}"],
+					"path": ["login"]
+				}
+			}
+		},
+		{
+			"name": "Login Unknown User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 401', function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test('Returns invalid credentials message', function () {",
+							"    const res = pm.response.json();",
+							"    pm.expect(res.message).to.eql('Invalid username or password');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{ "key": "Content-Type", "value": "application/json" }
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"nobody_here_12345\",\n  \"password\": \"anyPassword\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": ["{{base_url}}"],
+					"path": ["login"]
+				}
+			}
+		},
+		{
+			"name": "Get All Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Response contains users array', function () {",
+							"    const res = pm.response.json();",
+							"    pm.expect(res).to.have.property('users');",
+							"    pm.expect(Array.isArray(res.users)).to.be.true;",
+							"});",
+							"",
+							"pm.test('Users do not expose hashedPassword', function () {",
+							"    const res = pm.response.json();",
+							"    if (res.users.length > 0) {",
+							"        pm.expect(res.users[0]).to.not.have.property('hashedPassword');",
+							"    }",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/users",
+					"host": ["{{base_url}}"],
+					"path": ["users"]
+				}
+			}
+		}
+	],
+	"variable": [
+		{ "key": "base_url", "value": "http://localhost:3000" },
+		{ "key": "test_username", "value": "" },
+		{ "key": "test_password", "value": "" },
+		{ "key": "user_id", "value": "" }
+	]
+}
