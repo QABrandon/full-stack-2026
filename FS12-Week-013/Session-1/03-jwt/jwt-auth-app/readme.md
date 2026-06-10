@@ -1,6 +1,6 @@
 1. npm install
-2. open JavaScript Debug Terminal
-3. cd into the jwt-auth-app path
+2. open package.json
+3. click debug
 4. add breakpoints at login/ signup /dashboard/profile
 5. node server.js
 6. open localhost:3000 in your browser
