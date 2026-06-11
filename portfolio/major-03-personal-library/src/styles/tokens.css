@@ -1,0 +1,65 @@
+/* References: BMWS neutrals (structure), mockup (layout/accent), WCAG AA verified */
+
+:root {
+  --color-bg: #f7f8fa;
+  --color-surface: #ffffff;
+  --color-text: #0e1116;
+  --color-text-muted: #5a6068;
+  --color-border: #0e11161a;
+  --color-primary: #1d4ed8;
+  --color-primary-hover: #1e40af;
+  --color-link: #2563eb;
+  --color-stat: #2563eb;
+  --color-focus: #2563eb;
+  --color-error: #b42318;
+  --color-success: #067647;
+  --color-nav-active-bg: #eff6ff;
+
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-display: "Literata", Georgia, serif;
+
+  --text-page-title: clamp(1.75rem, 2.5vw + 1rem, 2.75rem);
+  --text-section: clamp(1.25rem, 1vw + 1rem, 1.5rem);
+  --text-body: clamp(1rem, 0.15vw + 0.95rem, 1.0625rem);
+  --text-small: 0.875rem;
+
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-gutter: clamp(1rem, 3vw, 2rem);
+
+  --radius-md: 10px;
+  --radius-pill: 999px;
+  --container-max: 72rem;
+  --focus-outline: 2px solid var(--color-focus);
+  --focus-offset: 2px;
+
+  --shadow-sm: 0 1px 3px rgb(14 17 22 / 8%);
+}
+
+[data-theme="dark"] {
+  --color-bg: #0b0f14;
+  --color-surface: #151a22;
+  --color-text: #e8eaed;
+  --color-text-muted: #9aa3ad;
+  --color-border: #ffffff1f;
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-link: #60a5fa;
+  --color-stat: #60a5fa;
+  --color-focus: #60a5fa;
+  --color-nav-active-bg: #1e293b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
