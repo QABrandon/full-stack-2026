@@ -2,6 +2,8 @@
 
 FS12 Week 10 Session 3 — Major Project 3 (Option A). React + Vite library app with Google Books search, Context API, custom hooks, localStorage, favorites, filter/sort, and WCAG 2.1 AA patterns.
 
+![Personal Library app — Search Books page](../src/images/project-previews/major-03-personal-library-preview.png)
+
 ## Related locations
 
 | Location | Purpose |
