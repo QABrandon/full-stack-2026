@@ -8,9 +8,10 @@ This guide explains what was built in each commit phase of the Week 9 Session 3 
 
 | Location | Role |
 |----------|------|
-| `portfolio/minor-04-react-todo/` in [full-stack-2026](https://github.com/QABrandon/full-stack-2026) | Canonical source — develop and build here |
-| [github.com/QABrandon/react-todo](https://github.com/QABrandon/react-todo) (`todo-react-app/`) | Class submission repo for `#project-showcase` |
-| `portfolio/minor-03-todo-list-app/` | Week 7 vanilla version (behavior and design reference) |
+| `~/Desktop/BM Work/Full-Stack Bootcamp 2026/portfolio/minor-04-react-todo/` | Portfolio source — develop and build here |
+| `~/Desktop/BM Work/My Projects/FS Bootcamp/react-todo/` (`todo-react-app/`) | Local submission repo for `#project-showcase` |
+| [github.com/QABrandon/react-todo](https://github.com/QABrandon/react-todo) | Remote submission repo |
+| `portfolio/minor-03-todo-list-app/` in [full-stack-2026](https://github.com/QABrandon/full-stack-2026) | Week 7 vanilla version (behavior and design reference) |
 
 Related session files: `plan.md`, `todo-react-project-rubric.md`, `component-slicing.png`.
 
@@ -336,8 +337,8 @@ When you change the portfolio folder and need the class repo to match:
 
 ```bash
 rsync -av --exclude node_modules --exclude dist \
-  "/path/to/full-stack-2026/portfolio/minor-04-react-todo/" \
-  "/path/to/react-todo/todo-react-app/"
+  ~/Desktop/BM\ Work/Full-Stack\ Bootcamp\ 2026/portfolio/minor-04-react-todo/ \
+  ~/Desktop/BM\ Work/My\ Projects/FS\ Bootcamp/react-todo/todo-react-app/
 ```
 
 Then commit and push `react-todo` separately.

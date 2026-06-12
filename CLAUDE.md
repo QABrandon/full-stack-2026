@@ -1,6 +1,6 @@
 # full-stack-2026 — project context
 
-**Last updated:** June 11, 2026
+**Last updated:** June 12, 2026
 
 ## What this is
 
@@ -20,6 +20,26 @@ may push updates to those tracked paths when they choose; staging can require
 
 Cohort sync scripts and other local-only tooling live under paths like `scripts/`
 and remain **out of Git** unless policy changes.
+
+## Local project layout (two folders)
+
+| Location | Use for |
+| --- | --- |
+| `~/Desktop/BM Work/Full-Stack Bootcamp 2026/` | **This Git repo** — portfolio site (`index.html`, `portfolio/`), cohort week files (`FS12-Week-*` where tracked), and on-site demos (`portfolio/*/dist/`, static HTML projects) |
+| `~/Desktop/BM Work/My Projects/FS Bootcamp/` | **Everything else** — separate class submission repos, API-only projects, and any future bootcamp work that does not belong inside `full-stack-2026` |
+
+**Policy:** All **future** FS12 projects that are not a fit for `Full-Stack Bootcamp 2026` live under **`FS Bootcamp/`** (each in its own folder, usually its own Git repo). Link to them from the portfolio via `projects-data.js` (on-site path or external GitHub URL). Copy or rsync **build output only** into `portfolio/` when the site needs a live demo.
+
+Current folders under `FS Bootcamp/`:
+
+| Folder | Project |
+| --- | --- |
+| `personal-library/` | Major 03 — Personal Library (`personal-library-app/`) |
+| `blog-post-api/` | Minor 05 — Blog Post API (Week 11 Express) |
+| `react-todo/` | Minor 04 — React todo submission (`todo-react-app/`) |
+| `music-library/` | Major 04 — Music Explorer (planned) |
+
+When adding a new external project, create `~/Desktop/BM Work/My Projects/FS Bootcamp/<repo-name>/`, push to GitHub, then add a portfolio card if it should appear on the site.
 
 ## Repo layout (tracked on GitHub)
 
@@ -73,6 +93,12 @@ and remain **out of Git** unless policy changes.
    the site home). Paths in `path` are relative to `portfolio/` except absolute
    site links (`"/"`). No manual edits to project card HTML on `index.html` or
    `projects.html` unless the layout itself changes.
+7. **Projects outside this repo** — Do not create new class submission apps at
+   the root of `Full-Stack Bootcamp 2026` unless they are portfolio demos under
+   `portfolio/`. Put new standalone repos in
+   `~/Desktop/BM Work/My Projects/FS Bootcamp/<project-name>/`. Document paths in
+   project READMEs and week summary docs using that base. Sync builds into
+   `portfolio/` only when the published site needs a local demo.
 
 ## When in doubt
 

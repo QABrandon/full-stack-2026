@@ -4,6 +4,7 @@
 **Course:** FS12 Week 11 Session 3 — Express API Project  
 **Setup path:** **Option A — Start from Scratch** (not Option B template copy)  
 **Submission:** [github.com/QABrandon/blog-post-api](https://github.com/QABrandon/blog-post-api)  
+**Local original:** `~/Desktop/BM Work/My Projects/FS Bootcamp/blog-post-api/`  
 **Due date (rubric):** June 6
 
 This document summarizes what was built, how it maps to the rubric and plan, and **why** key decisions were made — for instructor review, `#project-showcase`, or oral defense.
@@ -31,8 +32,9 @@ Automated tests: **17 Newman requests, 39 assertions** — all passing when the 
 
 | Location | Role |
 | --- | --- |
-| [github.com/QABrandon/blog-post-api](https://github.com/QABrandon/blog-post-api) | **Class submission** — sole repo for this project |
-| Portfolio site | **Not listed** — API-only assignment; no portfolio HTML page (rubric: interact via Postman) |
+| `~/Desktop/BM Work/My Projects/FS Bootcamp/blog-post-api/` | **Local original** — source, Newman tests, README |
+| [github.com/QABrandon/blog-post-api](https://github.com/QABrandon/blog-post-api) | **Remote submission** — push target for `#project-showcase` |
+| [full-stack-2026](https://github.com/QABrandon/full-stack-2026) portfolio card | **GitHub link only** — no on-site demo (API tested via Postman/Newman) |
 
 ---
 
@@ -187,11 +189,20 @@ Errors bubble to `errorHandler`; unknown routes hit the `*` handler before that.
 ## How to verify
 
 ```bash
-git clone https://github.com/QABrandon/blog-post-api.git
-cd blog-post-api
+cd ~/Desktop/BM\ Work/My\ Projects/FS\ Bootcamp/blog-post-api
 npm install
 npm run dev          # terminal 1 — http://localhost:3000
 npm test             # terminal 2 — Newman collection
+```
+
+Or clone fresh:
+
+```bash
+git clone https://github.com/QABrandon/blog-post-api.git
+cd blog-post-api
+npm install
+npm run dev          # terminal 1
+npm test             # terminal 2
 ```
 
 Optional manual check: import `Blog-Post-API.postman_collection.json` in Postman with `baseUrl` = `http://localhost:3000`.

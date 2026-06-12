@@ -9,6 +9,11 @@ under **`portfolio/`**, organized by type and sequence.
 build. The home page shows the three newest. Card data is maintained in
 `portfolio/js/projects-data.js`.
 
+**Local project folders** (see `CLAUDE.md`):
+
+- **`Full-Stack Bootcamp 2026/`** (this repo) — portfolio site and on-site project demos
+- **`My Projects/FS Bootcamp/`** — all other bootcamp submission repos and future projects that do not live in this tree
+
 ## Major projects
 
 | Project | Folder | Summary |

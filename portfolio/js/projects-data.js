@@ -17,9 +17,8 @@ window.PORTFOLIO_PROJECTS = [
     title: "Minor 05: Blog Post API",
     description:
       "Week 11 Express REST API for blog posts and users—MVC routes and controllers, validation, error middleware, and Newman-tested CRUD. Source and tests on GitHub (no frontend).",
-    preview: "minor-05-blog-api-preview.svg",
-    previewAlt:
-      "Thumbnail representing the Blog Post API with REST endpoint labels",
+    preview: "../project-thumb.svg",
+    previewAlt: "Generic project preview placeholder",
     path: "https://github.com/QABrandon/blog-post-api",
     linkLabel: "View on GitHub",
   },

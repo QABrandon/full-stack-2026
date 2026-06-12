@@ -4,6 +4,7 @@
 **Course:** FS12 Week 10 Session 3 — Major Project 3  
 **Option chosen:** Option A — Personal Library App (not Mini Game)  
 **Submission:** [github.com/QABrandon/personal-library](https://github.com/QABrandon/personal-library)  
+**Local original:** `~/Desktop/BM Work/My Projects/FS Bootcamp/personal-library/`  
 **Portfolio demo:** [full-stack-2026/portfolio/major-03-personal-library/dist/](https://github.com/QABrandon/full-stack-2026/tree/main/portfolio/major-03-personal-library/dist)
 
 This document summarizes what was built, how it maps to the rubric and plan, and **why** key decisions were made — for instructor review, `#project-showcase`, or oral defense.
@@ -24,8 +25,9 @@ The project demonstrates Week 10 learning goals: `useState`, `useEffect`, immuta
 
 | Location | Role |
 | --- | --- |
-| [github.com/QABrandon/personal-library](https://github.com/QABrandon/personal-library) (`personal-library-app/`) | **Class submission** — source, commits, README, local dev |
-| `portfolio/major-03-personal-library/dist/` in [full-stack-2026](https://github.com/QABrandon/full-stack-2026) | **Portfolio only** — built static output for the site card (no duplicate React source) |
+| `~/Desktop/BM Work/My Projects/FS Bootcamp/personal-library/` (`personal-library-app/`) | **Local original** — source, commits, README, local dev |
+| [github.com/QABrandon/personal-library](https://github.com/QABrandon/personal-library) | **Remote submission** — push target for `#project-showcase` |
+| `~/Desktop/BM Work/Full-Stack Bootcamp 2026/portfolio/major-03-personal-library/dist/` | **Portfolio only** — built static output for the site card (no duplicate React source) |
 
 **Why two locations:** The rubric requires a clean GitHub repo for grading. The portfolio site needs a stable `dist/` path under `/portfolio/major-03-personal-library/dist/` without copying the entire Vite project into the showcase repo. Source stays canonical in `personal-library`; the portfolio folder is refreshed with `npm run build` + `rsync` when the demo needs updating.
 
@@ -203,6 +205,14 @@ flowchart TB
 ---
 
 ## How to verify
+
+```bash
+cd ~/Desktop/BM\ Work/My\ Projects/FS\ Bootcamp/personal-library/personal-library-app
+npm install
+npm run dev
+```
+
+Or clone fresh:
 
 ```bash
 git clone https://github.com/QABrandon/personal-library.git

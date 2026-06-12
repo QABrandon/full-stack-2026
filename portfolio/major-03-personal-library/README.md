@@ -9,16 +9,17 @@ FS12 Week 10 Session 3 — Major Project 3 (Option A). React + Vite library app 
 | Location | Purpose |
 | --- | --- |
 | `portfolio/major-03-personal-library/` (this folder) | Portfolio build output (`dist/`) for the site home card |
-| [github.com/QABrandon/personal-library](https://github.com/QABrandon/personal-library) | Canonical source, local dev, class submission, and deploy |
+| `~/Desktop/BM Work/My Projects/FS Bootcamp/personal-library/` | **Local original** — source, dev, class submission |
+| [github.com/QABrandon/personal-library](https://github.com/QABrandon/personal-library) | Remote submission repo |
 
-Source code lives in the submission repo only. This folder keeps the built app so visitors can open it from the portfolio site without duplicating React/Vite project files here.
+Source code lives in the submission folder only. This portfolio directory keeps the built app so visitors can open it from the site without duplicating React/Vite project files here.
 
 ## Refresh the portfolio build
 
-From the submission repo, build with stable asset names (no content hashes) so the portfolio copy stays human-readable:
+From the local submission repo, build with stable asset names (no content hashes) so the portfolio copy stays human-readable:
 
 ```bash
-cd personal-library-app
+cd ~/Desktop/BM\ Work/My\ Projects/FS\ Bootcamp/personal-library/personal-library-app
 VITE_BASE_PATH=/portfolio/major-03-personal-library/dist/ npm run build
 ```
 
@@ -42,7 +43,7 @@ build: {
 Then copy the build into this portfolio folder:
 
 ```bash
-rsync -a --delete dist/ "/path/to/full-stack-2026/portfolio/major-03-personal-library/dist/"
+rsync -a --delete dist/ ~/Desktop/BM\ Work/Full-Stack\ Bootcamp\ 2026/portfolio/major-03-personal-library/dist/
 ```
 
 After `npm run build`, open the portfolio card or visit `/portfolio/major-03-personal-library/dist/` on the deployed site.
