@@ -12,6 +12,17 @@
  */
 window.PORTFOLIO_PROJECTS = [
   {
+    order: 9,
+    type: "major",
+    title: "Major 04: Music Explorer API",
+    description:
+      "Week 12 Express + Sequelize API — iTunes search, PostgreSQL favorites CRUD, pagination bonus, and Postman-tested endpoints. Source on GitHub (no frontend).",
+    preview: "../project-thumb.svg",
+    previewAlt: "Generic project preview placeholder",
+    path: "https://github.com/QABrandon/music-library",
+    linkLabel: "View on GitHub",
+  },
+  {
     order: 8,
     type: "minor",
     title: "Minor 05: Blog Post API",
