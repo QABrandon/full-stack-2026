@@ -1,6 +1,6 @@
 # full-stack-2026 — project context
 
-**Last updated:** May 19, 2026
+**Last updated:** June 11, 2026
 
 ## What this is
 
@@ -23,7 +23,14 @@ and remain **out of Git** unless policy changes.
 
 ## Repo layout (tracked on GitHub)
 
-- **`index.html`** — site home (interactive portfolio).
+- **`index.html`** — site home (interactive portfolio). The **Coding projects**
+  section shows the three newest entries from the shared project list.
+- **`portfolio/projects.html`** — full project index (all minor and major work).
+  Linked from the hero **View projects** button and the nav **Projects** link.
+- **`portfolio/js/projects-data.js`** — single source of truth for project cards.
+  **`portfolio/js/render-projects.js`** renders cards on the home page and projects
+  page. When adding finished work, append one object here (higher `order` = newer);
+  do not duplicate cards in HTML.
 - **`portfolio/`** — one subdirectory per finished project, named by project
   type and sequence (e.g. `portfolio/minor-01-personal-bio/`,
   `portfolio/major-02-recipe-finder/`), plus shared assets under
@@ -58,6 +65,14 @@ and remain **out of Git** unless policy changes.
    yet link home.
 5. **Attribution** — Do not add editor or AI tool branding lines (e.g. “Made with …”)
    to source unless the owner asks.
+6. **New portfolio projects** — Add the project folder under `portfolio/`, add a
+   preview PNG under `portfolio/src/images/project-previews/`, then append one
+   entry to **`portfolio/js/projects-data.js`** with the next highest `order`.
+   Set `type` to `"major"` or `"minor"`. Use `excludeFromFeatured: true` only
+   for entries that should never appear in the home featured row (e.g. Major 01,
+   the site home). Paths in `path` are relative to `portfolio/` except absolute
+   site links (`"/"`). No manual edits to project card HTML on `index.html` or
+   `projects.html` unless the layout itself changes.
 
 ## When in doubt
 
