@@ -143,13 +143,19 @@ body.interactive-portfolio {
 }
 
 .ip-skills-grid > div:nth-child(odd) .ip-progress-bar {
-  background: linear-gradient(90deg, var(--ip-primary-dark), var(--ip-primary)) !important;
+  background: linear-gradient(
+    90deg,
+    var(--ip-primary-dark),
+    var(--ip-primary)
+  ) !important;
 }
 
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .reveal.visible {
@@ -176,7 +182,9 @@ body.interactive-portfolio {
 }
 
 .contact-social a {
-  transition: color var(--ip-transition), transform var(--ip-transition);
+  transition:
+    color var(--ip-transition),
+    transform var(--ip-transition);
 }
 
 .contact-social a:hover {

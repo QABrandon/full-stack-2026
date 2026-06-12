@@ -1,15 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="A vanilla JavaScript recipe finder app using TheMealDB API, async/await, and localStorage favorites."
-    >
+    />
     <title>Recipe Finder | FS12 Week 8</title>
-    <link rel="icon" href="../src/images/BM%20Icon-bg.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css">
+    <link
+      rel="icon"
+      href="../src/images/BM%20Icon-bg.svg"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -54,7 +58,7 @@
               name="ingredients"
               type="text"
               placeholder="chicken, beef, salmon, rice"
-            >
+            />
             <button type="submit">Search Ingredient</button>
           </div>
         </form>
@@ -78,7 +82,9 @@
       </section>
 
       <section class="status-region" aria-live="polite" aria-atomic="true">
-        <p id="loading-message" class="status-message loading hidden">Loading recipes...</p>
+        <p id="loading-message" class="status-message loading hidden">
+          Loading recipes...
+        </p>
         <p id="error-message" class="status-message error hidden"></p>
       </section>
 
@@ -98,11 +104,22 @@
       </section>
     </main>
 
-    <div id="recipe-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div
+      id="recipe-modal"
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
       <div class="modal-panel">
         <div class="modal-header">
           <h2 id="modal-title">Recipe Details</h2>
-          <button id="close-modal" class="icon-button" type="button" aria-label="Close recipe details">
+          <button
+            id="close-modal"
+            class="icon-button"
+            type="button"
+            aria-label="Close recipe details"
+          >
             X
           </button>
         </div>

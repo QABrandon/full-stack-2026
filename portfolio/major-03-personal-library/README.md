@@ -15,11 +15,33 @@ Source code lives in the submission repo only. This folder keeps the built app s
 
 ## Refresh the portfolio build
 
-From the submission repo:
+From the submission repo, build with stable asset names (no content hashes) so the portfolio copy stays human-readable:
 
 ```bash
 cd personal-library-app
 VITE_BASE_PATH=/portfolio/major-03-personal-library/dist/ npm run build
+```
+
+In the submission repo’s `vite.config`, use readable output names before building:
+
+```js
+build: {
+  rollupOptions: {
+    output: {
+      entryFileNames: "assets/main.js",
+      chunkFileNames: "assets/[name].js",
+      assetFileNames: (info) =>
+        info.names?.some((n) => n.endsWith(".css"))
+          ? "assets/styles.css"
+          : "assets/[name][extname]",
+    },
+  },
+},
+```
+
+Then copy the build into this portfolio folder:
+
+```bash
 rsync -a --delete dist/ "/path/to/full-stack-2026/portfolio/major-03-personal-library/dist/"
 ```
 

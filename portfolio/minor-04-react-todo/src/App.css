@@ -88,7 +88,9 @@ main {
 .todo-form input[type="text"]:focus {
   outline: none;
   border-color: #ffffff99;
-  box-shadow: 0 8px 32px #00000026, 0 0 0 3px #ffffff1a;
+  box-shadow:
+    0 8px 32px #00000026,
+    0 0 0 3px #ffffff1a;
   transform: translateY(-2px);
 }
 

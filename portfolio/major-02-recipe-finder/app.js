@@ -25,7 +25,9 @@ cuisineButtons.forEach((button) => {
 });
 
 categoryButtons.forEach((button) => {
-  button.addEventListener("click", () => searchByCategory(button.dataset.category));
+  button.addEventListener("click", () =>
+    searchByCategory(button.dataset.category),
+  );
 });
 
 renderFavorites();
@@ -45,9 +47,13 @@ async function handleIngredientSearch(event) {
 
 async function searchByIngredient(ingredient) {
   const firstIngredient = ingredient.split(",")[0].trim();
-  const formattedIngredient = firstIngredient.toLowerCase().replaceAll(" ", "_");
+  const formattedIngredient = firstIngredient
+    .toLowerCase()
+    .replaceAll(" ", "_");
 
-  await searchRecipes(`/filter.php?i=${encodeURIComponent(formattedIngredient)}`);
+  await searchRecipes(
+    `/filter.php?i=${encodeURIComponent(formattedIngredient)}`,
+  );
 }
 
 async function searchByArea(area) {
@@ -116,12 +122,15 @@ function renderRecipeResults(recipes) {
   recipeResults.innerHTML = recipes.map(createRecipeCard).join("");
 
   recipeResults.querySelectorAll("[data-details-id]").forEach((button) => {
-    button.addEventListener("click", () => fetchRecipeDetails(button.dataset.detailsId));
+    button.addEventListener("click", () =>
+      fetchRecipeDetails(button.dataset.detailsId),
+    );
   });
 }
 
 function createRecipeCard(recipe) {
-  const image = recipe.strMealThumb || "https://placehold.co/600x400?text=Recipe";
+  const image =
+    recipe.strMealThumb || "https://placehold.co/600x400?text=Recipe";
 
   return `
     <article class="recipe-card">
@@ -149,9 +158,12 @@ function openRecipeModal(recipe) {
 }
 
 function createRecipeDetails(recipe) {
-  const image = recipe.strMealThumb || "https://placehold.co/900x500?text=Recipe";
+  const image =
+    recipe.strMealThumb || "https://placehold.co/900x500?text=Recipe";
   const ingredients = getIngredientList(recipe);
-  const instructions = recipe.strInstructions || "Instructions were not provided by this API response.";
+  const instructions =
+    recipe.strInstructions ||
+    "Instructions were not provided by this API response.";
 
   return `
     <img src="${image}" alt="${recipe.strMeal}">
@@ -208,7 +220,9 @@ function getIngredientList(recipe) {
 }
 
 function addFavorite(recipe) {
-  const alreadySaved = favorites.some((favorite) => favorite.idMeal === recipe.idMeal);
+  const alreadySaved = favorites.some(
+    (favorite) => favorite.idMeal === recipe.idMeal,
+  );
 
   if (alreadySaved) {
     showError("This recipe is already saved in your favorites.");
@@ -236,7 +250,8 @@ function renderFavorites() {
 
   favoritesList.innerHTML = favorites
     .map((recipe) => {
-      const image = recipe.strMealThumb || "https://placehold.co/600x400?text=Recipe";
+      const image =
+        recipe.strMealThumb || "https://placehold.co/600x400?text=Recipe";
 
       return `
         <article class="favorite-card">
@@ -254,7 +269,9 @@ function renderFavorites() {
     .join("");
 
   favoritesList.querySelectorAll("[data-remove-id]").forEach((button) => {
-    button.addEventListener("click", () => removeFavorite(button.dataset.removeId));
+    button.addEventListener("click", () =>
+      removeFavorite(button.dataset.removeId),
+    );
   });
 }
 
@@ -304,4 +321,3 @@ function hideError() {
   errorMessage.textContent = "";
   errorMessage.classList.add("hidden");
 }
-

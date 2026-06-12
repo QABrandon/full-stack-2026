@@ -69,15 +69,13 @@ function App() {
   const handleToggleTodo = (id) => {
     setTodos((previousTodos) =>
       previousTodos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo,
+      ),
     );
   };
 
   const handleDeleteTodo = (id) => {
-    setTodos((previousTodos) =>
-      previousTodos.filter((todo) => todo.id !== id)
-    );
+    setTodos((previousTodos) => previousTodos.filter((todo) => todo.id !== id));
   };
 
   const activeCount = todos.filter((todo) => !todo.completed).length;
