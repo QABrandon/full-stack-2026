@@ -97,8 +97,12 @@ When adding a new external project, create `~/Desktop/BM Work/My Projects/FS Boo
    the root of `Full-Stack Bootcamp 2026` unless they are portfolio demos under
    `portfolio/`. Put new standalone repos in
    `~/Desktop/BM Work/My Projects/FS Bootcamp/<project-name>/`. Document paths in
-   project READMEs and week summary docs using that base. Sync builds into
-   `portfolio/` only when the published site needs a local demo.
+   project READMEs using that base. Sync builds into `portfolio/` only when the
+   published site needs a local demo.
+8. **Teacher/study summaries** — Files like `*-project-summary.md` and
+   `react-todo-phase-walkthrough.md` are **local only**. Store them next to the
+   project under `My Projects/FS Bootcamp/`. Never commit them to this repo
+   (see `.gitignore`).
 
 ## When in doubt
 

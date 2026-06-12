@@ -18,3 +18,7 @@
 # misc
 .DS_Store
 node_modules/
+
+# Local-only teacher/study summaries (keep in My Projects/FS Bootcamp/, never commit)
+*-project-summary.md
+react-todo-phase-walkthrough.md
