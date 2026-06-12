@@ -11,6 +11,18 @@
  */
 window.PORTFOLIO_PROJECTS = [
   {
+    order: 8,
+    type: "minor",
+    title: "Minor 05: Blog Post API",
+    description:
+      "A RESTful Express API for blog posts and users—MVC routes and controllers, validation, error middleware, and Newman-tested CRUD endpoints.",
+    preview: "minor-05-blog-api-preview.png",
+    previewAlt:
+      "Thumbnail representing the Blog Post API documentation page with REST endpoint tables",
+    path: "minor-05-blog-api/index.html",
+    linkLabel: "View API overview",
+  },
+  {
     order: 7,
     type: "major",
     title: "Major 03: Personal Library",

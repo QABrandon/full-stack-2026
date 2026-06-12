@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="RESTful Express API for blog posts and users — FS12 Week 11 Express API project with MVC architecture and Postman testing."
+    />
+    <title>Blog Post API | FS12 Week 11</title>
+    <link
+      rel="icon"
+      href="../src/images/BM%20Icon-bg.svg"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Project navigation">
+        <a href="/">Back to Portfolio Home</a>
+        <a
+          href="https://github.com/QABrandon/blog-api"
+          rel="noopener noreferrer"
+          >View source on GitHub</a
+        >
+      </nav>
+
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">FS12 Week 11 · Minor project · Express API</p>
+        <h1 id="page-title">Blog Post API</h1>
+        <p>
+          A RESTful Express.js API for managing blog posts and users. Built with
+          MVC routing, in-memory storage, validation, and centralized error
+          handling. Tested with Postman and Newman.
+        </p>
+      </section>
+    </header>
+
+    <main id="main" class="layout">
+      <section class="card" aria-labelledby="stack-heading">
+        <h2 id="stack-heading">Stack &amp; architecture</h2>
+        <ul class="tag-list">
+          <li>Node.js</li>
+          <li>Express</li>
+          <li>REST</li>
+          <li>MVC</li>
+          <li>Postman</li>
+        </ul>
+        <p>
+          Routes live in <code>routes/</code>, business logic in
+          <code>controllers/</code>, and shared error handling in
+          <code>middleware/</code>. JSON docs are served at
+          <code>GET /</code> when the server is running locally.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="posts-heading">
+        <h2 id="posts-heading">Posts — <code>/api/posts</code></h2>
+        <table class="endpoint-table">
+          <thead>
+            <tr>
+              <th scope="col">Method</th>
+              <th scope="col">Route</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="method get">GET</span></td>
+              <td><code>/api/posts</code></td>
+              <td>List all posts</td>
+            </tr>
+            <tr>
+              <td><span class="method get">GET</span></td>
+              <td><code>/api/posts/:id</code></td>
+              <td>Get one post</td>
+            </tr>
+            <tr>
+              <td><span class="method post">POST</span></td>
+              <td><code>/api/posts</code></td>
+              <td>Create post</td>
+            </tr>
+            <tr>
+              <td><span class="method put">PUT</span></td>
+              <td><code>/api/posts/:id</code></td>
+              <td>Update post</td>
+            </tr>
+            <tr>
+              <td><span class="method delete">DELETE</span></td>
+              <td><code>/api/posts/:id</code></td>
+              <td>Delete post</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card" aria-labelledby="users-heading">
+        <h2 id="users-heading">Users — <code>/api/users</code></h2>
+        <table class="endpoint-table">
+          <thead>
+            <tr>
+              <th scope="col">Method</th>
+              <th scope="col">Route</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="method get">GET</span></td>
+              <td><code>/api/users</code></td>
+              <td>List all users</td>
+            </tr>
+            <tr>
+              <td><span class="method get">GET</span></td>
+              <td><code>/api/users/:id</code></td>
+              <td>Get one user</td>
+            </tr>
+            <tr>
+              <td><span class="method post">POST</span></td>
+              <td><code>/api/users</code></td>
+              <td>Create user</td>
+            </tr>
+            <tr>
+              <td><span class="method put">PUT</span></td>
+              <td><code>/api/users/:id</code></td>
+              <td>Update user</td>
+            </tr>
+            <tr>
+              <td><span class="method delete">DELETE</span></td>
+              <td><code>/api/users/:id</code></td>
+              <td>Delete user</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card highlight" aria-labelledby="repo-heading">
+        <h2 id="repo-heading">Repository</h2>
+        <p>
+          Source code, Newman tests, and setup instructions live in the submission
+          repo:
+        </p>
+        <p>
+          <a href="https://github.com/QABrandon/blog-api"
+            >github.com/QABrandon/blog-api</a
+          >
+        </p>
+        <pre class="code-block"><code>npm install
+npm run dev
+npm test</code></pre>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <a href="/">Portfolio home</a>
+        ·
+        <a href="https://github.com/QABrandon/blog-api">GitHub</a>
+      </p>
+    </footer>
+  </body>
+</html>
