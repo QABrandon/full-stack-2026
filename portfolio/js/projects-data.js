@@ -2,7 +2,8 @@
  * Single source of truth for portfolio project cards.
  *
  * When adding a project:
- * 1. Add the finished work under portfolio/<type>-NN-slug>/
+ * 1. Add the finished work under portfolio/<type>-NN-slug>/ (or use a full
+ *    https:// URL in `path` for repo-only projects with no on-site demo)
  * 2. Add a preview image under portfolio/src/images/project-previews/
  * 3. Append one object below with a higher `order` than existing entries.
  *
@@ -15,12 +16,12 @@ window.PORTFOLIO_PROJECTS = [
     type: "minor",
     title: "Minor 05: Blog Post API",
     description:
-      "A RESTful Express API for blog posts and users—MVC routes and controllers, validation, error middleware, and Newman-tested CRUD endpoints.",
-    preview: "minor-05-blog-api-preview.png",
+      "Week 11 Express REST API for blog posts and users—MVC routes and controllers, validation, error middleware, and Newman-tested CRUD. Source and tests on GitHub (no frontend).",
+    preview: "minor-05-blog-api-preview.svg",
     previewAlt:
-      "Thumbnail representing the Blog Post API documentation page with REST endpoint tables",
-    path: "minor-05-blog-api/index.html",
-    linkLabel: "View API overview",
+      "Thumbnail representing the Blog Post API with REST endpoint labels",
+    path: "https://github.com/QABrandon/blog-post-api",
+    linkLabel: "View on GitHub",
   },
   {
     order: 7,

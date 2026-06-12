@@ -21,7 +21,7 @@ build. The home page shows the three newest. Card data is maintained in
 
 | Project | Folder | Summary |
 | --- | --- | --- |
-| Minor 05: Blog Post API | [`portfolio/minor-05-blog-api/`](portfolio/minor-05-blog-api/) | Express REST API for blog posts and users—MVC, validation, error middleware, Newman-tested CRUD |
+| Minor 05: Blog Post API | [github.com/QABrandon/blog-post-api](https://github.com/QABrandon/blog-post-api) | Express REST API for posts and users—MVC, validation, Newman/Postman tests (portfolio card links to repo; no on-site demo) |
 | Minor 04: React todo list app | [`portfolio/minor-04-react-todo/`](portfolio/minor-04-react-todo/) | React + Vite todo app with components, useState, validation, filters, and localStorage |
 | Minor 03: Todo list app | [`portfolio/minor-03-todo-list-app/`](portfolio/minor-03-todo-list-app/) | Vanilla JavaScript todo app with form validation, event delegation, and local storage |
 | Minor 02: Styled landing page | [`portfolio/minor-02-styled-landing-page/`](portfolio/minor-02-styled-landing-page/) | Single-page layout with hero, sections, a form, and responsive breakpoints |

@@ -15,7 +15,14 @@
     });
   }
 
+  function isExternalProject(project) {
+    return /^https?:\/\//.test(project.path);
+  }
+
   function resolveHref(project, linkPrefix) {
+    if (isExternalProject(project)) {
+      return project.path;
+    }
     if (project.path.charAt(0) === "/") {
       return project.path;
     }
@@ -32,6 +39,13 @@
     var href = resolveHref(project, linkPrefix);
     var preview = resolvePreview(project, imagePrefix);
     var linkLabel = project.linkLabel || "Open project";
+    var external = isExternalProject(project);
+    var linkExtra = external
+      ? ' target="_blank" rel="noopener noreferrer"'
+      : "";
+    var linkIcon = external
+      ? "fa-arrow-up-right-from-square"
+      : "fa-arrow-right";
 
     return (
       '<article class="ip-project-card flex h-full flex-col overflow-hidden rounded-2xl border-2 border-stone-200 bg-white shadow-sm">' +
@@ -49,9 +63,13 @@
       "</p>" +
       '<a class="relative mt-4 inline-flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-white transition hover:bg-primary-dark" href="' +
       escapeHtml(href) +
-      '">' +
+      '"' +
+      linkExtra +
+      ">" +
       escapeHtml(linkLabel) +
-      ' <i class="fa-solid fa-arrow-right ms-2" aria-hidden="true"></i></a>' +
+      ' <i class="fa-solid ' +
+      linkIcon +
+      ' ms-2" aria-hidden="true"></i></a>' +
       "</div></article>"
     );
   }
