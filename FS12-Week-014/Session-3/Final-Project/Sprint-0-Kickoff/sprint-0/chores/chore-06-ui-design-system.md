@@ -12,7 +12,7 @@ Choose UI component library and icon library for consistent design
   - React Bootstrap - https://react-bootstrap.github.io/
   - Tailwind CSS - https://tailwindcss.com/
   - DaisyUI - https://daisyui.com/
-  - Ant Design - https://ant.design/
+  - ShadCn - https://ui.shadcn.com/docs/installation
 - [ ] Document your choice and reasoning
 - [ ] Choose icon library (if needed):
   - React Icons - https://react-icons.github.io/react-icons/
