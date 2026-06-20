@@ -32,8 +32,9 @@ Choose ONE of the following options to track your Sprint 0 work:
 8. Accept Terms and Conditions
 9. You need to create at least on list to do the import then click the imports button
    ![alt text](images/create-list.png)
-10. Locate and follow the dialogs to import "csv/sprint-zero-trello.csv"
-11. Setup your board to look like this once import is complete:
+10. generate your sprint-zero-trello.csv by following the README.md in the /csv folder 
+11. Locate and follow the dialogs to import "csv/sprint-zero-trello.csv"
+12. Setup your board to look like this once import is complete:
     ![alt text](images/final-project-board-with-import.png)
 
 Reference these two files from this folder that are mentioned on the story
