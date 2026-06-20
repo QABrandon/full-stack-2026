@@ -431,7 +431,11 @@ function TodoList() {
         setLoading(false);
       })
       .catch((err) => {
-        setError(err.message);
+        if (err instanceof TypeError) {
+          setError("Did you go to a new terminal in the \"backend\" folder and start the server using npm run nodemon?");
+        } else {
+          setError(err.message);
+        }
         setLoading(false);
       });
   };
@@ -546,89 +550,6 @@ You should see:
 ```
 
 Open [http://localhost:5173](http://localhost:5173) in your browser.
-
----
-
-## Step 14 — 🚨 Watch it break (this is the lesson!)
-
-You should see **"Error: Failed to fetch todos"** on the page.
-
-Open the browser DevTools (`F12` or right-click → `Inspect`) → **Console** tab. You'll see something like:
-
-> ❌ `Access to fetch at 'http://localhost:3001/api/todos' from origin 'http://localhost:5173' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
-
-### What's happening?
-
-- The **frontend** is running on `http://localhost:5173`.
-- The **backend** is running on `http://localhost:3001`.
-- These are **different origins** (different ports = different origins to the browser).
-- By default, the browser **blocks** requests from one origin to another for security. This is called the **Same-Origin Policy**.
-- The backend has to **explicitly say** "yes, this other origin is allowed to talk to me." That's what CORS (Cross-Origin Resource Sharing) does.
-
-> **Pause and observe:** if you visit [http://localhost:3001/api/todos](http://localhost:3001/api/todos) directly in the browser, it **works** — because you're not crossing origins. The block only happens when **JavaScript on one origin** tries to fetch from **another origin**.
-
----
-
-## Step 15 — Fix it: add CORS to the backend
-
-Open `backend/server.js` and add **two lines**:
-
-```js
-// Load environment variables first
-require("dotenv").config();
-// Import required packages
-const express = require("express");
-const cors = require("cors");          // 👈 ADD THIS
-
-const app = express();
-const PORT = process.env.PORT || 3001;
-
-// Middleware to parse JSON request bodies
-app.use(express.json());
-
-app.use(cors()); // 👈 ADD THIS — allows ALL origins (fine for dev)
-
-// ...rest of the file stays the same
-```
-
-Save the file. If you ran the server with `npm run nodemon`, it will auto-restart. If you used `npm run dev`, stop it (`Ctrl+C`) and start it again.
-
-Refresh [http://localhost:5173](http://localhost:5173) → the todos should now load. 🎉
-
-> **Double-check by trying everything:**
-> - Add a new todo.
-> - Toggle one as complete.
-> - Delete one.
-> - Refresh the page — they persist (until you restart the backend, since they're in memory).
-
----
-
-## Step 16 — Make CORS more secure (optional but good practice)
-
-`app.use(cors())` allows **any** website to call your API. Fine for local dev, **not** fine for production. Restrict it to just your frontend:
-
-```js
-const corsOptions = {
-  origin: process.env.FRONTEND_URL || "http://localhost:5173",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type"],
-  credentials: true,
-};
-app.use(cors(corsOptions));
-```
-
-This reads `FRONTEND_URL` from your `.env` — which is exactly why we put it there in Step 7.
-
----
-
-## Recap — what you learned
-
-1. A **monorepo** holds multiple projects (frontend + backend) in one folder, each with its own `package.json`.
-2. The **frontend** and **backend** run on **different ports**, which means **different origins** to the browser.
-3. Browsers **block** cross-origin requests by default (Same-Origin Policy).
-4. **CORS** is the backend telling the browser "yes, this other origin is allowed."
-5. `app.use(cors())` is the quick fix; a configured `corsOptions` is the production-safe version.
-6. Use `.env` for environment-specific values, `.env.example` as a template, and **never commit `.env` to git**.
 
 ---
 

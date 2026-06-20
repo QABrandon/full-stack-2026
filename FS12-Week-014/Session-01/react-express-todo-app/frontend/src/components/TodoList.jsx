@@ -27,7 +27,13 @@ function TodoList() {
         setLoading(false);
       })
       .catch((err) => {
-        setError(err.message);
+        if (err instanceof TypeError) {
+          setError(
+            'Did you go to a new terminal in the "backend" folder and start the server using npm run nodemon?',
+          );
+        } else {
+          setError(err.message);
+        }
         setLoading(false);
       });
   };
