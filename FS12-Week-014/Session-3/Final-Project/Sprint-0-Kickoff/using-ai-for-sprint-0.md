@@ -17,7 +17,7 @@ AI (ChatGPT, Claude, etc.) is a great pair-partner for the planning chores in Sp
 > I have 15 min to pick a project. Here is the chore: [paste]. Here is the rubric: [paste]. My constraints: [timeline, hours, stack, experience]. Ask me rapid-fire questions then recommend one option decisively.
 
 **Chore 4 — MVP / Core Features**
-> Here is my project idea: [1 sentence]. Here is the rubric: [paste]. Give me 10–15 user stories in "As a [user], I want to [X], so that [Y]" format. Then label 3–5 as MVP and the rest as Nice-to-Have.
+> Here is my project idea: [1 sentence]. Here is the rubric: [paste]. Give me 20–35 user stories in "As a [user], I want to [X], so that [Y]" format. Then label 10–15 as MVP and the rest as Nice-to-Have.
 
 **Chore 8 — User Stories → Trello cards**
 > Convert these user stories into a Trello CSV import using this template. Order from last to first. Label MVP green, Nice-to-Have yellow. Add a 2-item Implementation checklist per card.
@@ -33,6 +33,10 @@ AI (ChatGPT, Claude, etc.) is a great pair-partner for the planning chores in Sp
 
 **Chore 9 — Database Schema**
 > Given these MVP user stories: [paste], design a Postgres schema with at least 2 tables and a relationship. Show columns, types, and FKs.
+
+
+**Chore 10 - Sprint Planning**
+> Given this CSV of story cards, put a sprint label on each given I will have [time-available-in-hours] for Sprint 1, [time-available-in-hours] for Sprint 2, [time-available-in-hours] for Sprint 3, divide the items by complexity but maintain the order. I want to make sure the work gets done on time
 
 ## Where AI helps vs. where it doesn't
 
