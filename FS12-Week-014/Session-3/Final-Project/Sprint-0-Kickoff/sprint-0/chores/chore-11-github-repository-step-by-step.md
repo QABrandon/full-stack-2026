@@ -208,7 +208,7 @@ git push
 
 - Go back to your repository page on GitHub in your browser
 - Refresh the page
-- You should now see the `client/` and `server/` folders
+- You will not see the `client/` and `server/` folders here until files are added to them
 
 ---
 
@@ -242,4 +242,4 @@ your-project/
 
 ## Next Steps
 
-Once you have completed all the acceptance criteria, you are ready to move on to Setup Chore 2: Initialize React Frontend.
+Once you have completed all the acceptance criteria, you are ready to move on to Setup Chore 12: Initialize React Frontend.
