@@ -123,7 +123,7 @@ Based on your decision in Planning Chore 6, follow the installation instructions
 - **React Bootstrap:** https://react-bootstrap.github.io/docs/getting-started/introduction
 - **Tailwind CSS:** https://tailwindcss.com/docs/guides/vite
 - **DaisyUI:** https://daisyui.com/docs/install/
-- **Ant Design:** https://ant.design/docs/react/introduce
+- **ShadCn:** https://ui.shadcn.com/docs/installation
 
 **Note:** Follow the official documentation for your chosen framework. Each has specific setup steps for Vite.
 
@@ -332,4 +332,4 @@ Check off each item as you complete it:
 
 ## Next Steps
 
-Once you have completed all the acceptance criteria, you are ready to move on to Setup Chore 3: Initialize Express Backend.
+Once you have completed all the acceptance criteria, you are ready to move on to Setup Chore 13: Initialize Express Backend.

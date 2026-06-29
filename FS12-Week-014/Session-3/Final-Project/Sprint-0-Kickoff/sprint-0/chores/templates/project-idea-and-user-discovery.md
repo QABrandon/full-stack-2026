@@ -8,19 +8,24 @@ If you need longer than this to find an idea and users, choose one of the sugges
 
 The best projects solve real problems for real people. Start by identifying pain points in your daily life or in the lives of people around you.
 
-### Where Good Ideas Come From
+### Where Good Ideas Come From (Pain Points or Joy)
 
-**Look for friction in daily tasks:**
+**(Pain Points)Look for friction in daily tasks:**
 - What do you do repeatedly that feels tedious?
 - What task requires too many steps or tools?
 - What information do you wish was easier to access?
 - What coordination problems do you face with friends or family?
 
-**Ask people about their frustrations:**
+**(Pain Points)Ask people about their frustrations:**
 - "What's the most annoying part of your day?"
 - "What task do you dread doing?"
 - "What do you wish there was an app for?"
 - "What spreadsheet or notes system are you maintaining manually?"
+
+**(Joy)What brings you joy:**
+- What are your hobbies? (Movies, Games, Sports, Subjects)
+- What are you passionate about?
+
 
 ### Red Flags (Avoid These Ideas)
 

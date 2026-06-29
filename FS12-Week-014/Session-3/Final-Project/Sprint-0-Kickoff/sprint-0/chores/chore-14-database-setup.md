@@ -18,7 +18,7 @@ Create database instance, configure environment variables, and verify connection
 - [ ] Under security - uncheck "Enable Data API" as we won't be using it for this course
 - [ ] Wait for the project to finish provisioning (should see status of "Healthy")
 - [ ] Click the **Connect** button in the top bar (or go to Project Settings → Database) to view connection strings
-- [ ] Direct connection for your .env file is ideal but causes issues so we will use the Transaction Pooler Url (this is the one that works in Beekeeper Studio) - Note if you lose your password, visit the Dashboard > Project > Database > Settings > Database Password > Reset password (button)
+- [ ] Direct connection for your .env file is ideal but causes issues so we will use the Transaction Pooler Url (this is the one that works in Beekeeper Studio) - Note if you lose your password, you can click the Reset Password button within this modal (make sure to save that password this password will disappear again)
   ```
   postgresql://postgres.ifogwfsfyplkifffzkfc:[YOUR-PASSWORD]@aws-1-us-west-2.pooler.supabase.com:6543/postgres
   ```
@@ -114,7 +114,7 @@ Create database instance, configure environment variables, and verify connection
 - [ ] Navigate to project root
 - [ ] Stage all files: `git add .`
 - [ ] Check status: `git status` (verify .env is NOT staged)
-- [ ] Commit: `git commit -m "Initial project setup with client and server structure"`
+- [ ] Commit: `git commit -m "Adding sql database connection"`
 - [ ] Push to GitHub: `git push origin main`
 - [ ] Verify commit appears on GitHub
 
@@ -129,4 +129,5 @@ Create database instance, configure environment variables, and verify connection
 - [ ] Console shows successful connection message
 - [ ] All files committed (except .env)
 - [ ] .env is NOT in Git
+- [ ] No errors or warnings in the Supabase Project > Security Advisor
 - [ ] Commit pushed to GitHub
