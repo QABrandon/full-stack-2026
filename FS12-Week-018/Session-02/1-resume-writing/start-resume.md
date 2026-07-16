@@ -25,4 +25,5 @@
 
       - Hobbies
       - Notable achievements
-5. Once done export as PDF
+5. Paste the updated version back into ohmycv.app      
+6. Once done export as PDF

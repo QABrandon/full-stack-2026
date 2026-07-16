@@ -59,7 +59,7 @@ B.A. in English Literature
   ~ 06/2018 - Present
 
 - Boosted beverage sales by $15,000 annually as measured by quarterly revenue reports by recommending wine pairings and signature cocktails tailored to guest preferences
-- Improved customer satisfaction scores to 4.8/5.0 as measured by online reviews and comment cards by providing attentive service and resolving guest concerns promptly
+- Improved customer satisfaction scores to 4.8/5.0 from a prior standing of 4.0/5.0  by providing attentive service and resolving guest concerns promptly
 
 **Server**
   ~ Riverside Grill & Tavern
