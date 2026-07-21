@@ -2,12 +2,14 @@
 require("dotenv").config();
 // Import required packages
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware to parse JSON request bodies
 app.use(express.json());
+app.use(cors());
 
 // In-memory todo storage
 let todos = [
