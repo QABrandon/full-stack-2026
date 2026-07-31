@@ -12,6 +12,18 @@
  */
 window.PORTFOLIO_PROJECTS = [
   {
+    order: 10,
+    type: "major",
+    title: "Major 05: A11y Validator",
+    description:
+      "Keystone — platform-independent form accessibility. Scan, configure, and install WCAG-informed validation with native HTML semantics, reusable across Webflow, React, WordPress, and plain HTML.",
+    preview: "major-05-a11y-validator-preview.png",
+    previewAlt:
+      "Thumbnail representing the Keystone A11y Validator with hero, sign-in, and form accessibility messaging",
+    path: "https://keystone-web-omega.vercel.app/",
+    linkLabel: "Open live site",
+  },
+  {
     order: 9,
     type: "major",
     title: "Major 04: Music Explorer API",
